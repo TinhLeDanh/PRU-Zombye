@@ -100,45 +100,42 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     /// </summary>
     public void KeyMovement()
     {
-        if(movementMode == MovementMode.WSAD || movementMode == MovementMode.WSADandJoystick)
+        if (movementMode is not (MovementMode.WSAD or MovementMode.WSADandJoystick)) return;
+        var position = transform.position;
+
+        // get new horizontal position
+        var horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput > 0)
         {
-            Vector3 position = transform.position;
-
-            // get new horizontal position
-            float horizontalInput = Input.GetAxis("Horizontal");
-            if (horizontalInput > 0)
-            {
-                position.x += horizontalInput * speed * Time.deltaTime;
-                transform.localScale = new Vector2(1f, 1f);
-                _movementState = MovementState.Right;
-            }
-            else if (horizontalInput < 0)
-            {
-                position.x += horizontalInput * speed * Time.deltaTime;
-                transform.localScale = new Vector2(-1f, 1f);
-                _movementState = MovementState.Left;
-            }
-
-            // get new vertical position
-            float verticalInput = Input.GetAxis("Vertical");
-            if (verticalInput != 0)
-            {
-                position.y += verticalInput * speed * Time.deltaTime;
-                if (verticalInput >= 0)
-                    _movementState = MovementState.Forward;
-                else if (verticalInput < 0)
-                    _movementState = MovementState.Backward;
-
-            }
-
-            if (horizontalInput == 0 && verticalInput == 0)
-            {
-                _movementState = MovementState.None;
-            }
-
-            // move and clamp in screen
-            transform.position = position;
+            position.x += horizontalInput * speed * Time.deltaTime;
+            transform.localScale = new Vector2(1f, 1f);
+            _movementState = MovementState.Right;
         }
+        else if (horizontalInput < 0)
+        {
+            position.x += horizontalInput * speed * Time.deltaTime;
+            transform.localScale = new Vector2(-1f, 1f);
+            _movementState = MovementState.Left;
+        }
+
+        // get new vertical position
+        var verticalInput = Input.GetAxis("Vertical");
+        if (verticalInput != 0)
+        {
+            position.y += verticalInput * speed * Time.deltaTime;
+            if (verticalInput >= 0)
+                _movementState = MovementState.Forward;
+            else if (verticalInput < 0)
+                _movementState = MovementState.Backward;
+        }
+
+        if (horizontalInput == 0 && verticalInput == 0)
+        {
+            _movementState = MovementState.None;
+        }
+
+        // move and clamp in screen
+        transform.position = position;
     }
 
     /// <summary>
