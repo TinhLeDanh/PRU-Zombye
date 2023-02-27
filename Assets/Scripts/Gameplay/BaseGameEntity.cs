@@ -8,6 +8,7 @@ public class BaseGameEntity : MonoBehaviour
     protected virtual bool UpdateEntityComponents { get { return true; } }
     public IEntityMovement Movement { get; private set; }
 
+    public BaseGameEntity target;
 
     private void Awake()
     {

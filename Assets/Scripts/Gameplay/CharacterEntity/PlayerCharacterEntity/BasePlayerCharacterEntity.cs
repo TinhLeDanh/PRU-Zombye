@@ -10,11 +10,11 @@ public class BasePlayerCharacterEntity : BaseCharacterEntity
     {
         base.EntityUpdate();
 
-        Debug.Log(Movement);
         //If player not move, start attack
-        if(Movement.MovementState == MovementState.None && characterAttack.CanAttack())
+        if (Movement.MovementState == MovementState.None && characterAttack.CanAttack())
         {
-            characterAttack.Attack(target);
+            if (target is DamageableEntity damageableTarget)
+                characterAttack.Attack(damageableTarget);
         }
     }
 

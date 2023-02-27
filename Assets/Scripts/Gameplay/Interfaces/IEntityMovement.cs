@@ -4,7 +4,6 @@ public interface IEntityMovement : IGameEntityComponent
     BaseGameEntity Entity { get; }
     float StoppingDistance { get; }
     MovementState MovementState { get; }
-    Vector2 Direction { get; set; }
     float CurrentMoveSpeed { get; }
     void StopMove();
     void KeyMovement();

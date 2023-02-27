@@ -6,41 +6,64 @@ using UnityEngine.Serialization;
 
 public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, IEntityMovement
 {
-    public float StoppingDistance => throw new System.NotImplementedException();
+    public enum MovementMode
+    {
+        AutoMoveToTarget,
+        WSAD,
+        Joystick,
+        WSADandJoystick,
+    }
+
+    [Header("Setting")]
+    public MovementMode movementMode;
+    public float stoppingDistance = 1f;
+    public float speed = 5f;
+
+    [Header("Joystick Setting")]
+    //[SerializeField] private FixedJoystick joystick;
+
+    protected MovementState _movementState;
+
+    private Rigidbody2D rb;
+
+    public float StoppingDistance
+    {
+        get
+        {
+            return this.stoppingDistance;
+        }
+    }
 
     public MovementState MovementState
     {
-        get { return movementState; }
+        get { return _movementState; }
     }
 
-    public Vector2 Direction
+    public float CurrentMoveSpeed
     {
-        get => throw new System.NotImplementedException();
-        set => throw new System.NotImplementedException();
+        get { return speed; }
     }
-
-    public float CurrentMoveSpeed => throw new System.NotImplementedException();
-
-    private const float MoveUnitPerSeconds = 5f;
 
     private Vector2 _lastClickedPos;
 
     private bool _moving;
 
-    //[SerializeField] private FixedJoystick joystick;
-    private Rigidbody2D _rigidbody;
-    protected MovementState movementState;
-
     public override void EntityStart()
     {
         base.EntityStart();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public override void EntityUpdate()
     {
         base.EntityUpdate();
 
+        Movement();
+    }
+
+    protected void Movement()
+    {
+        AutoMoveToTarget();
         KeyMovement();
         PointClickMovement();
     }
@@ -61,46 +84,61 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     }
 
     /// <summary>
+    /// Auto move to target
+    /// </summary>
+    protected void AutoMoveToTarget()
+    {
+        if(movementMode == MovementMode.AutoMoveToTarget && Entity.target != null)
+        {
+            Vector3 targetPosition = Entity.target.transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        }
+    }
+
+    /// <summary>
     /// Entity Movement by key
     /// </summary>
     public void KeyMovement()
     {
-        Vector3 position = transform.position;
-
-        // get new horizontal position
-        float horizontalInput = Input.GetAxis("Horizontal");
-        if (horizontalInput > 0)
+        if(movementMode == MovementMode.WSAD || movementMode == MovementMode.WSADandJoystick)
         {
-            position.x += horizontalInput * MoveUnitPerSeconds * Time.deltaTime;
-            transform.localScale = new Vector2(1f, 1f);
-            movementState = MovementState.Right;
-        }
-        else if (horizontalInput < 0)
-        {
-            position.x += horizontalInput * MoveUnitPerSeconds * Time.deltaTime;
-            transform.localScale = new Vector2(-1f, 1f);
-            movementState = MovementState.Left;
-        }
+            Vector3 position = transform.position;
 
-        // get new vertical position
-        float verticalInput = Input.GetAxis("Vertical");
-        if (verticalInput != 0)
-        {
-            position.y += verticalInput * MoveUnitPerSeconds * Time.deltaTime;
-            if (verticalInput >= 0)
-                movementState = MovementState.Forward;
-            else if (verticalInput < 0)
-                movementState = MovementState.Backward;
+            // get new horizontal position
+            float horizontalInput = Input.GetAxis("Horizontal");
+            if (horizontalInput > 0)
+            {
+                position.x += horizontalInput * speed * Time.deltaTime;
+                transform.localScale = new Vector2(1f, 1f);
+                _movementState = MovementState.Right;
+            }
+            else if (horizontalInput < 0)
+            {
+                position.x += horizontalInput * speed * Time.deltaTime;
+                transform.localScale = new Vector2(-1f, 1f);
+                _movementState = MovementState.Left;
+            }
 
+            // get new vertical position
+            float verticalInput = Input.GetAxis("Vertical");
+            if (verticalInput != 0)
+            {
+                position.y += verticalInput * speed * Time.deltaTime;
+                if (verticalInput >= 0)
+                    _movementState = MovementState.Forward;
+                else if (verticalInput < 0)
+                    _movementState = MovementState.Backward;
+
+            }
+
+            if (horizontalInput == 0 && verticalInput == 0)
+            {
+                _movementState = MovementState.None;
+            }
+
+            // move and clamp in screen
+            transform.position = position;
         }
-
-        if(horizontalInput == 0 && verticalInput == 0)
-        {
-            movementState = MovementState.None;
-        }
-
-        // move and clamp in screen
-        transform.position = position;
     }
 
     /// <summary>

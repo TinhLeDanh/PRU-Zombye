@@ -6,7 +6,6 @@ public class BaseCharacterEntity : DamageableEntity
 {
     [Header("Data")]
     public Character characterData;
-    public DamageableEntity target;
 
     protected CharacterAttackComponent characterAttack;
 
