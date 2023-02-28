@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, IEntityMovement
 {
@@ -14,13 +11,12 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         WSADandJoystick,
     }
 
-    [Header("Setting")]
-    public MovementMode movementMode;
+    [Header("Setting")] public MovementMode movementMode;
     public float stoppingDistance = 1f;
     public float speed = 5f;
 
-    [Header("Joystick Setting")]
-    //[SerializeField] private FixedJoystick joystick;
+    [Header("Joystick Setting")] [SerializeField]
+    private FixedJoystick joystick;
 
     protected MovementState _movementState;
 
@@ -28,10 +24,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public float StoppingDistance
     {
-        get
-        {
-            return this.stoppingDistance;
-        }
+        get { return this.stoppingDistance; }
     }
 
     public MovementState MovementState
@@ -70,17 +63,17 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public bool FindGroundedPosition(Vector3 fromPosition, float findDistance, out Vector3 result)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public Quaternion GetLookRotation()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public float GetSmoothTurnSpeed()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -88,7 +81,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     /// </summary>
     protected void AutoMoveToTarget()
     {
-        if(movementMode == MovementMode.AutoMoveToTarget && Entity.target != null)
+        if (movementMode == MovementMode.AutoMoveToTarget && Entity.target != null)
         {
             Vector3 targetPosition = Entity.target.transform.position;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
@@ -170,26 +163,27 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public void FixedUpdate()
     {
-        //_rigidbody.velocity = new Vector2(joystick.Horizontal * MoveUnitPerSeconds, joystick.Vertical * MoveUnitPerSeconds);
+        if (movementMode is not (MovementMode.Joystick or MovementMode.WSADandJoystick)) return;
+        rb.velocity = new Vector2(joystick.Horizontal * speed, joystick.Vertical * speed);
     }
 
     public void SetLookRotation(Quaternion rotation)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void SetSmoothTurnSpeed(float speed)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void StopMove()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void Teleport(Vector3 position, Quaternion rotation)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }
