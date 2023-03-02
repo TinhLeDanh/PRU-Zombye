@@ -165,6 +165,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     {
         if (movementMode is not (MovementMode.Joystick or MovementMode.WSADandJoystick)) return;
         rb.velocity = new Vector2(joystick.Horizontal * speed, joystick.Vertical * speed);
+        
+        transform.localScale = joystick.Horizontal switch
+        {
+            >= 0 => new Vector2(1f, 1f),
+            < 0 => new Vector2(-1f, 1f),
+            _ => transform.localScale
+        };
     }
 
     public void SetLookRotation(Quaternion rotation)
