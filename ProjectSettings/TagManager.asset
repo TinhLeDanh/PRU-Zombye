@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - store-btn-open-gold
+  - store-btn-okay
+  - store-btn-buy-gold
+  - store-btn-buy-violet
+  - store-btn-open-violet
+  - store-popup
+  - store-item-popup
+  - store-default
   layers:
   - Default
   - TransparentFX
