@@ -8,6 +8,12 @@ public class MonsterCharacterEntity : BaseCharacterEntity
     {
         base.InitialRequiredComponents();
 
+    }
+
+    protected override void EntityStart()
+    {
+        base.EntityStart();
+
         target = GameInstance.instance.player;
     }
 }

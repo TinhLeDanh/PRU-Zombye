@@ -26,7 +26,6 @@ public class BaseGameEntity : MonoBehaviour
 
     public virtual void InitialRequiredComponents()
     {
-
     }
 
     protected virtual void EntityAwake() { }
