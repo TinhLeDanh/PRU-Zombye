@@ -5,5 +5,4 @@ using UnityEngine;
 [CreateAssetMenu(fileName = GameConst.Monster_FileName, menuName = GameConst.Monster_MenuName, order = GameConst.Monster_Order)]
 public class Monster : Character
 {
-
 }
