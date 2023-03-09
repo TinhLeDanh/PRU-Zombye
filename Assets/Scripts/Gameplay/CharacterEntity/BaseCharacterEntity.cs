@@ -15,4 +15,9 @@ public class BaseCharacterEntity : DamageableEntity
 
         characterAttack = GetComponent<CharacterAttackComponent>();
     }
+
+    public override float GetMoveSpeed()
+    {
+        return characterData.movementSpeed;
+    }
 }

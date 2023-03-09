@@ -14,6 +14,9 @@ public class GameInstance : MonoBehaviour
     public CameraController cameraController;
     public MapGenerator MapGenerator;
 
+    [Header("Gameplay")]
+    public List<MonsterCharacterEntity> monsters;
+
     protected Vector3 spawnPosition;
 
     private float timeSpawnCounter;
@@ -56,10 +59,11 @@ public class GameInstance : MonoBehaviour
         }
         else
         {
-            Vector2 spawnPos = Random.insideUnitCircle * player.enemySpawnRadius;
+            Vector2 spawnPos = Random.insideUnitCircle * player.enemySpawnRadius + (Vector2)player.transform.position;
             int randIndex = Random.Range(0, rule.Monsters.Count - 1);
-            Instantiate(rule.Monsters[randIndex], spawnPos, Quaternion.identity);
+            MonsterCharacterEntity monster = Instantiate(rule.Monsters[randIndex], spawnPos, Quaternion.identity);
             timeSpawnCounter = rule.TimeSpawnEnemy;
+            monsters.Add(monster);
         }
     }
 }

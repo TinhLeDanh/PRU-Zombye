@@ -13,9 +13,9 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     [Header("Setting")] public MovementMode movementMode;
     public float stoppingDistance = 1f;
-    public float speed = 5f;
 
-    [Header("Joystick Setting")] [SerializeField]
+    [Header("Joystick Setting")]
+    [SerializeField]
     private FixedJoystick joystick;
 
     protected MovementState _movementState;
@@ -34,7 +34,10 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public float CurrentMoveSpeed
     {
-        get { return speed; }
+        get
+        {
+            return Entity.GetMoveSpeed();
+        }
     }
 
     private Vector2 _lastClickedPos;
@@ -84,7 +87,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode == MovementMode.AutoMoveToTarget && Entity.target != null)
         {
             Vector3 targetPosition = Entity.target.transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * CurrentMoveSpeed);
         }
     }
 
@@ -100,13 +103,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         var horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput > 0)
         {
-            position.x += horizontalInput * speed * Time.deltaTime;
+            position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
         }
         else if (horizontalInput < 0)
         {
-            position.x += horizontalInput * speed * Time.deltaTime;
+            position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
         }
@@ -115,7 +118,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         var verticalInput = Input.GetAxis("Vertical");
         if (verticalInput != 0)
         {
-            position.y += verticalInput * speed * Time.deltaTime;
+            position.y += verticalInput * CurrentMoveSpeed * Time.deltaTime;
             if (verticalInput >= 0)
                 _movementState = MovementState.Forward;
             else if (verticalInput < 0)
@@ -164,8 +167,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     public void FixedUpdate()
     {
         if (movementMode is not (MovementMode.Joystick or MovementMode.WSADandJoystick)) return;
-        rb.velocity = new Vector2(joystick.Horizontal * speed, joystick.Vertical * speed);
-        
+        rb.velocity = new Vector2(joystick.Horizontal * CurrentMoveSpeed, joystick.Vertical * CurrentMoveSpeed);
+
         transform.localScale = joystick.Horizontal switch
         {
             >= 0 => new Vector2(1f, 1f),

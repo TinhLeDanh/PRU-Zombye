@@ -6,18 +6,19 @@ public class MonsterCharacterEntity : BaseCharacterEntity
     private float _currentHealth;
     [SerializeField] private HealthBarMonster _healthbar;
 
-    protected override void EntityStart()
-    {
-        base.EntityStart();
-        _currentHealth = _maxHealth;
-        _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
-    }
-
     public override void InitialRequiredComponents()
     {
         base.InitialRequiredComponents();
 
+    }
+
+    protected override void EntityStart()
+    {
+        base.EntityStart();
+
         target = GameInstance.instance.player;
+        _currentHealth = _maxHealth;
+        _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
     }
 
     private void OnMouseDown()

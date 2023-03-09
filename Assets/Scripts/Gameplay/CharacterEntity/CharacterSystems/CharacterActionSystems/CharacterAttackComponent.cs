@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEntity>, ICharacterAttackComponent
@@ -38,9 +39,34 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public void Attack(DamageableEntity target)
     {
-        weapon.Apply(target, Entity, 10);
-        attackState = AttackState.Attacking;
-        timeCounter = weapon.cooldown;
+        MonsterCharacterEntity monster = GetNearestTarget();
+        if(monster != null)
+        {
+            weapon.Apply(monster, Entity, 10);
+            attackState = AttackState.Attacking;
+            timeCounter = weapon.cooldown;
+        }
+    }
+
+    private MonsterCharacterEntity GetNearestTarget()
+    {
+        List<MonsterCharacterEntity> monsters = GameInstance.instance.monsters;
+        if (monsters.Count == 0)
+            return null;
+
+        Vector2 nearestDistance = monsters.First<MonsterCharacterEntity>().transform.position;
+        MonsterCharacterEntity nearestMonster = monsters.First<MonsterCharacterEntity>();
+        foreach (MonsterCharacterEntity monster in monsters)
+        {
+            if (Vector2.Distance(Entity.transform.position, monster.transform.position) <
+                Vector2.Distance(Entity.transform.position, nearestDistance))
+            {
+                nearestDistance = monster.transform.position;
+                nearestMonster = monster;
+            }
+        }
+
+        return nearestMonster;
     }
 
     public void CancelAttack()

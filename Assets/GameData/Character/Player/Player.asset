@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Name: Tinh
+  movementSpeed: 4
   currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
   weapons:
   - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
