@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4603158277333465966}
   - component: {fileID: 4603158277333465967}
   - component: {fileID: 4603158277333465936}
+  - component: {fileID: -6868343065291199506}
+  - component: {fileID: 2308352862448776755}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44310520e769e4d4cb4303f3c0f3a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   target: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967
 MonoBehaviour:
@@ -114,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementMode: 3
   stoppingDistance: 1
+  speed: 5
+  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!114 &4603158277333465936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +130,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62e008dc67aaf249b02ffb5306bf3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6868343065291199506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603158277333465940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7baa64e599d8ae141babd1430d8fde7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  currentXp: 0
+  requiredXp: 0
+  chipSpeed: 2
+  frontXpBar: {fileID: 0}
+  backXpBar: {fileID: 0}
+  levelText: {fileID: 0}
+  xpText: {fileID: 0}
+  additionMultiplier: 300
+  powerMultiplier: 2
+  divisionMultiplier: 7
+--- !u!114 &2308352862448776755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603158277333465940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6716714426c1aa04787ad11e006529b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  chipSpeed: 2
+  frontHealthBar: {fileID: 0}
+  backHealthBar: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!1 &4603158278640552749
 GameObject:
   m_ObjectHideFlags: 0

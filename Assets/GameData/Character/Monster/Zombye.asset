@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1961abde385ac045b07ee0f5149ae09, type: 3}
   m_Name: Zombye
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Zombye
+  movementSpeed: 1
   currentWeapon: {fileID: 0}
   weapons: []
