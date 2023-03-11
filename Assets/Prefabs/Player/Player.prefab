@@ -116,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementMode: 3
   stoppingDistance: 1
-  speed: 5
   joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!114 &4603158277333465936
 MonoBehaviour:
