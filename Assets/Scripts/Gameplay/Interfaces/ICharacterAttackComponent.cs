@@ -1,6 +1,6 @@
 public interface ICharacterAttackComponent
 {
-    void Attack(DamageableEntity target);
+    void Attack();
     void CancelAttack();
     void ClearAttackStates();
 

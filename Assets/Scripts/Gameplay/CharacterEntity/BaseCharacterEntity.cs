@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BaseCharacterEntity : DamageableEntity
 {
-    [Header("Data")]
-    public Character characterData;
-
     protected CharacterAttackComponent characterAttack;
 
     protected override void EntityAwake()
