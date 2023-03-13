@@ -572,7 +572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427156318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.61, y: 22.45, z: -10}
+  m_LocalPosition: {x: 20.69, y: 22.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4603158277333465966, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
   m_PrefabInstance: {fileID: 4603158279245735247}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031089948}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44310520e769e4d4cb4303f3c0f3a943, type: 3}
@@ -1091,11 +1091,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1031089948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4603158277333465940, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-  m_PrefabInstance: {fileID: 4603158279245735247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1052777977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,8 +1712,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00001335144, y: -0.0000011920929}
-  m_SizeDelta: {x: 0.000025034, y: -0.00000047684}
+  m_AnchoredPosition: {x: -0.00001335144, y: -0.012499988}
+  m_SizeDelta: {x: 0.000025034, y: 0.025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398580259
 MonoBehaviour:
@@ -1791,8 +1786,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357, y: 1004}
-  m_SizeDelta: {x: 551.5, y: 394.5}
+  m_AnchoredPosition: {x: 355.97, y: 1004}
+  m_SizeDelta: {x: 572.05, y: 394.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418267944
 MonoBehaviour:
@@ -1914,8 +1909,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -276, y: -197.1}
-  m_SizeDelta: {x: 1.9, y: 1.3}
+  m_AnchoredPosition: {x: -285.7, y: -196.4}
+  m_SizeDelta: {x: 2, y: 1.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1621386816
 CanvasRenderer:
@@ -2155,7 +2150,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 310
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4aa1439e6a19a4514a84ba1bebc8d03c, type: 2}
   m_TargetDisplay: 0
@@ -2336,6 +2331,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: XpText
+      value: 
+      objectReference: {fileID: 807351479}
+    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: xpText
       value: 
       objectReference: {fileID: 807351479}
@@ -2363,6 +2362,10 @@ PrefabInstance:
       propertyPath: frontHealthBar
       value: 
       objectReference: {fileID: 1327043339}
+    - target: {fileID: 4603158277333465937, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4603158277333465939, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2422,16 +2425,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4603158277333465939, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
   m_PrefabInstance: {fileID: 4603158279245735247}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4603158279245735255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031089948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626972d53297e49aab9f9e25132d4a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetSmoothing: 0

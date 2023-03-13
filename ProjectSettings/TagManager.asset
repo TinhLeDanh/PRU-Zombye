@@ -12,7 +12,11 @@ TagManager:
   - store-popup
   - store-item-popup
   - store-default
+<<<<<<< HEAD
   - sub-camera
+=======
+  - container-inventory
+>>>>>>> 9e4e045bfd2aab0a2f6d63a0694cd104050afe16
   layers:
   - Default
   - TransparentFX

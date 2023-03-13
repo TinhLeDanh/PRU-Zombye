@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   target: {fileID: 0}
+  ModelController: {fileID: 0}
   _healthbar: {fileID: 0}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967
@@ -183,6 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4603158278640552748}
   - component: {fileID: 4603158278640552747}
+  - component: {fileID: 6663126556091221067}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -257,6 +259,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6663126556091221067
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603158278640552749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b94e785757a672479433b9ac1c34ab8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &4603158279055108430
 GameObject:
   m_ObjectHideFlags: 0
