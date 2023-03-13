@@ -1,72 +1,77 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
     public int level;
+    public float maxLevel;
     public float currentXp;
-    public float requiredXp;
+    public int nextLevelXp = 100;
 
-    private float lerpTimer;
-    private float delayTimer;
-    public float chipSpeed = 2f;
+    [Header("Multipliers")] [Range(1f, 300f)]
+    public float additionMultiplier;
+
+    [Range(2f, 4f)] public float powerMultiplier = 20f;
+    [Range(7f, 14f)] public float divisionMultiplier = 7f;
 
     [Header("UI")] public Image frontXpBar;
     public Image backXpBar;
-
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI xpText;
+    public TextMeshProUGUI XpText;
 
-    [Header("Multipliers")] 
-    [Range(1f, 300f)]
-    public float additionMultiplier = 300;
-    [Range(2f, 4f)] 
-    public float powerMultiplier = 2;
-    [Range(7f, 14f)] 
-    public float divisionMultiplier = 7;
+    //Timers
+    private float lerpTimer;
+    private float delayTimer;
 
-    // Start is called before the first frame update
     void Start()
     {
-        frontXpBar.fillAmount = currentXp / requiredXp;
-        backXpBar.fillAmount = currentXp / requiredXp;
-        requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
+        level = 1;
+        XpText.text = Mathf.Round(currentXp) + "/" + Mathf.Round(nextLevelXp);
+        frontXpBar.fillAmount = currentXp / nextLevelXp;
+        backXpBar.fillAmount = currentXp / nextLevelXp;
+        nextLevelXp = CalculateNextLevelXp();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateXpUI();
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (level != maxLevel)
         {
-            GainExperienceFlatRate(20);
+            if (currentXp >= nextLevelXp)
+            {
+                LevelUp();
+            }
         }
-
-        if (currentXp > requiredXp)
+        else
         {
-            LevelUp();
+            currentXp = nextLevelXp;
+            XpText.text = "MAX";
+            frontXpBar.fillAmount = currentXp / nextLevelXp;
+            backXpBar.fillAmount = currentXp / nextLevelXp;
         }
     }
 
-    public void UpdateXpUI()
+    private void UpdateXpUI()
     {
-        var xpFraction = currentXp / requiredXp;
-        var FXP = frontXpBar.fillAmount;
-        if (FXP < xpFraction)
+        float xpFraction = currentXp / nextLevelXp;
+        float fXP = frontXpBar.fillAmount;
+
+        if (fXP < xpFraction)
         {
             delayTimer += Time.deltaTime;
             backXpBar.fillAmount = xpFraction;
-            if (delayTimer > 1)
+            if (delayTimer > 3)
             {
                 lerpTimer += Time.deltaTime;
-                var percentComplete = lerpTimer / chipSpeed;
-                frontXpBar.fillAmount = Mathf.Lerp(FXP, backXpBar.fillAmount, percentComplete);
+                float percentComplete = lerpTimer / 5;
+                percentComplete *= percentComplete;
+                frontXpBar.fillAmount = Mathf.Lerp(fXP, backXpBar.fillAmount, percentComplete);
             }
         }
 
-        xpText.text = currentXp + "/" + requiredXp;
+        XpText.text = currentXp + "/" + nextLevelXp;
     }
 
     public void GainExperienceFlatRate(float xpGained)
@@ -80,8 +85,8 @@ public class LevelSystem : MonoBehaviour
     {
         if (passedLevel < level)
         {
-            var multiplier = 1 + (level - passedLevel) * 0.1f;
-            currentXp += xpGained * multiplier;
+            float multiplier = 1 + (level - passedLevel) * 0.1f;
+            currentXp += Mathf.Round(xpGained * multiplier);
         }
         else
         {
@@ -94,19 +99,23 @@ public class LevelSystem : MonoBehaviour
 
     public void LevelUp()
     {
-        level++;
-        frontXpBar.fillAmount = 0f;
+        level += 1;
         backXpBar.fillAmount = 0f;
-        currentXp = Mathf.RoundToInt(currentXp - requiredXp);
-        GetComponent<PlayerHealth>().IncreaseHealth(level);
-        requiredXp = CalculateRequiredXp();
+        frontXpBar.fillAmount = 0f;
+        currentXp = Mathf.Round(currentXp - nextLevelXp);
+
+        nextLevelXp = CalculateNextLevelXp();
+        level = Mathf.Clamp(level, 0, 50);
+
+        XpText.text = Mathf.Round(currentXp) + "/" + nextLevelXp;
         levelText.text = "Level " + level;
+        GetComponent<PlayerHealth>().IncreaseHealth(level);
     }
 
-    private int CalculateRequiredXp()
+    private int CalculateNextLevelXp()
     {
-        var solveForRequiredXp = 0;
-        for (var levelCycle = 1; levelCycle <= level; levelCycle++)
+        int solveForRequiredXp = 0;
+        for (int levelCycle = 1; levelCycle <= level; levelCycle++)
         {
             solveForRequiredXp += (int)Mathf.Floor(levelCycle +
                                                    additionMultiplier * Mathf.Pow(powerMultiplier,
