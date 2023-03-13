@@ -8,7 +8,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         AutoMoveToTarget,
         WSAD,
         Joystick,
-        WSADandJoystick,
+        WSADAndJoystick,
     }
 
     [Header("Setting")] public MovementMode movementMode;
@@ -21,9 +21,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     protected MovementState _movementState;
 
     private Rigidbody2D rb;
-
-    public Animator Animator;
-
+    
     public float StoppingDistance
     {
         get { return this.stoppingDistance; }
@@ -100,7 +98,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     /// </summary>
     public void KeyMovement()
     {
-        if (movementMode is not (MovementMode.WSAD or MovementMode.WSADandJoystick)) return;
+        if (movementMode is not (MovementMode.WSAD or MovementMode.WSADAndJoystick)) return;
         var position = transform.position;
 
         // get new horizontal position
@@ -110,14 +108,12 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
-            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
         else if (horizontalInput < 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
-            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
 
         // get new vertical position
@@ -129,13 +125,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
                 _movementState = MovementState.Forward;
             else if (verticalInput < 0)
                 _movementState = MovementState.Backward;
-            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
 
         if (horizontalInput == 0 && verticalInput == 0)
         {
             _movementState = MovementState.None;
-            Animator.SetFloat("Speed", 0);
         }
 
         // move and clamp in screen
@@ -174,7 +168,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public void FixedUpdate()
     {
-        if (movementMode is not (MovementMode.Joystick or MovementMode.WSADandJoystick)) return;
+        if (movementMode is not (MovementMode.Joystick or MovementMode.WSADAndJoystick)) return;
         rb.velocity = new Vector2(joystick.Horizontal * CurrentMoveSpeed, joystick.Vertical * CurrentMoveSpeed);
 
         transform.localScale = joystick.Horizontal switch

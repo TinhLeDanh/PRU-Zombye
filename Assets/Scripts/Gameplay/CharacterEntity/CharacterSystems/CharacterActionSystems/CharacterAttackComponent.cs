@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEntity>, ICharacterAttackComponent
 {
@@ -12,6 +14,7 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
     protected AttackState attackState;
     protected Character characterData;
     private float timeCounter;
+    List<BaseCharacterEntity> enemies = new List<BaseCharacterEntity>();
 
     public override void EntityAwake()
     {
@@ -44,44 +47,45 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public void Attack()
     {
-        MonsterCharacterEntity monster = GetNearestTarget();
-        Debug.Log(monster);
-        if(monster != null)
+        BaseCharacterEntity character = GetNearestTarget();
+        if(character != null)
         {
-            weapon.Apply(monster, Entity, characterData.currentWeapon.damage);
+            weapon.Apply(character, Entity, characterData.currentWeapon.damage);
             attackState = AttackState.Attacking;
             timeCounter = weapon.cooldown;
         }
     }
 
-    private MonsterCharacterEntity GetNearestTarget()
+    private BaseCharacterEntity GetNearestTarget()
     {
+        enemies.Clear();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f, enemyLayer);
-        List<MonsterCharacterEntity> monsters = new List<MonsterCharacterEntity>();
         foreach (Collider2D collider in colliders)
         {
             if(LayermaskExtensions.Contains(enemyLayer, collider.gameObject))
             {
-                monsters.Add(collider.gameObject.GetComponent<MonsterCharacterEntity>());
+                BaseCharacterEntity character = collider.gameObject.GetComponent<BaseCharacterEntity>();
+                enemies.Add(character);
             }
         }
 
-        if (monsters == null)
+        if (enemies == null)
             return null;
 
         Vector2 nearestDistance = new Vector2(999, 999);
-        MonsterCharacterEntity nearestMonster = monsters.First<MonsterCharacterEntity>();
-        foreach (MonsterCharacterEntity monster in monsters)
+        BaseCharacterEntity nearestCharacter = null;
+        foreach (BaseCharacterEntity character in enemies)
         {
-            if (Vector2.Distance(Entity.transform.position, monster.transform.position) <
+            Debug.Log(character);
+            if (Vector2.Distance(Entity.transform.position, character.transform.position) <
                 Vector2.Distance(Entity.transform.position, nearestDistance))
             {
-                nearestDistance = monster.transform.position;
-                nearestMonster = monster;
+                nearestDistance = character.transform.position;
+                nearestCharacter = character;
             }
         }
 
-        return nearestMonster;
+        return nearestCharacter;
     }
 
     public void CancelAttack()

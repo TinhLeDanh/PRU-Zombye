@@ -13,4 +13,14 @@ public class MonsterCharacterEntity : BaseCharacterEntity
 
         target = GameInstance.instance.player;
     }
+    
+    protected override void EntityUpdate()
+    {
+        base.EntityUpdate();
+
+        if (characterAttack.CanAttack())
+        {
+            characterAttack.Attack();
+        }
+    }
 }
