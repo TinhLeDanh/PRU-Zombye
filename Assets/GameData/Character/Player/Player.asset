@@ -16,7 +16,15 @@ MonoBehaviour:
   health: 10000
   movementSpeed: 4
   currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  currentRing: {fileID: 11400000, guid: e12367c0369290042ba32900b03aad95, type: 2}
+  currentGloves: {fileID: 0}
+  currentArmor: {fileID: 0}
+  currentPant: {fileID: 0}
+  currentShoes: {fileID: 0}
   items:
   - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
   - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
   - {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
+  - {fileID: 11400000, guid: 3767f730d2aa3214f8ccdf77b271763b, type: 2}
+  - {fileID: 11400000, guid: e12367c0369290042ba32900b03aad95, type: 2}
+  - {fileID: 0}

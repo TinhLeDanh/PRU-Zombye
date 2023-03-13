@@ -8,28 +8,36 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject container;
+
     public GameObject itemBox;
+
     // Start is called before the first frame update
     void Start()
     {
         var listItem = LoadEquipment.instance.playerData.items;
-        var height = 215 * ((listItem.Length/3) * 10);
-        for (int i = 0; i < 10; i++)
+        var height = 0;
+        if (listItem.Length % 3 > 0)
         {
-            var index = 0;
-            foreach (var item in listItem)
-            {
-                index++;
-                GameObject obj = Instantiate(itemBox, Vector3.zero, Quaternion.identity);
-                ClickItem clickItem = obj.GetComponent<ClickItem>();
-                clickItem.img.sprite = item.icon;
-                clickItem.textLv.text = "Lv."+item.level;
-                clickItem.indexItem = index;
-                obj.transform.parent = container.transform;
-                obj.transform.localScale = new Vector3(1, 1, 1);
-            }
+            height = 215 * ((listItem.Length / 3) + 1);
         }
-        
+        else
+        {
+            height = 215 * (listItem.Length / 3);
+        }
+
+        var index = 0;
+        foreach (var item in listItem)
+        {
+            index++;
+            GameObject obj = Instantiate(itemBox, Vector3.zero, Quaternion.identity);
+            ClickItem clickItem = obj.GetComponent<ClickItem>();
+            clickItem.img.sprite = item.icon;
+            clickItem.textLv.text = "Lv." + item.level;
+            clickItem.indexItem = index;
+            obj.transform.parent = container.transform;
+            obj.transform.localScale = new Vector3(1, 1, 1);
+        }
+
         setHeight(height);
     }
 
@@ -42,12 +50,12 @@ public class Inventory : MonoBehaviour
     {
         Transform transform = container.transform;
         RectTransform rectTransform = container.GetComponent<RectTransform>();
-        
+
         Vector2 currentPivot = rectTransform.pivot;
         Vector2 currentPosition = transform.position;
         Vector2 currentSizeDelta = rectTransform.sizeDelta;
 
-        rectTransform.pivot = new Vector3(currentPivot.x, 1f,0f);
+        rectTransform.pivot = new Vector3(currentPivot.x, 1f, 0f);
 
         rectTransform.sizeDelta = new Vector2(currentSizeDelta.x, newHeight);
     }
