@@ -36,6 +36,7 @@ public class GameInstance : MonoBehaviour
     protected void Initialization()
     {
         timeSpawnCounter = 0;
+        cameraController.OnSpawnPlayer(player);
     }
 
     private void Update()
@@ -48,7 +49,6 @@ public class GameInstance : MonoBehaviour
         spawnPosition = new Vector3(MapGenerator.MapHeight / 2 + 0.5f, MapGenerator.MapWidth / 2 + 0.5f);
         //spawnPosition = new Vector3(0, 0);
         Instantiate(player.gameObject, spawnPosition, Quaternion.identity);
-        cameraController.OnSpawnPlayer(player);
     }
 
     protected void SpawnEnemy()

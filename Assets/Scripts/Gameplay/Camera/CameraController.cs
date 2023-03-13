@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -24,9 +22,8 @@ public class CameraController : MonoBehaviour
     {
         if (player != null)
         {
-            Debug.Log(player);
-
-            playerPosition = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            playerPosition = new Vector3(player.transform.position.x, player.transform.position.y,
+                transform.position.z);
 
             if (player.transform.localScale.x > 0f)
             {
@@ -39,6 +36,5 @@ public class CameraController : MonoBehaviour
 
             transform.position = Vector3.Lerp(transform.position, playerPosition, offsetSmoothing * Time.deltaTime);
         }
-
     }
 }

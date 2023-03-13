@@ -686,57 +686,12 @@ Transform:
   m_Father: {fileID: 89986319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &494808416 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4603158277333465940, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-  m_PrefabInstance: {fileID: 4603158279245735247}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &494808417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494808416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6716714426c1aa04787ad11e006529b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  chipSpeed: 2
-  frontHealthBar: {fileID: 1327043339}
-  backHealthBar: {fileID: 205283615}
-  healthText: {fileID: 1974506612}
---- !u!114 &494808424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494808416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7baa64e599d8ae141babd1430d8fde7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  currentXp: 0
-  requiredXp: 130
-  chipSpeed: 2
-  frontXpBar: {fileID: 1067646150}
-  backXpBar: {fileID: 653733789}
-  levelText: {fileID: 1292299040}
-  xpText: {fileID: 807351479}
-  additionMultiplier: 300
-  powerMultiplier: 2
-  divisionMultiplier: 7
 --- !u!114 &494808427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4603158277333465966, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
   m_PrefabInstance: {fileID: 4603158279245735247}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494808416}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44310520e769e4d4cb4303f3c0f3a943, type: 3}
@@ -2053,13 +2008,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: xpText
+      value: 
+      objectReference: {fileID: 807351479}
+    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: backXpBar
+      value: 
+      objectReference: {fileID: 653733789}
+    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1292299040}
+    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: frontXpBar
+      value: 
+      objectReference: {fileID: 1067646150}
     - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1974506612}
+    - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: backHealthBar
+      value: 
+      objectReference: {fileID: 205283615}
+    - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: frontHealthBar
+      value: 
+      objectReference: {fileID: 1327043339}
     - target: {fileID: 4603158277333465939, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: m_RootOrder
       value: 3
