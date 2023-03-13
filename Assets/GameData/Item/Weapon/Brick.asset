@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Brick
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 44a93e814050be14a908895783e5dcde, type: 3}
+  level: 1
+  description: 
   damage: 150
   cooldown: 1
   bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}

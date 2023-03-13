@@ -12,6 +12,7 @@ TagManager:
   - store-popup
   - store-item-popup
   - store-default
+  - container-inventory
   layers:
   - Default
   - TransparentFX
