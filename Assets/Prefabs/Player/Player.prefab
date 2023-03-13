@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4603158277333465936}
   - component: {fileID: -6868343065291199506}
   - component: {fileID: 2308352862448776755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44310520e769e4d4cb4303f3c0f3a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   target: {fileID: 0}
-  characterData: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
+  _healthbar: {fileID: 0}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967
 MonoBehaviour:
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementMode: 3
   stoppingDistance: 1
-  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  joystick: {fileID: 0}
 --- !u!114 &4603158277333465936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62e008dc67aaf249b02ffb5306bf3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-6868343065291199506
 MonoBehaviour:
   m_ObjectHideFlags: 0

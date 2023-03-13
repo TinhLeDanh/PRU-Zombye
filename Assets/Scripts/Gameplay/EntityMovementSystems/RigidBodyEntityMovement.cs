@@ -8,7 +8,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         AutoMoveToTarget,
         WSAD,
         Joystick,
-        WSADandJoystick,
+        WSADAndJoystick,
     }
 
     [Header("Setting")] public MovementMode movementMode;
@@ -97,7 +97,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     /// </summary>
     public void KeyMovement()
     {
-        if (movementMode is not (MovementMode.WSAD or MovementMode.WSADandJoystick)) return;
+        if (movementMode is not (MovementMode.WSAD or MovementMode.WSADAndJoystick)) return;
         var position = transform.position;
 
         // get new horizontal position
@@ -167,7 +167,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public void FixedUpdate()
     {
-        if (movementMode is not (MovementMode.Joystick or MovementMode.WSADandJoystick)) return;
+        if (movementMode is not (MovementMode.Joystick or MovementMode.WSADAndJoystick)) return;
         rb.velocity = new Vector2(joystick.Horizontal * CurrentMoveSpeed, joystick.Vertical * CurrentMoveSpeed);
 
         transform.localScale = joystick.Horizontal switch

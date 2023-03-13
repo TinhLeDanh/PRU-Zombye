@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 
     protected BaseGameEntity target;
     private int damage;
+    private bool isDestroying;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Projectile : MonoBehaviour
     {
         this.target = target;
         this.damage = damage;
+        isDestroying = false;
     }
 
     private void Update()
@@ -44,8 +46,9 @@ public class Projectile : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
         }
 
-        if(Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget)
+        if(Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget && !isDestroying)
         {
+            isDestroying = true;
             damageableTarget.ApplyDamage(damage);
         }
     }
@@ -54,11 +57,7 @@ public class Projectile : MonoBehaviour
     {
         if (DestroyOnApply)
         {
-            //if(target is MonsterCharacterEntity monsterTarget)
-            //{
-            //    GameInstance.instance.monsters.Remove(monsterTarget);
-            //}
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

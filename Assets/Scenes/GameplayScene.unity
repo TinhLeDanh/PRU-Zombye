@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 427156321}
   - component: {fileID: 427156320}
   - component: {fileID: 427156319}
+  - component: {fileID: 427156322}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -577,6 +578,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427156322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427156318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f830b31d1c8b534d8ab9211c84a7cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  offsetSmoothing: 10
 --- !u!1 &465425549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rule: {fileID: 11400000, guid: d797caa5348de524a940ae8472c5295f, type: 2}
   player: {fileID: 494808427}
-  cameraController: {fileID: 0}
+  cameraController: {fileID: 427156322}
   MapGenerator: {fileID: 1094735421}
   monsters: []
 --- !u!1 &1666261380
@@ -1944,17 +1959,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1292299040}
     - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6868343065291199506, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: frontXpBar
       value: 
       objectReference: {fileID: 1067646150}
-    - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2308352862448776755, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: healthText
       value: 
@@ -2014,18 +2021,6 @@ PrefabInstance:
     - target: {fileID: 4603158277333465940, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603158277333465940, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603158277333465966, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
-    - target: {fileID: 4603158277333465966, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
-      propertyPath: target
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4603158277333465967, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: joystick
