@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Armor : MonoBehaviour
+[CreateAssetMenu(fileName = GameConst.Armor_FileName, menuName = GameConst.Armor_MenuName, order = GameConst.Armor_Order)]
+public class Armor : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int armor;
 }
