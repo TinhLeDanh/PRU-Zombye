@@ -12,6 +12,7 @@ TagManager:
   - store-popup
   - store-item-popup
   - store-default
+  - sub-camera
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Player
   - Monster
-  - 
+  - MinimapIcon
   - 
   - 
   - 
