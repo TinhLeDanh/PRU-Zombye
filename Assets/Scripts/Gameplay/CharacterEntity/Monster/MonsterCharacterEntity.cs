@@ -5,7 +5,6 @@ public class MonsterCharacterEntity : BaseCharacterEntity
     public override void InitialRequiredComponents()
     {
         base.InitialRequiredComponents();
-
     }
 
     protected override void EntityStart()

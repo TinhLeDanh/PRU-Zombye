@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class DamageableEntity : BaseGameEntity
 {
     [SerializeField] private HealthBarMonster _healthbar;
@@ -23,14 +25,21 @@ public class DamageableEntity : BaseGameEntity
     {
         _currentHealth -= damage;
         Debug.Log(_currentHealth + " - " + damage);
+        
+        // dead
         if (_currentHealth <= 0)
         {
+            ModelController.OnDead();
             Destroy(gameObject);
         }
         else
         {
+            // hit
             if (_healthbar != null)
+            {
                 _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
+            }
+            ModelController.OnHit();
         }
     }
 }

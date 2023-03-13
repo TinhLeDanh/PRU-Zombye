@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseGameEntity : MonoBehaviour
 {
     [Header("Data")]
     public BaseGameData data;
-
+    
     protected IGameEntityComponent[] EntityComponents { get; private set; }
     protected virtual bool UpdateEntityComponents { get { return true; } }
     public IEntityMovement Movement { get; private set; }
 
     public BaseGameEntity target;
 
+    public ModelController ModelController;
+    
     private void Awake()
     {
         InitialRequiredComponents();
         EntityComponents = GetComponents<IGameEntityComponent>();
+        ModelController = GetComponentInChildren<ModelController>();
         Movement = GetComponent<IEntityMovement>();
         for (int i = 0; i < EntityComponents.Length; ++i)
         {

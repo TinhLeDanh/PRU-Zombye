@@ -22,6 +22,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     private Rigidbody2D rb;
 
+    public Animator Animator;
+
     public float StoppingDistance
     {
         get { return this.stoppingDistance; }
@@ -88,7 +90,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             Vector3 targetPosition = Entity.target.transform.position;
             if (Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * CurrentMoveSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, 
+                    Time.deltaTime * CurrentMoveSpeed);
         }
     }
 
@@ -107,12 +110,14 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
+            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
         else if (horizontalInput < 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
+            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
 
         // get new vertical position
@@ -124,11 +129,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
                 _movementState = MovementState.Forward;
             else if (verticalInput < 0)
                 _movementState = MovementState.Backward;
+            Animator.SetFloat("Speed", Mathf.Abs(CurrentMoveSpeed));
         }
 
         if (horizontalInput == 0 && verticalInput == 0)
         {
             _movementState = MovementState.None;
+            Animator.SetFloat("Speed", 0);
         }
 
         // move and clamp in screen

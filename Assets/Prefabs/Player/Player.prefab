@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44310520e769e4d4cb4303f3c0f3a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
   target: {fileID: 0}
-  characterData: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
+  ModelController: {fileID: 0}
+  _healthbar: {fileID: 0}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967
 MonoBehaviour:
@@ -130,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62e008dc67aaf249b02ffb5306bf3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-6868343065291199506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,8 +369,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4603158279055108430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1148, y: -0.1503, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1147995, y: -0.15029907, z: 0}
   m_LocalScale: {x: 0.38751563, y: 0.075759955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
