@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public bool DestroyOnApply = true;
 
     protected BaseGameEntity target;
+    private int damage;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     public void Setup(BaseGameEntity target, int damage)
     {
         this.target = target;
+        this.damage = damage;
     }
 
     private void Update()
@@ -29,10 +31,22 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         if (target == null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Vector3 goal = target.transform.position;
+        if (target == null)
             return;
         if (Direction == ProjectileDirection.FollowTarget)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
+        }
+
+        if(Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget)
+        {
+            damageableTarget.ApplyDamage(damage);
         }
     }
 
@@ -40,7 +54,11 @@ public class Projectile : MonoBehaviour
     {
         if (DestroyOnApply)
         {
-            Destroy(this.gameObject);
+            //if(target is MonsterCharacterEntity monsterTarget)
+            //{
+            //    GameInstance.instance.monsters.Remove(monsterTarget);
+            //}
+            //Destroy(this.gameObject);
         }
     }
 }

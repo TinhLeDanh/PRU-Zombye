@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BaseGameEntity : MonoBehaviour
 {
+    [Header("Data")]
+    public BaseGameData data;
+
     protected IGameEntityComponent[] EntityComponents { get; private set; }
     protected virtual bool UpdateEntityComponents { get { return true; } }
     public IEntityMovement Movement { get; private set; }

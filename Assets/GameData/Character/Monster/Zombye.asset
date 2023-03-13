@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Zombye
   m_EditorClassIdentifier: 
   Name: Zombye
+  health: 1000
   movementSpeed: 1
-  currentWeapon: {fileID: 0}
-  weapons: []
+  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  items: []
