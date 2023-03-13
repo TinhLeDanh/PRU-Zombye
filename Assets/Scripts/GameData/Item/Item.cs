@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    
+    public int level;
+    public string description;
 }
