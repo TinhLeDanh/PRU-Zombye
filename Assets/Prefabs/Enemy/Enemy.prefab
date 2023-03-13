@@ -253,8 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementMode: 0
-  stoppingDistance: 1
-  speed: 2
+  stoppingDistance: 0.5
   joystick: {fileID: 0}
 --- !u!114 &-7368407897722901584
 MonoBehaviour:

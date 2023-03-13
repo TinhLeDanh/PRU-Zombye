@@ -87,7 +87,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode == MovementMode.AutoMoveToTarget && Entity.target != null)
         {
             Vector3 targetPosition = Entity.target.transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition - Vector3.one, Time.deltaTime * CurrentMoveSpeed);
+            if (Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * CurrentMoveSpeed);
         }
     }
 
