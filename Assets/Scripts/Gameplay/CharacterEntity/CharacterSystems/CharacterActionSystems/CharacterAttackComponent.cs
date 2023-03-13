@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -71,11 +71,11 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public void CancelAttack()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void ClearAttackStates()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }
