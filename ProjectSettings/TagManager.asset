@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - store-btn-open-gold
-  - store-btn-okay
-  - store-btn-buy-gold
-  - store-btn-buy-violet
-  - store-btn-open-violet
-  - store-popup
-  - store-item-popup
-  - store-default
-<<<<<<< HEAD
-  - sub-camera
-=======
-  - container-inventory
->>>>>>> 9e4e045bfd2aab0a2f6d63a0694cd104050afe16
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Monster
-  - MinimapIcon
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -53,13 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 364788327
-    locked: 0
-  - name: Entity
-    uniqueID: 2080433637
-    locked: 0
-  - name: UI
-    uniqueID: 3312725609
     locked: 0
