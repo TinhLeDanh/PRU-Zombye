@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
 
     public GameObject itemBox;
 
+    public int heightOneRow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +20,11 @@ public class Inventory : MonoBehaviour
         var height = 0;
         if (listItem.Length % 3 > 0)
         {
-            height = 215 * ((listItem.Length / 3) + 1);
+            height = heightOneRow * ((listItem.Length / 3) + 1);
         }
         else
         {
-            height = 215 * (listItem.Length / 3);
+            height = heightOneRow * (listItem.Length / 3);
         }
 
         var index = 0;
@@ -35,7 +37,15 @@ public class Inventory : MonoBehaviour
             clickItem.textLv.text = "Lv." + item.level;
             clickItem.indexItem = index;
             obj.transform.parent = container.transform;
-            obj.transform.localScale = new Vector3(1, 1, 1);
+            if (heightOneRow>250)
+            {
+                obj.transform.localScale = new Vector3(1.8f, 1.8f, 1);
+            }
+            else
+            {
+                obj.transform.localScale = new Vector3(1, 1, 1);
+            }
+            
         }
 
         setHeight(height);
