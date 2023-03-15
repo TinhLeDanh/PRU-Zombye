@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
             clickItem.textLv.text = "Lv." + item.level;
             clickItem.indexItem = index;
             obj.transform.parent = container.transform;
-            if (heightOneRow>250)
+            if (heightOneRow > 250)
             {
                 obj.transform.localScale = new Vector3(1.8f, 1.8f, 1);
             }
@@ -45,9 +45,9 @@ public class Inventory : MonoBehaviour
             {
                 obj.transform.localScale = new Vector3(1, 1, 1);
             }
-            
         }
 
+        Destroy(itemBox);
         setHeight(height);
     }
 
@@ -62,7 +62,6 @@ public class Inventory : MonoBehaviour
         RectTransform rectTransform = container.GetComponent<RectTransform>();
 
         Vector2 currentPivot = rectTransform.pivot;
-        Vector2 currentPosition = transform.position;
         Vector2 currentSizeDelta = rectTransform.sizeDelta;
 
         rectTransform.pivot = new Vector3(currentPivot.x, 1f, 0f);
