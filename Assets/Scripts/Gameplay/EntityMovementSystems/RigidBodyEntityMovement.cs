@@ -21,6 +21,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     protected MovementState _movementState;
 
     private Rigidbody2D rb;
+
+    public Animator Animator;
     
     public float StoppingDistance
     {
@@ -101,6 +103,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode is not (MovementMode.WSAD or MovementMode.WSADAndJoystick)) return;
         var position = transform.position;
 
+        Animator.SetFloat("Speed", 0);
+
         // get new horizontal position
         var horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput > 0)
@@ -108,12 +112,14 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
+            Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
         else if (horizontalInput < 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
+            Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
 
         // get new vertical position
@@ -122,14 +128,21 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             position.y += verticalInput * CurrentMoveSpeed * Time.deltaTime;
             if (verticalInput >= 0)
+            {
                 _movementState = MovementState.Forward;
+                Animator.SetFloat("Speed", CurrentMoveSpeed);
+            }
             else if (verticalInput < 0)
+            {
                 _movementState = MovementState.Backward;
+                Animator.SetFloat("Speed", CurrentMoveSpeed);
+            }
         }
 
         if (horizontalInput == 0 && verticalInput == 0)
         {
             _movementState = MovementState.None;
+            Animator.SetFloat("Speed", 0);
         }
 
         // move and clamp in screen

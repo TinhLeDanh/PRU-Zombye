@@ -119,6 +119,7 @@ MonoBehaviour:
   movementMode: 3
   stoppingDistance: 1
   joystick: {fileID: 0}
+  Animator: {fileID: 6663126556091221067}
 --- !u!114 &4603158277333465936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,16 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  maxLevel: 0
   currentXp: 0
-  requiredXp: 0
-  chipSpeed: 2
-  frontXpBar: {fileID: 0}
-  backXpBar: {fileID: 0}
-  levelText: {fileID: 0}
-  xpText: {fileID: 0}
+  nextLevelXp: 100
   additionMultiplier: 300
   powerMultiplier: 2
   divisionMultiplier: 7
+  frontXpBar: {fileID: 0}
+  backXpBar: {fileID: 0}
+  levelText: {fileID: 0}
+  XpText: {fileID: 0}
 --- !u!114 &2308352862448776755
 MonoBehaviour:
   m_ObjectHideFlags: 0
