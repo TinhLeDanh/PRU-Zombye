@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseCharacterEntity : DamageableEntity
 {
+    public LootableItem lootItemPrefab;
     protected CharacterAttackComponent characterAttack;
 
     protected override void EntityAwake()
@@ -16,5 +17,12 @@ public class BaseCharacterEntity : DamageableEntity
     public override float GetMoveSpeed()
     {
         return characterData.movementSpeed;
+    }
+
+    public override void OnDead()
+    {
+        base.OnDead();
+
+        
     }
 }

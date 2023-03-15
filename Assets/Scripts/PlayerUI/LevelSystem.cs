@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class LevelSystem : MonoBehaviour
 {
+    public static LevelSystem Instance;
+
     public int level;
     public float maxLevel;
     public float currentXp;
@@ -24,6 +26,13 @@ public class LevelSystem : MonoBehaviour
     private float lerpTimer;
     private float delayTimer;
 
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
+
+    // Start is called before the first frame update
     void Start()
     {
         levelText.text = "Level " + level;
@@ -109,7 +118,9 @@ public class LevelSystem : MonoBehaviour
 
         XpText.text = Mathf.Round(currentXp) + "/" + nextLevelXp;
         levelText.text = "Level " + level;
+
         GetComponent<PlayerHealth>().IncreaseHealth(level);
+        WaveManager.instance.OnLevelUp();
     }
 
     private int CalculateNextLevelXp()

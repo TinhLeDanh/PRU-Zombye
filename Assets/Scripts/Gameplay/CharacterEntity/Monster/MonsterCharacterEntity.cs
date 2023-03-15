@@ -23,4 +23,18 @@ public class MonsterCharacterEntity : BaseCharacterEntity
             characterAttack.Attack();
         }
     }
+
+    public override void OnDead()
+    {
+        base.OnDead();
+
+        Monster data;
+        if (characterData is Monster monsterData)
+        {
+            data = monsterData;
+
+            LootableItem lootableItem = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
+            lootableItem.SetupData(monsterData.exp);
+        }  
+    }
 }

@@ -65,7 +65,10 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
             if(LayermaskExtensions.Contains(enemyLayer, collider.gameObject))
             {
                 BaseCharacterEntity character = collider.gameObject.GetComponent<BaseCharacterEntity>();
-                enemies.Add(character);
+                if(character.Movement.MovementState != MovementState.Dead)
+                {
+                    enemies.Add(character);
+                }
             }
         }
 
@@ -76,7 +79,6 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
         BaseCharacterEntity nearestCharacter = null;
         foreach (BaseCharacterEntity character in enemies)
         {
-            Debug.Log(character);
             if (Vector2.Distance(Entity.transform.position, character.transform.position) <
                 Vector2.Distance(Entity.transform.position, nearestDistance))
             {

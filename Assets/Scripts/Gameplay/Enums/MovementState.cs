@@ -6,9 +6,7 @@ public enum MovementState : byte
     Backward = 1 << 1,
     Left = 1 << 2,
     Right = 1 << 3,
-    IsGrounded = 1 << 4,
-    IsUnderWater = 1 << 5,
-    IsTeleport = 1 << 7,
+    Dead = 1 << 4,
 }
 
 public static class MovementStateExtensions

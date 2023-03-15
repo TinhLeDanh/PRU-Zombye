@@ -7,7 +7,7 @@ public class BaseGameEntity : MonoBehaviour
     
     protected IGameEntityComponent[] EntityComponents { get; private set; }
     protected virtual bool UpdateEntityComponents { get { return true; } }
-    public IEntityMovement Movement { get; private set; }
+    public IEntityMovement Movement { get; set; }
 
     public BaseGameEntity target;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,19 @@ public class GameplayRule : ScriptableObject
 {
     public float TimeSpawnEnemy;
 
-    public List<MonsterCharacterEntity> Monsters;
-    public List<MonsterCharacterEntity> MiniBoss;
-    public List<MonsterCharacterEntity> BigBoss;
+    [Header("Value Setting")]
+    public float expRate;
+
+    public List<MonsterWave> monsterWave;
+}
+
+[Serializable]
+public struct MonsterWave
+{
+    public int unitPerWave;
+    public int spawnRange;
+    public int additionPerWave;
+    public int multiplyPerWave;
+    [SerializeField]
+    public MonsterCharacterEntity monsters;
 }

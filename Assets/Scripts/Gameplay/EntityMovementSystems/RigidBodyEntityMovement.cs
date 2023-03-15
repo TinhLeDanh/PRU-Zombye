@@ -18,9 +18,10 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     [SerializeField]
     private FixedJoystick joystick;
 
-    protected MovementState _movementState;
 
     private Rigidbody2D rb;
+
+    public Animator Animator;
     
     public float StoppingDistance
     {
@@ -29,7 +30,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public MovementState MovementState
     {
-        get { return _movementState; }
+        get
+        {
+            return _movementState;
+        }
+        set { _movementState = value; }
     }
 
     public float CurrentMoveSpeed
@@ -43,6 +48,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     private Vector2 _lastClickedPos;
 
     private bool _moving;
+    private MovementState _movementState;
 
     public override void EntityStart()
     {
@@ -59,6 +65,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     protected void Movement()
     {
+        if (MovementState == MovementState.Dead)
+        {
+            return;
+        }
+
         AutoMoveToTarget();
         KeyMovement();
         PointClickMovement();
@@ -88,7 +99,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             Vector3 targetPosition = Entity.target.transform.position;
             if (Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, 
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition,
                     Time.deltaTime * CurrentMoveSpeed);
         }
     }
@@ -101,6 +112,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode is not (MovementMode.WSAD or MovementMode.WSADAndJoystick)) return;
         var position = transform.position;
 
+        Animator.SetFloat("Speed", 0);
+
         // get new horizontal position
         var horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput > 0)
@@ -108,12 +121,14 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
+            Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
         else if (horizontalInput < 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
+            Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
 
         // get new vertical position
@@ -122,14 +137,21 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             position.y += verticalInput * CurrentMoveSpeed * Time.deltaTime;
             if (verticalInput >= 0)
+            {
                 _movementState = MovementState.Forward;
+                Animator.SetFloat("Speed", CurrentMoveSpeed);
+            }
             else if (verticalInput < 0)
+            {
                 _movementState = MovementState.Backward;
+                Animator.SetFloat("Speed", CurrentMoveSpeed);
+            }
         }
 
         if (horizontalInput == 0 && verticalInput == 0)
         {
             _movementState = MovementState.None;
+            Animator.SetFloat("Speed", 0);
         }
 
         // move and clamp in screen

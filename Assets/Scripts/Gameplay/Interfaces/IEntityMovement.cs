@@ -3,7 +3,7 @@ public interface IEntityMovement : IGameEntityComponent
 {
     BaseGameEntity Entity { get; }
     float StoppingDistance { get; }
-    MovementState MovementState { get; }
+    MovementState MovementState { get; set; }
     float CurrentMoveSpeed { get; }
     void StopMove();
     void KeyMovement();
