@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Ironshoes
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b85bf115717fc3a4a86873970fba0da7, type: 3}
-  level: 0
+  level: 1
   description: 
+  itemType: 4
+  itemName: 12
   speed: 5
