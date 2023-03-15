@@ -8,10 +8,6 @@ public class Character : BaseGameData
     public int health;
     public float movementSpeed;
     public Weapon currentWeapon;
-    public Ring currentRing;
-    public Gloves currentGloves;
-    public Armor currentArmor;
-    public Pant currentPant;
-    public Shoes currentShoes;
+
     public Item[] items;
 }

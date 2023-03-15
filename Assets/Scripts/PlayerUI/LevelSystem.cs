@@ -118,7 +118,9 @@ public class LevelSystem : MonoBehaviour
 
         XpText.text = Mathf.Round(currentXp) + "/" + nextLevelXp;
         levelText.text = "Level " + level;
+
         GetComponent<PlayerHealth>().IncreaseHealth(level);
+        WaveManager.instance.OnLevelUp();
     }
 
     private int CalculateNextLevelXp()

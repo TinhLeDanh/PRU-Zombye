@@ -29,7 +29,10 @@ public class DamageableEntity : BaseGameEntity
         if (_currentHealth <= 0)
         {
             OnDead();
-            ModelController.OnDead();
+            if (ModelController != null)
+            {
+                ModelController.OnDead();
+            }
             Destroy(gameObject, 5f);
         }
         else
@@ -39,7 +42,10 @@ public class DamageableEntity : BaseGameEntity
             {
                 _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
             }
-            ModelController.OnHit();
+            if(ModelController != null)
+            {
+                ModelController.OnHit();
+            }
         }
     }
 

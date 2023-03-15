@@ -62,8 +62,8 @@ public class GameInstance : MonoBehaviour
         else
         {
             Vector2 spawnPos = Random.insideUnitCircle * player.enemySpawnRadius + (Vector2)player.transform.position;
-            int randIndex = Random.Range(0, rule.Monsters.Count - 1);
-            MonsterCharacterEntity monster = Instantiate(rule.Monsters[randIndex], spawnPos, Quaternion.identity);
+            int randIndex = Random.Range(0, rule.monsterWave.Count - 1);
+            MonsterCharacterEntity monster = Instantiate(rule.monsterWave[randIndex].monsters, spawnPos, Quaternion.identity);
             timeSpawnCounter = rule.TimeSpawnEnemy;
             monsters.Add(monster);
         }

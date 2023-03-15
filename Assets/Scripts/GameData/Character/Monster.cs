@@ -8,4 +8,5 @@ public class Monster : Character
     [Header("Reward")]
     public int exp;
     public float expRate;
+    public float dropItemRate = .1f;
 }

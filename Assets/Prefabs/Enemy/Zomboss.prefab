@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 2080433637
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6056987297122131021, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+  m_Sprite: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -173,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 5925243850832734213}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a40c4cb4f18f23419a1d07aade60f1a, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4107434795166367473}
   - component: {fileID: 7163480866740084917}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Zomboss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
   movementMode: 0
   stoppingDistance: 1
   joystick: {fileID: 0}
+  Animator: {fileID: 0}
 --- !u!114 &7163480866740084917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &7057562780473780932
 GameObject:
   m_ObjectHideFlags: 0
