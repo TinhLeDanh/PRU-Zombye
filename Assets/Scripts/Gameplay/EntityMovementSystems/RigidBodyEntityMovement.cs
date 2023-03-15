@@ -18,10 +18,9 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     [SerializeField]
     private FixedJoystick joystick;
 
-    protected MovementState _movementState;
 
     private Rigidbody2D rb;
-    
+
     public float StoppingDistance
     {
         get { return this.stoppingDistance; }
@@ -29,7 +28,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public MovementState MovementState
     {
-        get { return _movementState; }
+        get
+        {
+            return _movementState;
+        }
+        set { _movementState = value; }
     }
 
     public float CurrentMoveSpeed
@@ -43,6 +46,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     private Vector2 _lastClickedPos;
 
     private bool _moving;
+    private MovementState _movementState;
 
     public override void EntityStart()
     {
@@ -59,6 +63,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     protected void Movement()
     {
+        if (MovementState == MovementState.Dead)
+        {
+            return;
+        }
+
         AutoMoveToTarget();
         KeyMovement();
         PointClickMovement();
@@ -88,7 +97,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             Vector3 targetPosition = Entity.target.transform.position;
             if (Vector2.Distance(transform.position, targetPosition) > stoppingDistance)
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, 
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition,
                     Time.deltaTime * CurrentMoveSpeed);
         }
     }

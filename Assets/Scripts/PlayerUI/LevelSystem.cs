@@ -4,6 +4,8 @@ using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
+    public static LevelSystem Instance;
+
     public int level;
     public float currentXp;
     public float requiredXp;
@@ -25,6 +27,12 @@ public class LevelSystem : MonoBehaviour
     public float powerMultiplier = 2;
     [Range(7f, 14f)] 
     public float divisionMultiplier = 7;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +106,7 @@ public class LevelSystem : MonoBehaviour
         frontXpBar.fillAmount = 0f;
         backXpBar.fillAmount = 0f;
         currentXp = Mathf.RoundToInt(currentXp - requiredXp);
-        GetComponent<PlayerHealth>().IncreaseHealth(level);
+        //GetComponent<PlayerHealth>().IncreaseHealth(level);
         requiredXp = CalculateRequiredXp();
         levelText.text = "Level " + level;
     }

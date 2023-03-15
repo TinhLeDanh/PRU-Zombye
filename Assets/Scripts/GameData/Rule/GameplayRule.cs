@@ -7,6 +7,9 @@ public class GameplayRule : ScriptableObject
 {
     public float TimeSpawnEnemy;
 
+    [Header("Value Setting")]
+    public float expRate;
+
     public List<MonsterCharacterEntity> Monsters;
     public List<MonsterCharacterEntity> MiniBoss;
     public List<MonsterCharacterEntity> BigBoss;

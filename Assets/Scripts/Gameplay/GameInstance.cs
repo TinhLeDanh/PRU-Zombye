@@ -15,6 +15,8 @@ public class GameInstance : MonoBehaviour
     public MapGenerator MapGenerator;
 
     [Header("Gameplay")]
+    public float exp;
+    public float playerLevel;
     public List<MonsterCharacterEntity> monsters;
 
     protected Vector3 spawnPosition;

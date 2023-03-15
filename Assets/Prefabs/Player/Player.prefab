@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4603158277333465966}
   - component: {fileID: 4603158277333465967}
   - component: {fileID: 4603158277333465936}
-  - component: {fileID: -6868343065291199506}
   - component: {fileID: 2308352862448776755}
   m_Layer: 6
   m_Name: Player
@@ -101,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   target: {fileID: 0}
+  ModelController: {fileID: 0}
   _healthbar: {fileID: 0}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967
@@ -133,29 +133,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &-6868343065291199506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4603158277333465940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7baa64e599d8ae141babd1430d8fde7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  currentXp: 0
-  requiredXp: 0
-  chipSpeed: 2
-  frontXpBar: {fileID: 0}
-  backXpBar: {fileID: 0}
-  levelText: {fileID: 0}
-  xpText: {fileID: 0}
-  additionMultiplier: 300
-  powerMultiplier: 2
-  divisionMultiplier: 7
 --- !u!114 &2308352862448776755
 MonoBehaviour:
   m_ObjectHideFlags: 0

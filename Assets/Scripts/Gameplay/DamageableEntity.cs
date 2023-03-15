@@ -24,22 +24,28 @@ public class DamageableEntity : BaseGameEntity
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        Debug.Log(_currentHealth + " - " + damage);
-        
-        // dead
+
+        // Dead
         if (_currentHealth <= 0)
         {
+            OnDead();
             ModelController.OnDead();
-            Destroy(gameObject);
+            Destroy(gameObject, 5f);
         }
         else
         {
-            // hit
+            // Hit
             if (_healthbar != null)
             {
                 _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
             }
             ModelController.OnHit();
         }
+    }
+
+    public virtual void OnDead()
+    {
+        Movement.MovementState = MovementState.Dead;
+
     }
 }
