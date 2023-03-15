@@ -4,14 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - store-btn-open-gold
-  - store-btn-okay
-  - store-btn-buy-gold
-  - store-btn-buy-violet
-  - store-btn-open-violet
-  - store-popup
-  - store-item-popup
-  - store-default
+  - container-inventory
   layers:
   - Default
   - TransparentFX
@@ -49,12 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 364788327
-    locked: 0
-  - name: Entity
-    uniqueID: 2080433637
-    locked: 0
   - name: UI
-    uniqueID: 3312725609
+    uniqueID: 697641747
     locked: 0

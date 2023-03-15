@@ -6,10 +6,11 @@ public class PlayerHealth : MonoBehaviour
 {
     private float health;
     private float lerpTimer;
-    public float maxHealth = 100f;
+    public int maxHealth = 100;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
+
     public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
@@ -23,29 +24,20 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            TakeDamage(Random.Range(5, 10));
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            RestoreHealth(Random.Range(5, 10));
-        }
     }
 
     public void UpdateHealthUI()
     {
-        var fillF = frontHealthBar.fillAmount;
-        var fillB = backHealthBar.fillAmount;
-        var hFraction = health / maxHealth;
+        float fillF = frontHealthBar.fillAmount;
+        float fillB = backHealthBar.fillAmount;
+        float hFraction = health / maxHealth;
         if (fillB > hFraction)
         {
             frontHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
-            var percentComplete = lerpTimer / chipSpeed;
-            percentComplete *= percentComplete;
+            float percentComplete = lerpTimer / chipSpeed;
+            percentComplete = percentComplete * percentComplete;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
         }
 
@@ -54,12 +46,12 @@ public class PlayerHealth : MonoBehaviour
             backHealthBar.color = Color.green;
             backHealthBar.fillAmount = hFraction;
             lerpTimer += Time.deltaTime;
-            var percentComplete = lerpTimer / chipSpeed;
+            float percentComplete = lerpTimer / chipSpeed;
             percentComplete *= percentComplete;
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentComplete);
         }
 
-        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxHealth);
+        healthText.text = health + "/" + maxHealth;
     }
 
     public void TakeDamage(float damage)
@@ -68,15 +60,15 @@ public class PlayerHealth : MonoBehaviour
         lerpTimer = 0f;
     }
 
-    public void RestoreHealth(float healthAmount)
+    public void RestoreHealth(float healAmount)
     {
-        health += healthAmount;
+        health += healAmount;
         lerpTimer = 0f;
     }
 
     public void IncreaseHealth(int level)
     {
-        maxHealth += (health * 0.01f) * ((100 - level) * 0.1f);
+        maxHealth += Mathf.RoundToInt((health * 0.01f) * ((100 - level) * 0.1f));
         health = maxHealth;
     }
 }

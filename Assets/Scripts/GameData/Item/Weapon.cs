@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = GameConst.Weapon_FileName, menuName = GameConst.Weapon_MenuName, order = GameConst.Weapon_Order)]
 public class Weapon : Item
 {
-    public Sprite icon;
     public int damage;
     public float cooldown;
 

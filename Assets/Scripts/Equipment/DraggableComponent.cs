@@ -5,37 +5,23 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableComponent : MonoBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler,
-    IEndDragHandler
+public class DraggableComponent : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public event Action<PointerEventData> OnBeginDragHandler;
-    public event Action<PointerEventData> OnDragHandler;
-    public event Action OnEndDragHandler;
-
-    public bool FollowCursor { get; set; }
-    public Vector3 StartPosition;
-    public bool CanDrag { get; set; } = true;
-
-    public void OnInitializePotentialDrag(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
-
+    Transform parentAfterDrag;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(!CanDrag){
-            return;
-        }
-        OnDragHandler?.Invoke(eventData);
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        transform.SetParent(parentAfterDrag);
     }
 }

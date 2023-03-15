@@ -20,9 +20,9 @@ public class GameConst
     public const string Weapon_MenuName = "GameData/Item/Weapon";
     public const int Weapon_Order = -999;
 
-    public const string Shirt_FileName = "Shirt";
-    public const string Shirt_MenuName = "GameData/Item/Shirt";
-    public const int Shirt_Order = -998;
+    public const string Armor_FileName = "Armor";
+    public const string Armor_MenuName = "GameData/Item/Armor";
+    public const int Armor_Order = -998;
 
     public const string Pant_FileName = "Pant";
     public const string Pant_MenuName = "GameData/Item/Pant";
@@ -31,4 +31,12 @@ public class GameConst
     public const string Shoes_FileName = "Shoes";
     public const string Shoes_MenuName = "GameData/Item/Shoes";
     public const int Shoes_Order = -996;
+    
+    public const string Ring_FileName = "Ring";
+    public const string Ring_MenuName = "GameData/Item/Ring";
+    public const int Ring_Order = -996;
+    
+    public const string Gloves_FileName = "Gloves";
+    public const string Gloves_MenuName = "GameData/Item/Gloves";
+    public const int Gloves_Order = -996;
 }

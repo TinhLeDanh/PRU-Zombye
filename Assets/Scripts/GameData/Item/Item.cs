@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : BaseGameData
 {
+    public Sprite icon;
     public int level;
     public string description;
 }
