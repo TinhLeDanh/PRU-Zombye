@@ -118,11 +118,6 @@ public class Popup : MonoBehaviour
         LoadEquipment.instance.playerData.items = list;
         SceneManager.LoadSceneAsync("Equipment");
     }
-    public Sprite icon;
-    public int level;
-    public string description;
-    public ItemType itemType;
-    public ItemName itemName;
     public void EquipmentItem()
     {
         var itemAdd = LoadEquipment.instance.playerData.items[indexInInventory];
