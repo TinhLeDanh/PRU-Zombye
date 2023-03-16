@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Popup : MonoBehaviour
@@ -89,7 +90,8 @@ public class Popup : MonoBehaviour
             item.level++;
             newListItems[0] = item;
             LoadEquipment.instance.playerData.items = newListItems;
-            ChangeUnify(null, 0);
+            // ChangeUnify(null, 0);
+            SceneManager.LoadSceneAsync("ItemMerge");
         }
     }
 
@@ -103,5 +105,23 @@ public class Popup : MonoBehaviour
         lvAdd2.text = "Lv." + level;
         lvAdd3.text = "Lv." + level;
         lvOuput.text = "Lv." + (level + 1);
+    }
+
+    public void RemoveItem()
+    {
+        var list = LoadEquipment.instance.playerData.items;
+        int indexToRemove = indexInInventory;
+        Array.Copy(list, 
+            indexToRemove + 1, list, 
+            indexToRemove, list.Length - indexToRemove - 1); 
+        Array.Resize(ref list, list.Length - 1);
+        LoadEquipment.instance.playerData.items = list;
+        SceneManager.LoadSceneAsync("Equipment");
+    }
+    public void EquipmentItem()
+    {
+        var itemAdd = LoadEquipment.instance.playerData.items[indexInInventory];
+        var weaponMain =  LoadEquipment.instance.playerData.currentWeapon;
+        Item i = ScriptableObject.CreateInstance<Item>();
     }
 }
