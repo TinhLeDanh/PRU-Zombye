@@ -19,8 +19,7 @@ public struct MonsterWave
 {
     public int unitPerWave;
     public int spawnRange;
-    public int additionPerWave;
     public int multiplyPerWave;
     [SerializeField]
-    public MonsterCharacterEntity monsters;
+    public MonsterCharacterEntity monster;
 }

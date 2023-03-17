@@ -17,4 +17,7 @@ MonoBehaviour:
   description: 
   damage: 100
   cooldown: 1
+  projectilePerShoot: 0
+  timeBtwShoot: 0
+  direction: 1
   bullet: {fileID: 0}

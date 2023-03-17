@@ -43,7 +43,7 @@ public class GameInstance : MonoBehaviour
 
     private void Update()
     {
-        SpawnEnemy();
+
     }
 
     protected void SpawnPlayer()
@@ -53,19 +53,5 @@ public class GameInstance : MonoBehaviour
         Instantiate(player.gameObject, spawnPosition, Quaternion.identity);
     }
 
-    protected void SpawnEnemy()
-    {
-        if (timeSpawnCounter > 0)
-        {
-            timeSpawnCounter -= Time.deltaTime;
-        }
-        else
-        {
-            Vector2 spawnPos = Random.insideUnitCircle * player.enemySpawnRadius + (Vector2)player.transform.position;
-            int randIndex = Random.Range(0, rule.monsterWave.Count - 1);
-            MonsterCharacterEntity monster = Instantiate(rule.monsterWave[randIndex].monsters, spawnPos, Quaternion.identity);
-            timeSpawnCounter = rule.TimeSpawnEnemy;
-            monsters.Add(monster);
-        }
-    }
+    
 }

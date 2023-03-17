@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 40d9305063d714a48ad8a77ce03a5831, type: 3}
   level: 1
   description: 
-  damage: 60
+  damage: 1
   cooldown: 2
-  bullet: {fileID: 0}
+  bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}

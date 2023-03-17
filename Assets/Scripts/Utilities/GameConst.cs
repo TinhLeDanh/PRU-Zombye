@@ -4,6 +4,10 @@ public class GameConst
     public const string GameplayRule_MenuName = "GameData/GameplayRule";
     public const int GameplayRule_Order = -2999;
 
+    public const string GameplayData_FileName = "GameData";
+    public const string GameplayData_MenuName = "GameData/Game Data";
+    public const int GameplayData_Order = -2998;
+
     //Character 
     public const string Player_FileName = "Player";
     public const string Player_MenuName = "GameData/Character/Player";

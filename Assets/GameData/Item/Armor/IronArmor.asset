@@ -15,4 +15,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6af099700e158194288c14593d318196, type: 3}
   level: 0
   description: 
+  nextLevelItem: {fileID: 11400000, guid: 626c9f6b4e66971468165cd1e1aca43b, type: 2}
   armor: 5

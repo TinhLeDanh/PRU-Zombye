@@ -28,6 +28,7 @@ public class MonsterCharacterEntity : BaseCharacterEntity
     {
         base.OnDead();
 
+        WaveManager.instance.OnKilledEnemy();
         Monster data;
         if (characterData is Monster monsterData)
         {
