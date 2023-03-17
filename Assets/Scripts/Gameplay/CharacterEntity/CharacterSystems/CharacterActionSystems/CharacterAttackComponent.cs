@@ -50,7 +50,7 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
         BaseCharacterEntity character = GetNearestTarget();
         if(character != null)
         {
-            weapon.Apply(character, Entity, characterData.currentWeapon.damage);
+            StartCoroutine(weapon.Apply(character, Entity, characterData.currentWeapon.damage));
             attackState = AttackState.Attacking;
             timeCounter = weapon.cooldown;
         }

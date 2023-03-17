@@ -120,7 +120,6 @@ public class LevelSystem : MonoBehaviour
         levelText.text = "Level " + level;
 
         GetComponent<PlayerHealth>().IncreaseHealth(level);
-        WaveManager.instance.OnLevelUp();
     }
 
     private int CalculateNextLevelXp()
