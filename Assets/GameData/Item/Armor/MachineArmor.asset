@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MachineArmor
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 7c19d57af5eec3f4ebf6711a7f93d1a1, type: 3}
-  level: 0
+  level: 1
   description: 
+  itemType: 0
+  itemName: 1
   armor: 10

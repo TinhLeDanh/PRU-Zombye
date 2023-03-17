@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TitanShoes
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d9649607b2b5a734bbd9b11ba3876985, type: 3}
-  level: 0
+  level: 1
   description: 
+  itemType: 4
+  itemName: 14
   speed: 15
