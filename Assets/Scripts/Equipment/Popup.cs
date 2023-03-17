@@ -121,7 +121,17 @@ public class Popup : MonoBehaviour
     public void EquipmentItem()
     {
         var itemAdd = LoadEquipment.instance.playerData.items[indexInInventory];
-        var weaponMain =  LoadEquipment.instance.playerData.currentWeapon;
-        Item i = ScriptableObject.CreateInstance<Item>();
+        //
+        // Item i = ScriptableObject.CreateInstance<Item>();
+        // if (itemAdd is Weapon weapon)
+        // {
+        //     LoadEquipment.instance.playerData.currentWeapon = weapon;
+        //     var weaponMain =  LoadEquipment.instance.playerData.currentWeapon;
+        //     if (weaponMain is not null)
+        //     {
+        //         LoadEquipment.instance.playerData.items[indexInInventory] = weaponMain;
+        //     }
+        //     // weaponMain 
+        // }
     }
 }
