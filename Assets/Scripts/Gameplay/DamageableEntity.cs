@@ -6,7 +6,7 @@ public class DamageableEntity : BaseGameEntity
 
     protected Character characterData;
     private float _currentHealth;
-    private int _maxHealth;
+    private float _maxHealth;
 
     protected override void EntityStart()
     {
@@ -25,6 +25,17 @@ public class DamageableEntity : BaseGameEntity
     {
         _currentHealth -= damage;
 
+        // Hit
+        if (_healthbar != null)
+        {
+            _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
+        }
+
+        if (ModelController != null)
+        {
+            ModelController.OnHit();
+        }
+        
         // Dead
         if (_currentHealth <= 0)
         {
@@ -33,25 +44,13 @@ public class DamageableEntity : BaseGameEntity
             {
                 ModelController.OnDead();
             }
+
             Destroy(gameObject, 5f);
-        }
-        else
-        {
-            // Hit
-            if (_healthbar != null)
-            {
-                _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
-            }
-            if(ModelController != null)
-            {
-                ModelController.OnHit();
-            }
         }
     }
 
     public virtual void OnDead()
     {
         Movement.MovementState = MovementState.Dead;
-
     }
 }
