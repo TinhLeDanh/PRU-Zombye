@@ -121,17 +121,66 @@ public class Popup : MonoBehaviour
     public void EquipmentItem()
     {
         var itemAdd = LoadEquipment.instance.playerData.items[indexInInventory];
-        //
-        // Item i = ScriptableObject.CreateInstance<Item>();
-        // if (itemAdd is Weapon weapon)
-        // {
-        //     LoadEquipment.instance.playerData.currentWeapon = weapon;
-        //     var weaponMain =  LoadEquipment.instance.playerData.currentWeapon;
-        //     if (weaponMain is not null)
-        //     {
-        //         LoadEquipment.instance.playerData.items[indexInInventory] = weaponMain;
-        //     }
-        //     // weaponMain 
-        // }
+        if (itemAdd is Weapon weapon)
+        {
+            var weaponMain =  LoadEquipment.instance.playerData.currentWeapon;
+            LoadEquipment.instance.playerData.currentWeapon = weapon;
+            
+            if (weaponMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = weaponMain;
+            }
+        }
+        if (itemAdd is Armor armor)
+        {
+            var armorMain =  LoadEquipment.instance.playerData.currentArmor;
+            LoadEquipment.instance.playerData.currentArmor = armor;
+            
+            if (armorMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = armorMain;
+            }
+        }
+        if (itemAdd is Gloves gloves)
+        {
+            var glovesMain =  LoadEquipment.instance.playerData.currentGloves;
+            LoadEquipment.instance.playerData.currentGloves = gloves;
+            
+            if (glovesMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = glovesMain;
+            }
+        }
+        if (itemAdd is Pant pant)
+        {
+            var glovesMain =  LoadEquipment.instance.playerData.currentPant;
+            LoadEquipment.instance.playerData.currentPant = pant;
+            
+            if (glovesMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = glovesMain;
+            }
+        }
+        if (itemAdd is Ring ring)
+        {
+            var ringMain =  LoadEquipment.instance.playerData.currentRing;
+            LoadEquipment.instance.playerData.currentRing = ring;
+            
+            if (ringMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = ringMain;
+            }
+        }
+        if (itemAdd is Shoes shoes)
+        {
+            var shoesMain =  LoadEquipment.instance.playerData.currentShoes;
+            LoadEquipment.instance.playerData.currentShoes = shoes;
+            
+            if (shoesMain is not null)
+            {
+                LoadEquipment.instance.playerData.items[indexInInventory] = shoesMain;
+            }
+        }
+        SceneManager.LoadSceneAsync("Equipment");
     }
 }

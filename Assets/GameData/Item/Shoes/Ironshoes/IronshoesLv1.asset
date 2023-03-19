@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7068015f61d775469a555f6eb9beffa, type: 3}
-  m_Name: MachineShoes
+  m_Name: IronshoesLv1
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 450c3028d9ce5274781b6bfbb3f02b72, type: 3}
+  icon: {fileID: 21300000, guid: b85bf115717fc3a4a86873970fba0da7, type: 3}
   level: 1
   description: 
   itemType: 4
-  itemName: 13
-  speed: 10
+  itemName: 12
+  speed: 5
