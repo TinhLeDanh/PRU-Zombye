@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonItemMerge : MonoBehaviour
+public class ToScenes : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -17,12 +17,16 @@ public class ButtonItemMerge : MonoBehaviour
         
     }
 
-    public void OnClickNextScene()
+    public void ToEquipment()
     {
-        SceneManager.LoadSceneAsync("ItemMerge");
+        SceneManager.LoadSceneAsync("Equipment");
     }
-    public void NextSceneMenu()
+    public void ToGameplayScene()
     {
-        SceneManager.LoadSceneAsync("Menu");
+        SceneManager.LoadSceneAsync("GameplayScene");
+    }
+    public void ToStore()
+    {
+        SceneManager.LoadSceneAsync("Store");
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce8bc3a39d0af014e93201944557fe68, type: 3}
-  m_Name: DestructionRing
+  m_Name: DarknessRingLv4
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5d0324ff2cd5f174284506392febea9f, type: 3}
-  level: 1
+  icon: {fileID: 21300000, guid: 9893bbaeb25450144a3614c217ee38cb, type: 3}
+  level: 4
   description: 
   itemType: 3
-  itemName: 10
-  damage: 20
+  itemName: 9
+  damage: 100

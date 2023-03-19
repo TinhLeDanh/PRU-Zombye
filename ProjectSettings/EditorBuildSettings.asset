@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ItemMerge.unity
     guid: 68ffaba439d5cff4a840742cb48820b3
+  - enabled: 1
+    path: Assets/Scenes/Equipment.unity
+    guid: 8fcd8605a336b8644a883f0854cb0b9c
+  - enabled: 1
+    path: Assets/Scenes/GameplayScene.unity
+    guid: ad379af5d45d00b4b9fd122e1b350f23
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: afa210e9929fd754187fe4cf0c78e4f0
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 479bcf9929387477fa9def13cc92182c
   m_configObjects: {}

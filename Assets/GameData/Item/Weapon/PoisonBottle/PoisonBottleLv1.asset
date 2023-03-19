@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf9a806a8d84b334798916c27cd3850f, type: 3}
-  m_Name: Brick
+  m_Name: PoisonBottleLv1
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 44a93e814050be14a908895783e5dcde, type: 3}
+  icon: {fileID: 21300000, guid: 40d9305063d714a48ad8a77ce03a5831, type: 3}
   level: 1
   description: 
-  damage: 200
+  itemType: 0
+  itemName: 0
+  damage: 50
   cooldown: 2
-  projectilePerShoot: 1
-  timeBtwShoot: 0.25
-  direction: 1
+  projectilePerShoot: 0
+  timeBtwShoot: 0
+  direction: 0
   bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}
