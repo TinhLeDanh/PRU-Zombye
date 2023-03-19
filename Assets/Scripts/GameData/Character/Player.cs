@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = GameConst.Player_FileName, menuName = GameConst.Player_MenuName, order = GameConst.Player_Order)]
 public class Player : Character
 {
-    public Ring currentRing;
-    public Gloves currentGloves;
-    public Armor currentArmor;
-    public Pant currentPant;
-    public Shoes currentShoes;
+    [CanBeNull] public Ring currentRing;
+    [CanBeNull] public Gloves currentGloves;
+    [CanBeNull] public Armor currentArmor;
+    [CanBeNull] public Pant currentPant;
+    [CanBeNull] public Shoes currentShoes;
 }
