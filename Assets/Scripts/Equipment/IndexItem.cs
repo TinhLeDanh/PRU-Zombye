@@ -13,19 +13,24 @@ public class IndexItem : MonoBehaviour
         switch (statusIndexItem)
         {
             case StatusIndexItem.Armor:
-                indexItem.text = LoadEquipment.instance.playerData.currentArmor.armor.ToString();
+                if(LoadEquipment.instance.playerData.currentArmor)
+                    indexItem.text = LoadEquipment.instance.playerData.currentArmor.armor.ToString();
                 break;
             case StatusIndexItem.Speed:
-                indexItem.text = LoadEquipment.instance.playerData.currentShoes.speed.ToString();
+                if(LoadEquipment.instance.playerData.currentShoes)
+                    indexItem.text = LoadEquipment.instance.playerData.currentShoes.speed.ToString();
                 break;
             case StatusIndexItem.Hp:
-                indexItem.text = LoadEquipment.instance.playerData.currentPant.hp.ToString();
+                if(LoadEquipment.instance.playerData.currentPant)
+                    indexItem.text = LoadEquipment.instance.playerData.currentPant.hp.ToString();
                 break;
             case StatusIndexItem.CriticalRate:
-                indexItem.text = LoadEquipment.instance.playerData.currentGloves.criticalRate+"%";
+                if(LoadEquipment.instance.playerData.currentGloves)
+                    indexItem.text = LoadEquipment.instance.playerData.currentGloves.criticalRate+"%";
                 break;
             case StatusIndexItem.Damage:
-                indexItem.text = (LoadEquipment.instance.playerData.currentWeapon.damage
+                if(LoadEquipment.instance.playerData.currentWeapon&&LoadEquipment.instance.playerData.currentRing)
+                    indexItem.text = (LoadEquipment.instance.playerData.currentWeapon.damage
                                   +LoadEquipment.instance.playerData.currentRing.damage).ToString();
                 break;
         }
