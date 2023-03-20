@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
@@ -20,7 +21,7 @@ public class Store : MonoBehaviour
         pannelPopUp.SetActive(true);
 
         // save game data
-        var stringData = "Name:" + playerData.Name.ToString()+"/";
+        var stringData = "Name:" + playerData.Name.ToString() + "/";
         stringData += "Health," + playerData.health + "/";
         stringData += "Movement_speed," + playerData.movementSpeed + "/";
         stringData += "Current_weapon," + playerData.currentWeapon.name + "/";
@@ -31,12 +32,12 @@ public class Store : MonoBehaviour
         var listHave = playerData.items;
         stringData += "items";
         foreach (var item in listHave) {
-            stringData +=","+item.name;
+            stringData += "," + item.name;
         }
-        stringData +="/";
+        stringData += "/";
         string path = Application.dataPath + "/Cache/savedata.txt";
         File.WriteAllText(path, stringData);
-    } 
+    }
 
     public void onClickOkay()
     {
