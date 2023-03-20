@@ -2806,6 +2806,7 @@ MonoBehaviour:
   lvAdd3: {fileID: 0}
   iconOutput: {fileID: 0}
   lvOuput: {fileID: 0}
+  playerAll: {fileID: 0}
 --- !u!222 &1819475592277995050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4115,6 +4116,7 @@ MonoBehaviour:
   lvAdd3: {fileID: 994867}
   iconOutput: {fileID: 2065328298}
   lvOuput: {fileID: 112435539}
+  playerAll: {fileID: 11400000, guid: d2149a41728005849a0c7da8ab341fff, type: 2}
 --- !u!114 &8023994512256162596
 MonoBehaviour:
   m_ObjectHideFlags: 0

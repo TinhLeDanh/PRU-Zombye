@@ -28,6 +28,8 @@ public class Popup : MonoBehaviour
     public Image iconOutput;
     public TMP_Text lvOuput;
 
+    public Player playerAll;
+
     private void Awake()
     {
         if (instance == null)
@@ -86,9 +88,10 @@ public class Popup : MonoBehaviour
             }
 
             Array.Resize(ref newListItems, newListItems.Length + 1); // Tăng kích thước mảng lên 1
-            Array.Copy(newListItems, 0, newListItems, 1, newListItems.Length - 1); // Dời các phần tử sang phải một bậc
-            item.level++;
-            newListItems[0] = item;
+            Array.Copy(newListItems, 0, newListItems, 1, newListItems.Length - 1);
+            var level = item.level+1;
+            var newItem = playerAll.items.FirstOrDefault(x => x.level == level && x.itemName == item.itemName);
+            newListItems[0] = newItem;
             LoadEquipment.instance.playerData.items = newListItems;
             // ChangeUnify(null, 0);
             SceneManager.LoadSceneAsync("ItemMerge");
@@ -120,6 +123,7 @@ public class Popup : MonoBehaviour
     }
     public void EquipmentItem()
     {
+        var list = LoadEquipment.instance.playerData.items;
         var itemAdd = LoadEquipment.instance.playerData.items[indexInInventory];
         if (itemAdd is Weapon weapon)
         {
@@ -130,6 +134,14 @@ public class Popup : MonoBehaviour
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = weaponMain;
             }
+            else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
+            }
         }
         if (itemAdd is Armor armor)
         {
@@ -139,6 +151,13 @@ public class Popup : MonoBehaviour
             if (armorMain is not null)
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = armorMain;
+            }else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
             }
         }
         if (itemAdd is Gloves gloves)
@@ -149,6 +168,13 @@ public class Popup : MonoBehaviour
             if (glovesMain is not null)
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = glovesMain;
+            }else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
             }
         }
         if (itemAdd is Pant pant)
@@ -159,6 +185,13 @@ public class Popup : MonoBehaviour
             if (glovesMain is not null)
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = glovesMain;
+            }else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
             }
         }
         if (itemAdd is Ring ring)
@@ -169,6 +202,13 @@ public class Popup : MonoBehaviour
             if (ringMain is not null)
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = ringMain;
+            }else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
             }
         }
         if (itemAdd is Shoes shoes)
@@ -179,8 +219,79 @@ public class Popup : MonoBehaviour
             if (shoesMain is not null)
             {
                 LoadEquipment.instance.playerData.items[indexInInventory] = shoesMain;
+            }else
+            {
+                Array.Copy(list, 
+                    indexInInventory + 1, list, 
+                    indexInInventory, list.Length - indexInInventory - 1); 
+                Array.Resize(ref list, list.Length - 1);
+                LoadEquipment.instance.playerData.items = list;
             }
         }
         SceneManager.LoadSceneAsync("Equipment");
     }
+
+    public ItemType typeBtnClick;
+    public void RemovedFromEquipment()
+    {
+        Item[] newListItems = LoadEquipment.instance.playerData.items;
+        Array.Resize(ref newListItems, newListItems.Length + 1); // Tăng kích thước mảng lên 1
+        Array.Copy(newListItems, 0, newListItems, 1, newListItems.Length - 1);
+        switch (typeBtnClick)
+        {
+            case ItemType.Armor:
+                newListItems[0] = LoadEquipment.instance.playerData.currentArmor;
+                LoadEquipment.instance.playerData.currentArmor = null;
+                break;
+            case ItemType.Gloves:
+                newListItems[0] = LoadEquipment.instance.playerData.currentGloves;
+                LoadEquipment.instance.playerData.currentGloves = null;
+                break;
+            case ItemType.Pant:
+                newListItems[0] = LoadEquipment.instance.playerData.currentPant;
+                LoadEquipment.instance.playerData.currentPant = null;
+                break;
+            case ItemType.Ring:
+                newListItems[0] = LoadEquipment.instance.playerData.currentRing;
+                LoadEquipment.instance.playerData.currentRing = null;
+                break;
+            case ItemType.Shoes:
+                newListItems[0] = LoadEquipment.instance.playerData.currentShoes;
+                LoadEquipment.instance.playerData.currentShoes = null;
+                break;
+            case ItemType.Weapon:
+                newListItems[0] = LoadEquipment.instance.playerData.currentWeapon;
+                LoadEquipment.instance.playerData.currentWeapon = null;
+                break;
+        }
+        LoadEquipment.instance.playerData.items = newListItems;
+        SceneManager.LoadSceneAsync("Equipment");
+    }
+
+    public void ClickArmor()
+    {
+        typeBtnClick = ItemType.Armor;
+    }
+    public void ClickGloves()
+    {
+        typeBtnClick = ItemType.Gloves;
+    }
+    public void ClickPant()
+    {
+        typeBtnClick = ItemType.Pant;
+    }
+    public void ClickRing()
+    {
+        typeBtnClick = ItemType.Ring;
+    }
+    public void ClickShoes()
+    {
+        typeBtnClick = ItemType.Shoes;
+    }
+    public void ClickWeapon()
+    {
+        typeBtnClick = ItemType.Weapon;
+    }
+    
+    
 }
