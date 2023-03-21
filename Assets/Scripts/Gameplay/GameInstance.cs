@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameInstance : MonoBehaviour
 {
+    public enum GameState
+    {
+        LoadMap,
+        StartGame,
+        GameOver
+    }
+
     public static GameInstance instance;
 
     [Header("Data")]
@@ -13,8 +20,10 @@ public class GameInstance : MonoBehaviour
     public BasePlayerCharacterEntity player;
     public CameraController cameraController;
     public MapGenerator MapGenerator;
+    public WaveManager waveManager;
 
     [Header("Gameplay")]
+    public GameState state;
     public float exp;
     public float playerLevel;
     public List<MonsterCharacterEntity> monsters;
@@ -39,11 +48,24 @@ public class GameInstance : MonoBehaviour
     {
         timeSpawnCounter = 0;
         cameraController.OnSpawnPlayer(player);
+        state = GameState.LoadMap;
     }
 
     private void Update()
     {
 
+    }
+
+    public void StartGame()
+    {
+        state = GameState.StartGame;
+        waveManager.OnNextWave();
+    }
+
+    public void GameOver()
+    {
+        state = GameState.GameOver;
+        UIManager.instance.GameOver();
     }
 
     protected void SpawnPlayer()

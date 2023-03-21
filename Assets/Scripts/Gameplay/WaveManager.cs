@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    public TMP_Text waveTxt;
+    public float showTxtTime;
 
     public int currentWave = 0;
     public int currentEnemyInWave = 0;
@@ -22,18 +22,21 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        OnNextWave();
-    }
-
-    private void Update()
-    {
     }
 
     public void OnNextWave()
     {
         currentWave++;
-        waveTxt.text = "Wave " + currentWave.ToString();
+        UIManager.instance.gameTitleTxt.text = "Wave " + currentWave.ToString();
         SpawnEnemy();
+        StartCoroutine(ShowCO());
+    }
+
+    IEnumerator ShowCO()
+    {
+        UIManager.instance.gameTitleTxt.gameObject.SetActive(true);
+        yield return new WaitForSeconds(showTxtTime);
+        UIManager.instance.gameTitleTxt.gameObject.SetActive(false);
     }
 
     public void OnKilledEnemy()

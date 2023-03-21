@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Zomarmy
   health: 2000
+  gold: 0
   movementSpeed: 2
-  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
   items: []
   exp: 0
   expRate: 0

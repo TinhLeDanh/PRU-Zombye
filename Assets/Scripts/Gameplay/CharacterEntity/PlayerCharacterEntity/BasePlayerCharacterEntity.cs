@@ -18,6 +18,13 @@ public class BasePlayerCharacterEntity : BaseCharacterEntity
         }
     }
 
+    public override void OnDead()
+    {
+        base.OnDead();
+
+        GameInstance.instance.GameOver();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
