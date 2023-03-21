@@ -9,7 +9,6 @@ public class Weapon : Item
     {
         Straight,
         Test,
-
     }
 
     public int damage;
@@ -18,11 +17,34 @@ public class Weapon : Item
     public int projectilePerShoot;
     public float timeBtwShoot;
     public ShootType direction;
+    public float lineRange;
+    public Material lineMaterial;
     public Projectile bullet;
+
+    public void DrawLine(Vector2 originPosition, Vector2 endPosition)
+    {
+        GameObject line = new GameObject();
+        LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
+
+        lineRenderer.material = lineMaterial;
+        lineRenderer.material.color = Color.white;
+        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+
+        lineRenderer.SetPosition(0, new Vector3(originPosition.x, originPosition.y, 0));
+        lineRenderer.SetPosition(1, new Vector3(endPosition.x, endPosition.y, 0));
+    }
 
     public IEnumerator Apply(BaseGameEntity target, BaseGameEntity caster, int damage)
     {
         int projectileCount = 0;
+        if(lineRange > 0 && lineMaterial != null)
+        {
+            float distance = Vector2.Distance(target.transform.position, caster.transform.position);
+            // Vector2 endPosition = target.transform.position - caster.;
+            DrawLine(caster.transform.position, target.transform.position);
+        }
 
         while (projectileCount < projectilePerShoot)
         {

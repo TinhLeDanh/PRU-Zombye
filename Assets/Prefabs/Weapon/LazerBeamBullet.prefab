@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8680909522341382298}
   - component: {fileID: 8680909522341382299}
   m_Layer: 0
-  m_Name: BrickBullet
+  m_Name: LazerBeamBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 2080433637
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
+  m_Sprite: {fileID: 7735609222263424191, guid: 131e485692e27e84c86170dad18cda85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564b7dd0af7675045ae7982d7c084439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direction: 0
-  Speed: 5
+  Direction: 2
+  Speed: 7
   LifeTime: 2
   DestroyOnApply: 1
