@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BaseCharacterEntity : DamageableEntity
 {
+    public float faceDirection = 1;
+
     public LootableItem lootItemPrefab;
     protected CharacterAttackComponent characterAttack;
 
@@ -19,10 +21,13 @@ public class BaseCharacterEntity : DamageableEntity
         return characterData.movementSpeed;
     }
 
+    public void FaceTarget(BaseGameEntity target)
+    {
+        
+    }
+
     public override void OnDead()
     {
         base.OnDead();
-
-        
     }
 }

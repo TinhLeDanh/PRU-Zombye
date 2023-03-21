@@ -270,10 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b96ca717596f84b9b7967b11ef18f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 54cb35f2505f5d84ea9eec893abb94b5, type: 2}
+  data: {fileID: 11400000, guid: 25141675886c0e8468e8096a47db56e4, type: 2}
   target: {fileID: 0}
   ModelController: {fileID: 0}
   _healthbar: {fileID: 8862807882628018853}
+  faceDirection: 1
   lootItemPrefab: {fileID: 8059450389858434097, guid: b6c9777476ef65a47bf1f199acbe613d, type: 3}
 --- !u!114 &4107434795166367473
 MonoBehaviour:
