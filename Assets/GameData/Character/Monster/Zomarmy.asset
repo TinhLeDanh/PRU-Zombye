@@ -18,6 +18,6 @@ MonoBehaviour:
   movementSpeed: 2
   currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
   items: []
-  exp: 0
+  exp: 200
   expRate: 0
   dropItemRate: 0

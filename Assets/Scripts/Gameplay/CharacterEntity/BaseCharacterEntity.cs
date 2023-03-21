@@ -23,17 +23,7 @@ public class BaseCharacterEntity : DamageableEntity
 
     public void FaceTarget(BaseGameEntity target)
     {
-        if (faceDirection == 1 && target.transform.position.x < transform.position.x)
-        {
-            faceDirection = -1;
-            transform.localScale = new Vector2(-1f, 1f);
-        }
-        else if (faceDirection == -1 && target.transform.position.x > transform.position.x)
-        {
-            faceDirection = 1;
-            transform.localScale = new Vector2(1f, 1f);
-
-        }
+        
     }
 
     public override void OnDead()
