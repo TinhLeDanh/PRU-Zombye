@@ -1,0 +1,139 @@
+{
+    "Name": "Tinh",
+    "health": "10000",
+    "gold": "0",
+    "movementSpeed": "4",
+    "currentWeapon": "BrickLv1",
+    "currentRing": "DestructionRingLv3",
+    "currentGloves": "IronGlovesLv1",
+    "currentArmor": "MachineArmorLv1",
+    "currentShoes": "IronshoesLv2",
+    "items": [
+        {
+            "icon": "titanium_shoes",
+            "level": "3",
+            "description": "",
+            "itemType": "Shoes",
+            "itemName": "TitanShoes"
+        },
+        {
+            "icon": "titanium_pants",
+            "level": "1",
+            "description": "",
+            "itemType": "Pant",
+            "itemName": "PantTitan"
+        },
+        {
+            "icon": "ring_destruction",
+            "level": "2",
+            "description": "",
+            "itemType": "Ring",
+            "itemName": "DestructionRing"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "ring_destruction",
+            "level": "2",
+            "description": "",
+            "itemType": "Ring",
+            "itemName": "DestructionRing"
+        },
+        {
+            "icon": "ring_destruction",
+            "level": "3",
+            "description": "",
+            "itemType": "Ring",
+            "itemName": "DestructionRing"
+        },
+        {
+            "icon": "GachLv1",
+            "level": "1",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "Brick"
+        },
+        {
+            "icon": "titanium_shoes",
+            "level": "3",
+            "description": "",
+            "itemType": "Shoes",
+            "itemName": "TitanShoes"
+        },
+        {
+            "icon": "iron_pants",
+            "level": "1",
+            "description": "",
+            "itemType": "Pant",
+            "itemName": "IronPant"
+        },
+        {
+            "icon": "titanium_gloves",
+            "level": "2",
+            "description": "",
+            "itemType": "Gloves",
+            "itemName": "TitaniumGloves"
+        },
+        {
+            "icon": "iron_armor",
+            "level": "2",
+            "description": "",
+            "itemType": "Armor",
+            "itemName": "IronArmor"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        },
+        {
+            "icon": "zyro-image (3)",
+            "level": "2",
+            "description": "",
+            "itemType": "Weapon",
+            "itemName": "PoisonBottle"
+        }
+    ]
+}
