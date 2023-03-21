@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BaseGameEntity : MonoBehaviour
@@ -12,10 +13,13 @@ public class BaseGameEntity : MonoBehaviour
     public BaseGameEntity target;
 
     public ModelController ModelController;
+
+    protected Rigidbody2D rb;
     
     private void Awake()
     {
         InitialRequiredComponents();
+        rb = GetComponent<Rigidbody2D>();
         EntityComponents = GetComponents<IGameEntityComponent>();
         ModelController = GetComponentInChildren<ModelController>();
         Movement = GetComponent<IEntityMovement>();
@@ -96,6 +100,19 @@ public class BaseGameEntity : MonoBehaviour
     }
 
     protected virtual void EntityFixedUpdate() { }
+
+    public void Knockback(float force, Vector2 sender)
+    {
+        
+    }
+
+    IEnumerator KnockBackCO(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        rb.velocity = Vector2.zero;
+
+    }
+
 
     public virtual float GetMoveSpeed()
     {

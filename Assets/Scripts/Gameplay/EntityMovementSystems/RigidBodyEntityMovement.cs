@@ -5,6 +5,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 {
     public enum MovementMode
     {
+        None,
         AutoMoveToTarget,
         WSAD,
         Joystick,

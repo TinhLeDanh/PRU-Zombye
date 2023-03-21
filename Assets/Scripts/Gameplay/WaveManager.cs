@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
+
+    public TMP_Text waveTxt;
 
     public int currentWave = 0;
     public int currentEnemyInWave = 0;
@@ -19,7 +22,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemy();
+        OnNextWave();
     }
 
     private void Update()
@@ -29,6 +32,7 @@ public class WaveManager : MonoBehaviour
     public void OnNextWave()
     {
         currentWave++;
+        waveTxt.text = "Wave " + currentWave.ToString();
         SpawnEnemy();
     }
 
@@ -38,7 +42,6 @@ public class WaveManager : MonoBehaviour
         if(currentEnemyInWave <= 0)
         {
             OnNextWave();
-            Debug.Log(1);
         }
     }
 
