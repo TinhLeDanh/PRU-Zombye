@@ -927,8 +927,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 0}
   exp: 0
   gold: 0
+  item: {fileID: 0}
 --- !u!4 &832156390
 Transform:
   m_ObjectHideFlags: 0
@@ -2513,11 +2515,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.87
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 243
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4aa1439e6a19a4514a84ba1bebc8d03c, type: 2}
   m_TargetDisplay: 0

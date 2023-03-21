@@ -35,11 +35,11 @@ public class Player : Character
         stringData += "\"health\":\"" + health + "\",";
         stringData += "\"gold\":\"" + gold + "\",";
         stringData += "\"movementSpeed\":\"" + movementSpeed + "\",";
-        stringData += "\"currentWeapon\":\"" + currentWeapon.name + "\",";
-        stringData += "\"currentRing\":\"" + currentRing.name + "\",";
-        stringData += "\"currentGloves\":\"" + currentGloves.name + "\",";
-        stringData += "\"currentArmor\":\"" + currentArmor.name + "\",";
-        stringData += "\"currentShoes\":\"" + currentShoes.name + "\",";
+        stringData += "\"currentWeapon\":\"" + currentWeapon?.name + "\",";
+        stringData += "\"currentRing\":\"" + currentRing?.name + "\",";
+        stringData += "\"currentGloves\":\"" + currentGloves?.name + "\",";
+        stringData += "\"currentArmor\":\"" + currentArmor?.name + "\",";
+        stringData += "\"currentShoes\":\"" + currentShoes?.name + "\",";
         var listHave = items;
         stringData += "\"items\":[";
         for(var i =0;i< listHave.Length;i++)
