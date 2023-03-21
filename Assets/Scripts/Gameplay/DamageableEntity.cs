@@ -26,6 +26,7 @@ public class DamageableEntity : BaseGameEntity
         _currentHealth -= damage;
 
         // Hit
+        AudioManager.Play(AudioClipName.BurgerDamage);
         if (_healthbar != null)
         {
             _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
@@ -52,5 +53,6 @@ public class DamageableEntity : BaseGameEntity
     public virtual void OnDead()
     {
         Movement.MovementState = MovementState.Dead;
+        AudioManager.Play(AudioClipName.BurgerDeath);
     }
 }

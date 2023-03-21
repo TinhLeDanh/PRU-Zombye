@@ -21,6 +21,7 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         if (characterAttack.CanAttack())
         {
             characterAttack.Attack();
+            AudioManager.Play(AudioClipName.TeddyShot);
         }
     }
 

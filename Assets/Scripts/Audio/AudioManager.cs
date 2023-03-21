@@ -9,8 +9,7 @@ public static class AudioManager
 {
     static bool initialized = false;
     static AudioSource audioSource;
-    static Dictionary<AudioClipName, AudioClip> audioClips =
-        new Dictionary<AudioClipName, AudioClip>();
+    static Dictionary<AudioClipName, AudioClip> audioClips = new();
 
     /// <summary>
     /// Gets whether or not the audio manager has been initialized
@@ -28,20 +27,13 @@ public static class AudioManager
     {
         initialized = true;
         audioSource = source;
-        audioClips.Add(AudioClipName.BurgerDamage, 
-            Resources.Load<AudioClip>("BurgerDamage"));
-        audioClips.Add(AudioClipName.BurgerDeath,
-            Resources.Load<AudioClip>("BurgerDeath"));
-        audioClips.Add(AudioClipName.BurgerShot,
-            Resources.Load<AudioClip>("BurgerShot"));
-        audioClips.Add(AudioClipName.Explosion,
-             Resources.Load<AudioClip>("Explosion"));
-        audioClips.Add(AudioClipName.MenuButtonClick,
-             Resources.Load<AudioClip>("ButtonClick"));
-        audioClips.Add(AudioClipName.PauseGame,
-              Resources.Load<AudioClip>("ButtonClick"));
-        audioClips.Add(AudioClipName.TeddyShot,
-            Resources.Load<AudioClip>("TeddyShot"));
+        audioClips.Add(AudioClipName.BurgerDamage, Resources.Load<AudioClip>("BurgerDamage"));
+        audioClips.Add(AudioClipName.BurgerDeath, Resources.Load<AudioClip>("BurgerDeath"));
+        audioClips.Add(AudioClipName.BurgerShot, Resources.Load<AudioClip>("BurgerShot"));
+        audioClips.Add(AudioClipName.Explosion, Resources.Load<AudioClip>("Explosion"));
+        audioClips.Add(AudioClipName.MenuButtonClick, Resources.Load<AudioClip>("ButtonClick"));
+        audioClips.Add(AudioClipName.PauseGame, Resources.Load<AudioClip>("ButtonClick"));
+        audioClips.Add(AudioClipName.TeddyShot, Resources.Load<AudioClip>("TeddyShot"));
     }
 
     /// <summary>
