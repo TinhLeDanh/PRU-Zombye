@@ -42,7 +42,7 @@ public class Weapon : Item
         if(lineRange > 0 && lineMaterial != null)
         {
             float distance = Vector2.Distance(target.transform.position, caster.transform.position);
-            Vector2 endPosition = target.transform.position - caster.;
+            // Vector2 endPosition = target.transform.position - caster.;
             DrawLine(caster.transform.position, target.transform.position);
         }
 
