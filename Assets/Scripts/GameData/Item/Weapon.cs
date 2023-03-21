@@ -9,7 +9,6 @@ public class Weapon : Item
     {
         Straight,
         Test,
-
     }
 
     public int damage;
