@@ -15,11 +15,16 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 44a93e814050be14a908895783e5dcde, type: 3}
   level: 4
   description: 
-  itemType: 0
-  itemName: 0
+  itemType: 5
+  itemName: 15
   damage: 250
   cooldown: 2
   projectilePerShoot: 1
+  delayBeforeShoot: 0
   timeBtwShoot: 0.25
-  direction: 1
+  direction: 0
+  lineRange: 0
+  lineLifeTime: 0
+  lineMaterial: {fileID: 0}
+  lineColor: {r: 0, g: 0, b: 0, a: 0}
   bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}

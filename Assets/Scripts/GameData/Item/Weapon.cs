@@ -18,7 +18,7 @@ public class Weapon : Item
     public int projectilePerShoot;
     public float delayBeforeShoot;
     public float timeBtwShoot;
-    public ShootType direction;
+    public ShootType shootType;
     [Header("Line")]
     public float lineRange;
     public float lineLifeTime = 1f;
@@ -57,12 +57,20 @@ public class Weapon : Item
 
         yield return new WaitForSeconds(delayBeforeShoot);
 
-        while (projectileCount < projectilePerShoot)
+        if(shootType == ShootType.Straight)
         {
-            Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
-            projectile.Setup(target, damage, goalPosition);
-            projectileCount++;
-            yield return new WaitForSeconds(timeBtwShoot);
+            while (projectileCount < projectilePerShoot)
+            {
+                Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
+                projectile.Setup(target, damage, goalPosition);
+                projectileCount++;
+                yield return new WaitForSeconds(timeBtwShoot);
+            }
         }
+        else if (shootType == ShootType.Cone)
+        {
+
+        }
+        
     }
 }

@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb67f773ea2d294f8c4c07958d23994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMode: 0
+  movementMode: 1
   stoppingDistance: 3
   joystick: {fileID: 0}
   Animator: {fileID: 0}
