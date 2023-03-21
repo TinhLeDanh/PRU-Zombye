@@ -2476,6 +2476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4603158277333465966, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: f720a71c1a7cfc34abe89db03f82b356, type: 2}
     - target: {fileID: 4603158277333465967, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
       propertyPath: joystick
       value: 

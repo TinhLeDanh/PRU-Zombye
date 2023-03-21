@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Zombye
   health: 1000
   movementSpeed: 1
-  currentWeapon: {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
+  currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
   items: []
   exp: 100
   expRate: 0

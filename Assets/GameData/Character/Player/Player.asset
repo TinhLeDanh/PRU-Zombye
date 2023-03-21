@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Tinh
   health: 10000
+  coin: 100
   movementSpeed: 4
   currentWeapon: {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
   items:

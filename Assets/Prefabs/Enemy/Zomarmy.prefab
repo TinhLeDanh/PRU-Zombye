@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementMode: 0
-  stoppingDistance: 1
+  stoppingDistance: 5
   joystick: {fileID: 0}
   Animator: {fileID: 0}
 --- !u!114 &7163480866740084917

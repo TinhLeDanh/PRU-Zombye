@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     protected BaseGameEntity target;
     private int damage;
     private bool isDestroying;
+    private Vector2 oldGoal;
+    private LayerMask enemyLayer;
 
     private void Start()
     {
@@ -23,6 +25,8 @@ public class Projectile : MonoBehaviour
         this.target = target;
         this.damage = damage;
         isDestroying = false;
+        oldGoal = target.transform.position;
+        enemyLayer = target.gameObject.layer;
     }
 
     private void Update()
@@ -43,21 +47,36 @@ public class Projectile : MonoBehaviour
             return;
         if (Direction == ProjectileDirection.FollowTarget)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, goal, Speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget && !isDestroying)
+            {
+                isDestroying = true;
+                damageableTarget.ApplyDamage(damage);
+                if (DestroyOnApply && isDestroying)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
+        else if (Direction == ProjectileDirection.TargetDirection)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, oldGoal, Speed * Time.deltaTime);
+
+            if (DestroyOnApply && isDestroying)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
-        if(Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget && !isDestroying)
-        {
-            isDestroying = true;
-            damageableTarget.ApplyDamage(damage);
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (DestroyOnApply)
+        if(LayermaskExtensions.Contains(enemyLayer, collision.gameObject))
         {
-            Destroy(this.gameObject);
+
         }
     }
 }
