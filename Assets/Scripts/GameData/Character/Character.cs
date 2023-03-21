@@ -7,6 +7,7 @@ public class Character : BaseGameData
 {
     public string Name;
     public int health;
+    public int coin;
     public float movementSpeed;
     [CanBeNull] public Weapon currentWeapon;
 
