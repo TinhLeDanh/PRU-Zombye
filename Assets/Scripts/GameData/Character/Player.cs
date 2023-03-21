@@ -11,4 +11,16 @@ public class Player : Character
     [CanBeNull] public Armor currentArmor;
     [CanBeNull] public Pant currentPant;
     [CanBeNull] public Shoes currentShoes;
+
+    public void AddGold(int amount)
+    {
+        gold += amount;
+    }
+
+    public void RemoveGold(int amount)
+    {
+        gold -= amount;
+    }
+
+
 }

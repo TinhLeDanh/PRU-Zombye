@@ -6,11 +6,14 @@ using UnityEngine;
 public class LootableItem : MonoBehaviour
 {
     public LayerMask playerLayer;
+    public Player player;
     public int exp;
-
-    public void SetupData(int exp)
+    public int gold;
+    public void SetupData(int exp, int gold)
     {
         this.exp = exp;
+        this.gold = gold;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +21,7 @@ public class LootableItem : MonoBehaviour
         if (LayermaskExtensions.Contains(playerLayer, collision.gameObject))
         {
             LevelSystem.Instance.GainExperienceFlatRate(exp);
+            
             Destroy(this.gameObject);
         }
     }

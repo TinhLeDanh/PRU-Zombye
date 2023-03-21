@@ -21,6 +21,7 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         if (characterAttack.CanAttack())
         {
             characterAttack.Attack();
+            AudioManager.Play(AudioClipName.TeddyShot);
         }
     }
 
@@ -35,7 +36,7 @@ public class MonsterCharacterEntity : BaseCharacterEntity
             data = monsterData;
 
             LootableItem lootableItem = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
-            lootableItem.SetupData(monsterData.exp);
+            lootableItem.SetupData(monsterData.exp, 0);
         }  
     }
 }

@@ -14,6 +14,7 @@ public class BasePlayerCharacterEntity : BaseCharacterEntity
         if (Movement.MovementState == MovementState.None && characterAttack.CanAttack())
         {
             characterAttack.Attack();
+            AudioManager.Play(AudioClipName.BurgerShot);
         }
     }
 
