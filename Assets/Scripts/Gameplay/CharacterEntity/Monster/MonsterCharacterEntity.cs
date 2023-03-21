@@ -35,8 +35,9 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         {
             data = monsterData;
 
+            //drop exp
             LootableItem lootableItem = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
-            lootableItem.SetupData(monsterData.exp, 0);
+            lootableItem.SetupData(monsterData.exp, 0, data.items[0]);
         }  
     }
 }
