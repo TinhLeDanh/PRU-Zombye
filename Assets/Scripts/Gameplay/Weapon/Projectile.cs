@@ -13,7 +13,6 @@ public class Projectile : MonoBehaviour
 
     protected BaseGameEntity target;
     private int damage;
-    private bool isDestroying;
     private Vector2 goalPosition;
     private Vector2 direction;
     private Rigidbody2D rb;
@@ -33,7 +32,6 @@ public class Projectile : MonoBehaviour
         this.target = target;
         this.damage = damage;
         this.goalPosition = goalPosition;
-        isDestroying = false;
         direction = target.transform.position - transform.position;
 
         if (Direction == ProjectileDirection.TargetDirection)
@@ -62,23 +60,10 @@ public class Projectile : MonoBehaviour
         if (Direction == ProjectileDirection.FollowTarget)
         {
             transform.position = Vector3.MoveTowards(transform.position, goal, Speed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, goal) <= 0 && target is DamageableEntity damageableTarget && !isDestroying)
-            {
-                isDestroying = true;
-                damageableTarget.ApplyDamage(damage);
-
-                if (DestroyOnApply && isDestroying)
-                {
-                    Destroy(this.gameObject);
-                }
-            }
         }
         else if (Direction == ProjectileDirection.TargetDirection)
         {
         }
-
-
     }
 
     private void KnockBack()
@@ -95,11 +80,24 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Monster"))
         {
 
-            if (target is DamageableEntity damageableTarget)
+            if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead)
             {
                 damageableTarget.ApplyDamage(damage);
                 //Knockback
                 KnockBack();
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (DestroyOnApply)
+            {
+                if (target is DamageableEntity damageableTarget)
+                {
+                    damageableTarget.ApplyDamage(damage);
+                }
+
+                Destroy(this.gameObject);
             }
         }
     }

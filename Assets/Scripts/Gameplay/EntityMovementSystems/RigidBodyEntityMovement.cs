@@ -66,6 +66,11 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     protected void Movement()
     {
+        if(GameInstance.instance.state != GameInstance.GameState.StartGame)
+        {
+            return;
+        }
+
         if (MovementState == MovementState.Dead)
         {
             return;
@@ -120,14 +125,14 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (horizontalInput > 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
-            transform.localScale = new Vector2(1f, 1f);
+            //transform.localScale = new Vector2(1f, 1f);
             _movementState = MovementState.Right;
             Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
         else if (horizontalInput < 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
-            transform.localScale = new Vector2(-1f, 1f);
+            //transform.localScale = new Vector2(-1f, 1f);
             _movementState = MovementState.Left;
             Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
@@ -194,12 +199,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode is not (MovementMode.Joystick or MovementMode.WSADAndJoystick)) return;
         rb.velocity = new Vector2(joystick.Horizontal * CurrentMoveSpeed, joystick.Vertical * CurrentMoveSpeed);
 
-        transform.localScale = joystick.Horizontal switch
-        {
-            >= 0 => new Vector2(1f, 1f),
-            < 0 => new Vector2(-1f, 1f),
-            _ => transform.localScale
-        };
+        //transform.localScale = joystick.Horizontal switch
+        //{
+        //    >= 0 => new Vector2(1f, 1f),
+        //    < 0 => new Vector2(-1f, 1f)
+        //    ,
+        //    _ => transform.localScale
+        //};
     }
 
     public void SetLookRotation(Quaternion rotation)

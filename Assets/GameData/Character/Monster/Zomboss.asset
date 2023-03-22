@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1961abde385ac045b07ee0f5149ae09, type: 3}
-  m_Name: Zombye
+  m_Name: Zomboss
   m_EditorClassIdentifier: 
-  Name: Zombye
-  health: 1000
-  gold: 0
-  movementSpeed: 1
-  currentWeapon: {fileID: 11400000, guid: 087c86b7d184c7b419651e0db55d87ff, type: 2}
-  items:
-  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
-  exp: 100
+  Name: Zomarmy
+  health: 2000
+  movementSpeed: 2
+  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  items: []
+  exp: 0
   expRate: 0
-  dropItemRate: 0.1
+  dropItemRate: 0

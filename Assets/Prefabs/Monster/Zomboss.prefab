@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 5925243851793627694}
   - component: {fileID: 4107434795166367473}
   - component: {fileID: 7163480866740084917}
+  - component: {fileID: -5506121438665513725}
   m_Layer: 7
   m_Name: Zomboss
   m_TagString: Monster
@@ -274,6 +275,7 @@ MonoBehaviour:
   target: {fileID: 0}
   ModelController: {fileID: 0}
   _healthbar: {fileID: 8862807882628018853}
+  faceDirection: 1
   lootItemPrefab: {fileID: 8059450389858434097, guid: b6c9777476ef65a47bf1f199acbe613d, type: 3}
 --- !u!114 &4107434795166367473
 MonoBehaviour:
@@ -306,6 +308,24 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &-5506121438665513725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925243851793627693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da0505c43063a7408edfd79370fc71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7057562780473780932
 GameObject:
   m_ObjectHideFlags: 0

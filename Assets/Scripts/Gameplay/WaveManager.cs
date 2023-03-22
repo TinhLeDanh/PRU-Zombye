@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    public TMP_Text waveTxt;
+    public float showTxtTime;
 
     public int currentWave = 0;
     public int currentEnemyInWave = 0;
@@ -22,18 +22,21 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        OnNextWave();
-    }
-
-    private void Update()
-    {
     }
 
     public void OnNextWave()
     {
         currentWave++;
-        waveTxt.text = "Wave " + currentWave.ToString();
+        UIManager.instance.gameTitleTxt.text = "Wave " + currentWave.ToString();
         SpawnEnemy();
+        StartCoroutine(ShowCO());
+    }
+
+    IEnumerator ShowCO()
+    {
+        UIManager.instance.gameTitleTxt.gameObject.SetActive(true);
+        yield return new WaitForSeconds(showTxtTime);
+        UIManager.instance.gameTitleTxt.gameObject.SetActive(false);
     }
 
     public void OnKilledEnemy()
@@ -63,7 +66,8 @@ public class WaveManager : MonoBehaviour
         while (amountCounter > 0)
         {
             BasePlayerCharacterEntity player = GameInstance.instance.player;
-            Vector2 spawnPos = Random.insideUnitCircle * player.enemySpawnRadius + (Vector2)player.transform.position;
+            int rand = Random.Range(0, GameInstance.instance.MapGenerator.floorPosition.Count);
+            Vector2 spawnPos = GameInstance.instance.MapGenerator.floorPosition[rand];
             int randIndex = Random.Range(0, gameplayRule.monsterWave.Count - 1);
             BaseGameEntity newEntity = Instantiate(entity, spawnPos, Quaternion.identity);
             StartCoroutine(spawnTimeCO(gameplayRule.TimeSpawnEnemy));

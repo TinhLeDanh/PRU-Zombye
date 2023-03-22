@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,17 @@ public class Item : BaseGameData
     public string description;
     public ItemType itemType;
     public ItemName itemName;
+
+    public string ToJson() {
+
+        return "{" +
+            "\"icon\":\"" + icon.name + "\"," +
+            "\"level\":\"" + level + "\"," +
+            "\"description\":\"" + description + "\"," +
+            "\"itemType\":\"" + itemType + "\"," +
+             "\"itemName\":\"" + itemName + "\"" +
+            "}";
+    }
 }
 public enum ItemType
 {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BaseCharacterEntity : DamageableEntity
 {
+    public float faceDirection = 1;
+
     public LootableItem lootItemPrefab;
     protected CharacterAttackComponent characterAttack;
 
@@ -19,10 +21,26 @@ public class BaseCharacterEntity : DamageableEntity
         return characterData.movementSpeed;
     }
 
+    public void FaceTarget(BaseGameEntity target)
+    {
+        if (faceDirection == 1 && target.transform.position.x < transform.position.x)
+        {
+            faceDirection = -1;
+            transform.localScale = new Vector2(-1f, 1f);
+        }
+        else if (faceDirection == -1 && target.transform.position.x > transform.position.x)
+        {
+            faceDirection = 1;
+            transform.localScale = new Vector2(1f, 1f);
+
+        }
+    }
+
     public override void OnDead()
     {
         base.OnDead();
 
-        
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        boxCollider.enabled = false;
     }
 }
