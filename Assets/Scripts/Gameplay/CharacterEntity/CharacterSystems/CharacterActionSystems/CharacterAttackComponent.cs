@@ -28,6 +28,11 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public override void EntityUpdate()
     {
+        if (GameInstance.instance.state != GameInstance.GameState.StartGame)
+        {
+            return;
+        }
+
         base.EntityUpdate();
 
         if(timeCounter > 0)
@@ -42,15 +47,19 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public bool CanAttack()
     {
-        return attackState == AttackState.None;
+        return attackState == AttackState.None && Entity.Movement.MovementState != MovementState.Dead;
     }
 
     public void Attack()
     {
-        BaseCharacterEntity character = GetNearestTarget();
-        if(character != null)
+        BaseCharacterEntity target = GetNearestTarget();
+        if(target != null)
         {
-            StartCoroutine(weapon.Apply(character, Entity, characterData.currentWeapon.damage));
+            if(Entity is BaseCharacterEntity character)
+            {
+                character.FaceTarget(target);
+            }
+            StartCoroutine(weapon.Apply(target, Entity, characterData.currentWeapon.damage));
             attackState = AttackState.Attacking;
             AudioManager.Play(AudioClipName.BurgerShot);
             timeCounter = weapon.cooldown;

@@ -1,1 +1,0 @@
-Name:Tinh/Health,10000/Movement_speed,4/Current_weapon,Brick/Current_ring,DestructionRing/Current_gloves,IronGloves/Current_armor,IronArmor/Current_shoes,Ironshoes/items,Brick,PoisonBottle,WoodenRuler,DevilRing,DestructionRing,MachineShoes,TitanShoes,DestructionRing,DevilRing,PantTitan,IronPant,TitaniumGloves,MachineArmor,TitanArmor/
