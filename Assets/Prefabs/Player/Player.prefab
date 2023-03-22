@@ -102,7 +102,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
   target: {fileID: 0}
   ModelController: {fileID: 0}
-  _healthbar: {fileID: 0}
+  _healthbar: {fileID: 2308352862448776755}
   faceDirection: 1
   lootItemPrefab: {fileID: 0}
   enemySpawnRadius: 8
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6716714426c1aa04787ad11e006529b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthbarSprite: {fileID: 0}
   maxHealth: 100
   chipSpeed: 2
   frontHealthBar: {fileID: 0}
@@ -264,15 +265,15 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &6663126556091221067
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4603158278640552749}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b94e785757a672479433b9ac1c34ab8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -281,7 +282,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &4603158279055108430
 GameObject:
   m_ObjectHideFlags: 0

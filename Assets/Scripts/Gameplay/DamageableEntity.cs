@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamageableEntity : BaseGameEntity
 {
-    [SerializeField] private HealthBarMonster _healthbar;
+    [SerializeField] private HealthHUD _healthbar;
 
     protected Character characterData;
     private float _currentHealth;

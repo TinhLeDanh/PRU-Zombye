@@ -2,11 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : HealthHUD
 {
-    private float health;
     private float lerpTimer;
-    public int maxHealth = 100;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
@@ -16,21 +14,20 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        health = Mathf.Clamp(health, 0, maxHealth);
-        UpdateHealthUI();
+        // health = Mathf.Clamp(health, 0, maxHealth);
+        // UpdateHealthUI();
     }
 
-    public void UpdateHealthUI()
+    public override void UpdateHealthBar(float maxHealth, float currentHealth)
     {
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
-        float hFraction = health / maxHealth;
+        float hFraction = currentHealth / maxHealth;
         if (fillB > hFraction)
         {
             frontHealthBar.fillAmount = hFraction;
@@ -51,24 +48,24 @@ public class PlayerHealth : MonoBehaviour
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentComplete);
         }
 
-        healthText.text = health + "/" + maxHealth;
+        healthText.text = currentHealth + "/" + maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        // health -= damage;
         lerpTimer = 0f;
     }
 
     public void RestoreHealth(float healAmount)
     {
-        health += healAmount;
+        // health += healAmount;
         lerpTimer = 0f;
     }
 
     public void IncreaseHealth(int level)
     {
-        maxHealth += Mathf.RoundToInt((health * 0.01f) * ((100 - level) * 0.1f));
-        health = maxHealth;
+        // maxHealth += Mathf.RoundToInt((health * 0.01f) * ((100 - level) * 0.1f));
+        // health = maxHealth;
     }
 }
