@@ -47,7 +47,7 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
 
     public bool CanAttack()
     {
-        return attackState == AttackState.None;
+        return attackState == AttackState.None && Entity.Movement.MovementState != MovementState.Dead;
     }
 
     public void Attack()

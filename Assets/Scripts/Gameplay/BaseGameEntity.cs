@@ -15,11 +15,13 @@ public class BaseGameEntity : MonoBehaviour
     public ModelController ModelController;
 
     protected Rigidbody2D rb;
+    protected BoxCollider2D boxCollider;
     
     private void Awake()
     {
         InitialRequiredComponents();
         rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
         EntityComponents = GetComponents<IGameEntityComponent>();
         ModelController = GetComponentInChildren<ModelController>();
         Movement = GetComponent<IEntityMovement>();

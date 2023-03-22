@@ -39,5 +39,8 @@ public class BaseCharacterEntity : DamageableEntity
     public override void OnDead()
     {
         base.OnDead();
+
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        boxCollider.enabled = false;
     }
 }
