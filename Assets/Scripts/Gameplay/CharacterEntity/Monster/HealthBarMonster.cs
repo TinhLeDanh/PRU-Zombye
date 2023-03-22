@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarMonster : MonoBehaviour
+public class HealthBarMonster : HealthHUD
 {
-    [SerializeField] private Image _healthbarSprite;
 
-    public void UpdateHealthBar(float maxHealth, float currentHealth)
+    public override void UpdateHealthBar(float maxHealth, float currentHealth)
     {
         _healthbarSprite.fillAmount = currentHealth / maxHealth;
     }
