@@ -264,8 +264,12 @@ public class Popup : MonoBehaviour
                 LoadEquipment.instance.playerData.currentWeapon = null;
                 break;
         }
-        LoadEquipment.instance.playerData.items = newListItems;
-        SceneManager.LoadSceneAsync("Equipment");
+
+        if (newListItems[0] is not null)
+        {
+            LoadEquipment.instance.playerData.items = newListItems;
+            SceneManager.LoadSceneAsync("Equipment");
+        }
     }
 
     public void ClickArmor()
