@@ -134,9 +134,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   player: {fileID: 11400000, guid: 980e8ee79bcdb2c4da50437c0f697eb3, type: 2}
+  spriteRenderer: {fileID: 1585458228}
   exp: 0
   gold: 0
   item: {fileID: 0}
+  expSprite: {fileID: 1775669009216684005, guid: a2c110585eb710b408972fbc3b96136d, type: 3}
+  goldSprite: {fileID: 243724047, guid: 990ab1d496937ef488b0e20ef056103c, type: 3}
 --- !u!61 &-8588675572094108520
 BoxCollider2D:
   m_ObjectHideFlags: 0

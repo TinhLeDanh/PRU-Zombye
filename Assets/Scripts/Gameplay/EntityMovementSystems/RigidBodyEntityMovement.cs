@@ -19,7 +19,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     [SerializeField]
     private FixedJoystick joystick;
 
-
+    private BaseCharacterEntity characterEntity;
     private Rigidbody2D rb;
 
     public Animator Animator;
@@ -50,6 +50,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     private bool _moving;
     private MovementState _movementState;
+
+    public override void EntityAwake()
+    {
+        base.EntityAwake();
+
+        characterEntity = GetComponent<BaseCharacterEntity>();
+    }
 
     public override void EntityStart()
     {
@@ -125,7 +132,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (horizontalInput > 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
-            //transform.localScale = new Vector2(1f, 1f);
+            // transform.localScale = new Vector2(1f, 1f);
+            characterEntity.FaceRight();
             _movementState = MovementState.Right;
             Animator.SetFloat("Speed", CurrentMoveSpeed);
         }
@@ -133,6 +141,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
             //transform.localScale = new Vector2(-1f, 1f);
+            characterEntity.FaceLeft();
             _movementState = MovementState.Left;
             Animator.SetFloat("Speed", CurrentMoveSpeed);
         }

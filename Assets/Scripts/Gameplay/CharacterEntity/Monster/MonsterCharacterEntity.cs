@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterCharacterEntity : BaseCharacterEntity
@@ -34,29 +33,38 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         if (characterData is Monster monsterData)
         {
             data = monsterData;
-            
-            if (data.items.Length > 0)
+
+            if (data.items != null)
             {
-                //drop item
-                var lootableItem = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
-                lootableItem.SetupData(0, 0, data.items[0]);
-                Debug.Log("item: " + data.items[0].itemName);
+                var rand = (float)Random.Range(1, 101) / 100;
+                if (data.dropItemRate >= rand)
+                {
+                    //drop item
+                    var randItem = Random.Range(0, data.items.Length);
+                    var lootableItem = Instantiate(lootItemPrefab,
+                        transform.position + new Vector3(-0.25f, -0.25f, 0), Quaternion.identity);
+                    lootableItem.SetupData(0, 0, data.items[randItem]);
+                }
             }
 
             if (data.gold > 0)
             {
                 // drop gold
-                var lootableGold = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
-                lootableGold.SetupData(0, data.gold, null);
-                Debug.Log("gold: " + data.gold);
+                var randRateGold = (float)Random.Range(1, 101) / 100;
+                if (randRateGold <= data.dropGoldRate)
+                {
+                    LootableItem lootableGold = Instantiate(lootItemPrefab,
+                        transform.position + new Vector3(0.25f, 0.25f, 0), Quaternion.identity);
+                    lootableGold.SetupData(0, data.gold, null);
+                }
             }
 
             if (data.exp > 0)
             {
-                // drop exp
-                var lootableExp = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
+                // // drop exp
+                var lootableExp = Instantiate(lootItemPrefab,
+                    transform.position + new Vector3(0.25f, -0.25f, 0), Quaternion.identity);
                 lootableExp.SetupData(data.exp, 0, null);
-                Debug.Log("exp: " + data.exp);
             }
         }
     }

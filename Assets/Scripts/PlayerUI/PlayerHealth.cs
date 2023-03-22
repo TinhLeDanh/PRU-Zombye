@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerHealth : HealthHUD
 {
@@ -10,18 +10,6 @@ public class PlayerHealth : HealthHUD
     public Image backHealthBar;
 
     public TextMeshProUGUI healthText;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // health = Mathf.Clamp(health, 0, maxHealth);
-        // UpdateHealthUI();
-    }
 
     public override void UpdateHealthBar(float maxHealth, float currentHealth)
     {
@@ -34,7 +22,7 @@ public class PlayerHealth : HealthHUD
             backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / chipSpeed;
-            percentComplete = percentComplete * percentComplete;
+            percentComplete *= percentComplete;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
         }
 
@@ -49,23 +37,5 @@ public class PlayerHealth : HealthHUD
         }
 
         healthText.text = currentHealth + "/" + maxHealth;
-    }
-
-    public void TakeDamage(float damage)
-    {
-        // health -= damage;
-        lerpTimer = 0f;
-    }
-
-    public void RestoreHealth(float healAmount)
-    {
-        // health += healAmount;
-        lerpTimer = 0f;
-    }
-
-    public void IncreaseHealth(int level)
-    {
-        // maxHealth += Mathf.RoundToInt((health * 0.01f) * ((100 - level) * 0.1f));
-        // health = maxHealth;
     }
 }

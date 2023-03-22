@@ -49,6 +49,12 @@ public class DamageableEntity : BaseGameEntity
             Destroy(gameObject, 5f);
         }
     }
+    
+    public void IncreaseHealth(int level)
+    {
+        _maxHealth += Mathf.RoundToInt((_currentHealth * 0.01f) * ((100 - level) * 0.1f));
+        _currentHealth = _maxHealth;
+    }
 
     public virtual void OnDead()
     {
