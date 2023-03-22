@@ -9,6 +9,8 @@ public class LoadGameDataAll : MonoBehaviour
 
     public Player playerData;
 
+    public Item itemOpen;
+
     private void Awake()
     {
         if (instance == null)
