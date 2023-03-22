@@ -149,8 +149,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2080433637
-  m_SortingLayer: 0
+  m_SortingLayerID: 725354351
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4082533841450027793
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -182,7 +182,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &2165926634793940192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 54cb35f2505f5d84ea9eec893abb94b5, type: 2}
   target: {fileID: 0}
-  ModelController: {fileID: 0}
+  ModelController: {fileID: 2165926634793940192}
   _healthbar: {fileID: 8862807882628018853}
+  faceDirection: 1
   lootItemPrefab: {fileID: 8059450389858434097, guid: b6c9777476ef65a47bf1f199acbe613d, type: 3}
 --- !u!114 &4107434795166367473
 MonoBehaviour:

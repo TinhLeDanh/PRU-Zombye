@@ -43,4 +43,8 @@ public class GameConst
     public const string Gloves_FileName = "Gloves";
     public const string Gloves_MenuName = "GameData/Item/Gloves";
     public const int Gloves_Order = -996;
+    
+    public const string LootItem_FileName = "LootItem";
+    public const string LootItem_MenuName = "GameData/Item/LootItem";
+    public const int LootItem_Order = -996;
 }

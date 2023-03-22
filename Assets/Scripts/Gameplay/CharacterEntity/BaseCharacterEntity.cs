@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseCharacterEntity : DamageableEntity
@@ -26,16 +27,27 @@ public class BaseCharacterEntity : DamageableEntity
         if (faceDirection == 1 && target.transform.position.x < transform.position.x)
         {
             faceDirection = -1;
-            transform.localScale = new Vector2(-1f, 1f);
+            ModelController.transform.localScale *= new Vector2(-1f, 1f);
         }
         else if (faceDirection == -1 && target.transform.position.x > transform.position.x)
         {
             faceDirection = 1;
-            transform.localScale = new Vector2(1f, 1f);
-
+            ModelController.transform.localScale *= new Vector2(1f, 1f);
         }
     }
 
+    public void FaceRight()
+    {
+        faceDirection = 1;
+        ModelController.transform.localScale *= new Vector2(1f, 1f);
+    }
+
+    public void FaceLeft()
+    {
+        faceDirection = -1;
+        ModelController.transform.localScale *= new Vector2(-1f, 1f);
+    }
+    
     public override void OnDead()
     {
         base.OnDead();
