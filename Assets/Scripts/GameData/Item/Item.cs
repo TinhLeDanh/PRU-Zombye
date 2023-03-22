@@ -11,6 +11,7 @@ public class Item : BaseGameData
     public string description;
     public ItemType itemType;
     public ItemName itemName;
+    public int dropChance;
 }
 public enum ItemType
 {
