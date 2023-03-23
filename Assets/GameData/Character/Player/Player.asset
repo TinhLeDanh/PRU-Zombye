@@ -12,34 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a4ae73b01b1c04f946db61aec7b2d4, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Name: Tinh
-  health: 10000
-  gold: 200
+  Name: SonNT
+  health: 5000
+  gold: 209
   movementSpeed: 4
-  currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
-  items:
-  - {fileID: 11400000, guid: a3d1925f3883cf74ba5bc2c516e5907b, type: 2}
-  - {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
-  - {fileID: 11400000, guid: b00416b3bf8d55c44add02ee8825e556, type: 2}
-  - {fileID: 11400000, guid: 3bf023124605a7c4c9ee28b03ea9c448, type: 2}
-  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
-  - {fileID: 11400000, guid: 578a519195a94724789cbd2b3f2ecbd3, type: 2}
-  - {fileID: 11400000, guid: a3d1925f3883cf74ba5bc2c516e5907b, type: 2}
-  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
-  - {fileID: 11400000, guid: a9ba3d3c05d124947baa0b1bca4d7b22, type: 2}
-  - {fileID: 11400000, guid: 11651a9775bb05b4c8b3c3d76d1bb358, type: 2}
-  - {fileID: 11400000, guid: 9ab1f1f1b7ac3544d8f8f9ab8230ff2b, type: 2}
-  - {fileID: 11400000, guid: 44acf3b26a70e9244b26ad64e11c9b01, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  - {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
-  - {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
-  - {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
-  - {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
-  - {fileID: 11400000, guid: 9db651064cfa17042a808cfe34629cf4, type: 2}
-  - {fileID: 11400000, guid: 44acf3b26a70e9244b26ad64e11c9b01, type: 2}
-  - {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  items: []
   currentRing: {fileID: 0}
   currentGloves: {fileID: 0}
   currentArmor: {fileID: 0}
