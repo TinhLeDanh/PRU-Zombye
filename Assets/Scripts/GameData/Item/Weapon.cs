@@ -18,7 +18,6 @@ public class Weapon : Item
     public int projectilePerShoot;
     public float delayBeforeShoot;
     public float timeBtwShoot;
-    public ShootType shootType;
     [Header("Line")]
     public float lineRange;
     public float lineLifeTime = 1f;
@@ -46,7 +45,7 @@ public class Weapon : Item
     public IEnumerator Apply(BaseGameEntity target, BaseGameEntity caster, int damage)
     {
         int projectileCount = 0;
-        if(lineRange > 0 && lineMaterial != null)
+        if (lineRange > 0 && lineMaterial != null)
         {
             float distance = Vector2.Distance(target.transform.position, caster.transform.position);
             Vector2 endPosition = target.transform.position - caster.transform.position;
@@ -57,20 +56,12 @@ public class Weapon : Item
 
         yield return new WaitForSeconds(delayBeforeShoot);
 
-        if(shootType == ShootType.Straight)
+        while (projectileCount < projectilePerShoot)
         {
-            while (projectileCount < projectilePerShoot)
-            {
-                Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
-                projectile.Setup(target, damage, goalPosition);
-                projectileCount++;
-                yield return new WaitForSeconds(timeBtwShoot);
-            }
+            Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
+            projectile.Setup(target, damage, goalPosition);
+            projectileCount++;
+            yield return new WaitForSeconds(timeBtwShoot);
         }
-        else if (shootType == ShootType.Cone)
-        {
-
-        }
-        
     }
 }

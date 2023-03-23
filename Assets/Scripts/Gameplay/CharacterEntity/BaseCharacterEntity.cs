@@ -39,15 +39,21 @@ public class BaseCharacterEntity : DamageableEntity
     public void FaceRight()
     {
         faceDirection = 1;
-        ModelController.transform.localScale *= new Vector2(1f, 1f);
+        if (ModelController.transform.localScale.x > 0)
+            ModelController.transform.localScale *= new Vector2(1f, 1f);
+        else
+            ModelController.transform.localScale *= new Vector2(-1f, 1f);
     }
 
     public void FaceLeft()
     {
         faceDirection = -1;
-        ModelController.transform.localScale *= new Vector2(-1f, 1f);
+        if (ModelController.transform.localScale.x < 0)
+            ModelController.transform.localScale *= new Vector2(1f, 1f);
+        else
+            ModelController.transform.localScale *= new Vector2(-1f, 1f);
     }
-    
+
     public override void OnDead()
     {
         base.OnDead();
