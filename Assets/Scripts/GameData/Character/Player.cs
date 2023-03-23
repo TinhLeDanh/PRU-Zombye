@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -151,7 +152,9 @@ public class Player : Character
 
     public void AddItem(Item item)
     {
-        items[items.Length] = item;
+        Array.Resize(ref items, items.Length + 1); // Tăng kích thước mảng lên 1
+        Array.Copy(items, 0, items, 1, items.Length - 1);
+        items[0] = item;
     }
 
     public void RemoveGold(int amount)
