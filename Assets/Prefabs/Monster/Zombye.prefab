@@ -173,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 5925243850832734213}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56dd2955f623eb640b771734966246ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -314,7 +314,6 @@ MonoBehaviour:
   movementMode: 1
   stoppingDistance: 3
   joystick: {fileID: 0}
-  Animator: {fileID: 0}
 --- !u!114 &7163480866740084917
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.336, y: -51.541}
+  m_AnchoredPosition: {x: -2.374, y: -51.560017}
   m_SizeDelta: {x: 588.93, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205283615
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.089090854, b: 0, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2181,7 +2181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.354, y: -51.564}
+  m_AnchoredPosition: {x: -2.344, y: -51.564}
   m_SizeDelta: {x: 597.015, y: 113.865}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327043339
@@ -2982,5 +2982,13 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1905139513}
+    - target: {fileID: 4603158278640552747, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603158278640552747, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cb4cf2fd3671a48b3a8de98e2c3aad, type: 3}

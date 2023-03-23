@@ -15,15 +15,14 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     [Header("Setting")] public MovementMode movementMode;
     public float stoppingDistance = 1f;
 
-    [Header("Joystick Setting")]
-    [SerializeField]
+    [Header("Joystick Setting")] [SerializeField]
     private FixedJoystick joystick;
 
     private BaseCharacterEntity characterEntity;
     private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer sprite;
 
-    public Animator Animator;
-    
     public float StoppingDistance
     {
         get { return this.stoppingDistance; }
@@ -31,19 +30,13 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     public MovementState MovementState
     {
-        get
-        {
-            return _movementState;
-        }
+        get { return _movementState; }
         set { _movementState = value; }
     }
 
     public float CurrentMoveSpeed
     {
-        get
-        {
-            return Entity.GetMoveSpeed();
-        }
+        get { return Entity.GetMoveSpeed(); }
     }
 
     private Vector2 _lastClickedPos;
@@ -62,6 +55,8 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
     {
         base.EntityStart();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     public override void EntityUpdate()
@@ -73,7 +68,7 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
     protected void Movement()
     {
-        if(GameInstance.instance.state != GameInstance.GameState.StartGame)
+        if (GameInstance.instance.state != GameInstance.GameState.StartGame)
         {
             return;
         }
@@ -125,25 +120,24 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode is not (MovementMode.WSAD or MovementMode.WSADAndJoystick)) return;
         var position = transform.position;
 
-        Animator.SetFloat("Speed", 0);
-
         // get new horizontal position
         var horizontalInput = Input.GetAxis("Horizontal");
-        if (horizontalInput > 0)
+        if (horizontalInput != 0)
         {
             position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
-            // transform.localScale = new Vector2(1f, 1f);
-            characterEntity.FaceRight();
-            _movementState = MovementState.Right;
-            Animator.SetFloat("Speed", CurrentMoveSpeed);
-        }
-        else if (horizontalInput < 0)
-        {
-            position.x += horizontalInput * CurrentMoveSpeed * Time.deltaTime;
-            //transform.localScale = new Vector2(-1f, 1f);
-            characterEntity.FaceLeft();
-            _movementState = MovementState.Left;
-            Animator.SetFloat("Speed", CurrentMoveSpeed);
+            anim.SetBool("IsRunning", true);
+            if (horizontalInput > 0)
+            {
+                // transform.localScale = new Vector2(1f, 1f);
+                characterEntity.FaceRight();
+                _movementState = MovementState.Right;
+            }
+            else if (horizontalInput < 0)
+            {
+                //transform.localScale = new Vector2(-1f, 1f);
+                characterEntity.FaceLeft();
+                _movementState = MovementState.Left;
+            }
         }
 
         // get new vertical position
@@ -151,22 +145,21 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (verticalInput != 0)
         {
             position.y += verticalInput * CurrentMoveSpeed * Time.deltaTime;
-            if (verticalInput >= 0)
+            anim.SetBool("IsRunning", true);
+            if (verticalInput > 0)
             {
                 _movementState = MovementState.Forward;
-                Animator.SetFloat("Speed", CurrentMoveSpeed);
             }
             else if (verticalInput < 0)
             {
                 _movementState = MovementState.Backward;
-                Animator.SetFloat("Speed", CurrentMoveSpeed);
             }
         }
 
         if (horizontalInput == 0 && verticalInput == 0)
         {
             _movementState = MovementState.None;
-            Animator.SetFloat("Speed", 0);
+            anim.SetBool("IsRunning", false);
         }
 
         // move and clamp in screen
@@ -208,13 +201,45 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
         if (movementMode is not (MovementMode.Joystick or MovementMode.WSADAndJoystick)) return;
         rb.velocity = new Vector2(joystick.Horizontal * CurrentMoveSpeed, joystick.Vertical * CurrentMoveSpeed);
 
-        //transform.localScale = joystick.Horizontal switch
-        //{
-        //    >= 0 => new Vector2(1f, 1f),
-        //    < 0 => new Vector2(-1f, 1f)
-        //    ,
-        //    _ => transform.localScale
-        //};
+        var horizontal = joystick.Horizontal;
+        var vertical = joystick.Vertical;
+
+        Debug.Log("horizontal: " + horizontal);
+        
+        if (horizontal != 0)
+        {
+            Debug.Log("horizontal: " + horizontal);
+            anim.SetBool("IsRunning", true);
+            if (horizontal > 0)
+            {
+                characterEntity.FaceRight();
+                _movementState = MovementState.Right;
+            }
+            else if (horizontal < 0)
+            {
+                characterEntity.FaceLeft();
+                _movementState = MovementState.Left;
+            }
+        }
+
+        if (vertical != 0)
+        {
+            anim.SetBool("IsRunning", true);
+            if (vertical > 0)
+            {
+                _movementState = MovementState.Forward;
+            }
+            else if (vertical < 0)
+            {
+                _movementState = MovementState.Backward;
+            }
+        }
+
+        if (horizontal == 0 && vertical == 0)
+        {
+            _movementState = MovementState.None;
+            anim.SetBool("IsRunning", false);
+        }
     }
 
     public void SetLookRotation(Quaternion rotation)
