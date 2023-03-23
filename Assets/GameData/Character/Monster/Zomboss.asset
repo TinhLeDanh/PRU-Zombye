@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 4000
   gold: 100
   movementSpeed: 2
-  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: e1cf0ee8ad0e66d4dbf3645dc625421a, type: 2}
   items:
   - {fileID: 11400000, guid: 6ada34272400d8a42951024739bea5c5, type: 2}
   - {fileID: 11400000, guid: 8b5cd23a726047542ae3357b48300b69, type: 2}
@@ -39,3 +39,4 @@ MonoBehaviour:
   exp: 0
   expRate: 0
   dropItemRate: 0
+  dropGoldRate: 0.5

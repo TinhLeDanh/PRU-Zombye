@@ -38,6 +38,11 @@ public class UIManager : MonoBehaviour
         restartBtn.gameObject.SetActive(true);
     }
 
+    public void BackHomeScene()
+    {
+        SceneManager.LoadSceneAsync("GameplayScene");
+    }
+
     public void Restart()
     {
         SceneManager.LoadSceneAsync("GameplayScene");

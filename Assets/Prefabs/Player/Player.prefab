@@ -36,7 +36,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4603158278640552748}
-  - {fileID: 4603158279055108429}
   - {fileID: 456721559877495067}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,7 +121,6 @@ MonoBehaviour:
   movementMode: 4
   stoppingDistance: 1
   joystick: {fileID: 0}
-  Animator: {fileID: 6663126556091221067}
 --- !u!114 &4603158277333465936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +208,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4603158279055108429}
   m_Father: {fileID: 4603158277333465939}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -268,7 +267,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &6663126556091221067
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -285,7 +284,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1117489723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,13 +321,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4603158279055108430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1148, y: -0.1503, z: 0}
-  m_LocalScale: {x: 0.38751563, y: 0.075759955, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05739975, y: -0.075149536, z: 0}
+  m_LocalScale: {x: 0.19375782, y: 0.037879977, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4603158277333465939}
-  m_RootOrder: 1
+  m_Father: {fileID: 4603158278640552748}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4603158279055108428
 SpriteRenderer:
@@ -413,7 +412,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4603158277333465939}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
