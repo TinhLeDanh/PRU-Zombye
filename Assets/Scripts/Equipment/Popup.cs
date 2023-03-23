@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
@@ -94,6 +95,8 @@ public class Popup : MonoBehaviour
             newListItems[0] = newItem;
             LoadEquipment.instance.playerData.items = newListItems;
             // ChangeUnify(null, 0);
+            // StartCoroutine(LoadSceneWithDelay("ItemMerge"));
+            // Thread.Sleep(1000);
             SceneManager.LoadSceneAsync("ItemMerge");
         }
     }
@@ -297,5 +300,15 @@ public class Popup : MonoBehaviour
         typeBtnClick = ItemType.Weapon;
     }
     
-    
+    IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(2f); // Wait for the delay time
+ 
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+ 
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }

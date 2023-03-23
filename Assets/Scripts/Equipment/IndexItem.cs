@@ -10,30 +10,25 @@ public class IndexItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //switch (statusIndexItem)
-        //{
-        //    case StatusIndexItem.Armor:
-        //        if(LoadEquipment.instance.playerData.currentArmor)
-        //            indexItem.text = LoadEquipment.instance.playerData.currentArmor.armor.ToString();
-        //        break;
-        //    case StatusIndexItem.Speed:
-        //        if(LoadEquipment.instance.playerData.currentShoes)
-        //            indexItem.text = LoadEquipment.instance.playerData.currentShoes.speed.ToString();
-        //        break;
-        //    case StatusIndexItem.Hp:
-        //        if(LoadEquipment.instance.playerData.currentPant)
-        //            indexItem.text = LoadEquipment.instance.playerData.currentPant.hp.ToString();
-        //        break;
-        //    case StatusIndexItem.CriticalRate:
-        //        if(LoadEquipment.instance.playerData.currentGloves)
-        //            indexItem.text = LoadEquipment.instance.playerData.currentGloves.criticalRate+"%";
-        //        break;
-        //    case StatusIndexItem.Damage:
-        //        if(LoadEquipment.instance.playerData.currentWeapon&&LoadEquipment.instance.playerData.currentRing)
-        //            indexItem.text = (LoadEquipment.instance.playerData.currentWeapon.damage
-        //                          +LoadEquipment.instance.playerData.currentRing.damage).ToString();
-        //        break;
-        //}
+        switch (statusIndexItem)
+        {
+            case StatusIndexItem.Armor:
+                indexItem.text = LoadEquipment.instance.playerData.GetArmor().ToString();
+                break;
+            case StatusIndexItem.Speed:
+                indexItem.text = LoadEquipment.instance.playerData.GetSpeed()+"";
+                break;
+            case StatusIndexItem.Hp:
+                indexItem.text = LoadEquipment.instance.playerData.GetHealth().ToString();
+                break;
+            case StatusIndexItem.CriticalRate:
+                if(LoadEquipment.instance.playerData.currentGloves)
+                        indexItem.text = LoadEquipment.instance.playerData.currentGloves.critRate+"%";
+                break;
+            case StatusIndexItem.Damage:
+                indexItem.text = LoadEquipment.instance.playerData.GetDamage().ToString();
+                break;
+        }
     }
 
     // Update is called once per frame

@@ -19,9 +19,21 @@ MonoBehaviour:
   inceraseHpEachLevel: 0.2
   inceraseDamageEachLevel: 0.1
   currentWeapon: {fileID: 11400000, guid: be92f0f27556af645814785c3bc7bbe5, type: 2}
-  items: []
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9ab1f1f1b7ac3544d8f8f9ab8230ff2b, type: 2}
+  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  - {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
+  - {fileID: 11400000, guid: 9db01e627a7c948499df55eb50b843fb, type: 2}
+  - {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
   currentRing: {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}
   currentGloves: {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
-  currentArmor: {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
+  currentArmor: {fileID: 11400000, guid: a3d1925f3883cf74ba5bc2c516e5907b, type: 2}
   currentPant: {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
   currentShoes: {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
