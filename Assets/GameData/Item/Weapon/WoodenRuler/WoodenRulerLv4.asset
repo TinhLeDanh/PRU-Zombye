@@ -18,8 +18,16 @@ MonoBehaviour:
   itemType: 5
   itemName: 17
   damage: 400
+  armor: 0
+  health: 0
+  speed: 0
+  critRate: 0
   cooldown: 1
   projectilePerShoot: 0
+  delayBeforeShoot: 0
   timeBtwShoot: 0
-  direction: 1
-  bullet: {fileID: 0}
+  lineRange: 0
+  lineLifeTime: 1
+  lineMaterial: {fileID: 0}
+  lineColor: {r: 0, g: 0, b: 0, a: 0}
+  bullet: {fileID: 8680909522341382299, guid: 7395f0a2d921aba499a285888d469881, type: 3}
