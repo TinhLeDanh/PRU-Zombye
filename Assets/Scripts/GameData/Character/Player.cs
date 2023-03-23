@@ -149,6 +149,11 @@ public class Player : Character
         gold += amount;
     }
 
+    public void AddItem(Item item)
+    {
+        items[items.Length] = item;
+    }
+
     public void RemoveGold(int amount)
     {
         gold -= amount;
