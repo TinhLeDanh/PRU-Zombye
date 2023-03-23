@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void BackHomeScene()
     {
-        SceneManager.LoadSceneAsync("GameplayScene");
+        SceneManager.LoadSceneAsync("Menu");
     }
 
     public void Restart()
