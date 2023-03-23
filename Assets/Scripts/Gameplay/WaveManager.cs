@@ -26,6 +26,11 @@ public class WaveManager : MonoBehaviour
 
     public void OnNextWave()
     {
+        if(GameInstance.instance.state == GameInstance.GameState.LoadMap)
+        {
+            return;
+        }
+
         currentWave++;
         UIManager.instance.gameTitleTxt.text = "Wave " + currentWave.ToString();
         SpawnEnemy();
@@ -50,6 +55,11 @@ public class WaveManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        if (GameInstance.instance.state != GameInstance.GameState.StartGame)
+        {
+            return;
+        }
+
         foreach (MonsterWave monsterWave in gameplayRule.monsterWave)
         {
             if (currentWave % monsterWave.spawnRange == 0)
@@ -62,6 +72,11 @@ public class WaveManager : MonoBehaviour
 
     protected void Spawn(BaseGameEntity entity, int amount)
     {
+        if (GameInstance.instance.state != GameInstance.GameState.StartGame)
+        {
+            return;
+        }
+
         int amountCounter = amount;
         while (amountCounter > 0)
         {

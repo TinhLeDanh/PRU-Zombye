@@ -56,6 +56,12 @@ public class GameInstance : MonoBehaviour
 
     }
 
+    public void MapLoaded()
+    {
+        UIManager.instance.MapLoaded();
+        StartGame();
+    }
+
     public void StartGame()
     {
         state = GameState.StartGame;
