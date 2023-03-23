@@ -45,6 +45,7 @@ public class LootableItem : MonoBehaviour
         {
             LevelSystem.Instance.GainExperienceFlatRate(exp);
             player.AddGold(gold);
+            player.AddItem(item);
             Destroy(this.gameObject);
         }
     }
