@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public float force;
     public float forceTime;
     public bool DestroyOnApply = true;
+    public GameObject explosionPrefab;
 
     protected BaseGameEntity target;
     private int damage;
@@ -43,7 +44,6 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-
     }
 
     private void FixedUpdate()
@@ -79,9 +79,9 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Monster"))
         {
-
             if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead)
             {
+                Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
                 damageableTarget.ApplyDamage(damage);
                 //Knockback
                 KnockBack();
@@ -94,6 +94,7 @@ public class Projectile : MonoBehaviour
             {
                 if (target is DamageableEntity damageableTarget)
                 {
+                    Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
                     damageableTarget.ApplyDamage(damage);
                 }
 
