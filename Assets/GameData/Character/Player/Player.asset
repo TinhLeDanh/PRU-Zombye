@@ -14,23 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SonNT
   health: 5000
-  gold: 1
+  gold: 210
   movementSpeed: 4
-  currentWeapon: {fileID: 11400000, guid: 21f7db85d09aad54692cecd8682bc0b5, type: 2}
-  items:
-  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
-  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
-  - {fileID: 11400000, guid: 6ada34272400d8a42951024739bea5c5, type: 2}
-  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
-  - {fileID: 11400000, guid: 49afa3fe999a34241bf39e1a3b594039, type: 2}
-  - {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
-  currentRing: {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}
-  currentGloves: {fileID: 11400000, guid: 0a2d34ed950b2be45a46861e62a9c89b, type: 2}
-  currentArmor: {fileID: 11400000, guid: f7107eb10b3003f4fbe9ee469e77f45a, type: 2}
-  currentPant: {fileID: 11400000, guid: 4dbe60578f3710042b89a55259f78dbc, type: 2}
-  currentShoes: {fileID: 11400000, guid: c21c0c35462d2e443a72fed4b16969e4, type: 2}
+  currentWeapon: {fileID: 11400000, guid: be92f0f27556af645814785c3bc7bbe5, type: 2}
+  items: []
+  currentRing: {fileID: 0}
+  currentGloves: {fileID: 0}
+  currentArmor: {fileID: 0}
+  currentPant: {fileID: 0}
+  currentShoes: {fileID: 0}

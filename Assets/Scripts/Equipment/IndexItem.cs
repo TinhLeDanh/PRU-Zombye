@@ -13,29 +13,20 @@ public class IndexItem : MonoBehaviour
         switch (statusIndexItem)
         {
             case StatusIndexItem.Armor:
-                if(LoadEquipment.instance.playerData.currentArmor)
-                    indexItem.text = LoadEquipment.instance.playerData.currentArmor.armor.ToString();
+                indexItem.text = LoadEquipment.instance.playerData.GetArmor().ToString();
                 break;
             case StatusIndexItem.Speed:
-                if(LoadEquipment.instance.playerData.currentShoes)
-                    indexItem.text = LoadEquipment.instance.playerData.currentShoes.speed.ToString();
+                indexItem.text = LoadEquipment.instance.playerData.GetSpeed()+"";
                 break;
             case StatusIndexItem.Hp:
-                if(LoadEquipment.instance.playerData.currentPant)
-                    indexItem.text = LoadEquipment.instance.playerData.currentPant.hp.ToString();
+                indexItem.text = LoadEquipment.instance.playerData.GetHealth().ToString();
                 break;
             case StatusIndexItem.CriticalRate:
                 if(LoadEquipment.instance.playerData.currentGloves)
-                    indexItem.text = LoadEquipment.instance.playerData.currentGloves.criticalRate+"%";
+                        indexItem.text = LoadEquipment.instance.playerData.currentGloves.critRate+"%";
                 break;
             case StatusIndexItem.Damage:
-                var dameWeapon = 0;
-                var dameRing = 0;
-                if (LoadEquipment.instance.playerData.currentWeapon)
-                    dameWeapon = LoadEquipment.instance.playerData.currentWeapon.damage;
-                if (LoadEquipment.instance.playerData.currentRing)
-                    dameRing = LoadEquipment.instance.playerData.currentRing.damage;
-                indexItem.text = (dameRing + dameWeapon).ToString();
+                indexItem.text = LoadEquipment.instance.playerData.GetDamage().ToString();
                 break;
         }
     }

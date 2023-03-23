@@ -14,7 +14,8 @@ public class DamageableEntity : BaseGameEntity
 
         if (data is Character newData)
             characterData = newData;
-        _maxHealth = characterData.health;
+
+        _maxHealth = characterData.GetHealth();
         _currentHealth = _maxHealth;
 
         if (_healthbar != null)
@@ -23,7 +24,7 @@ public class DamageableEntity : BaseGameEntity
 
     public void ApplyDamage(int damage)
     {
-        _currentHealth -= damage;
+        _currentHealth -= (damage - characterData.GetArmor());
 
         // Hit
         // AudioManager.Play(AudioClipName.BurgerDamage);

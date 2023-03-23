@@ -153,6 +153,7 @@ MonoBehaviour:
   force: 0
   forceTime: 0
   DestroyOnApply: 1
+  explosionPrefab: {fileID: 1525050621013412, guid: 73b1408660a9d3f429d184cd82d8016a, type: 3}
 --- !u!50 &8432137843209737766
 Rigidbody2D:
   serializedVersion: 4

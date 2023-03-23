@@ -203,8 +203,6 @@ public class RigidBodyEntityMovement : BaseGameEntityComponent<BaseGameEntity>, 
 
         var horizontal = joystick.Horizontal;
         var vertical = joystick.Vertical;
-
-        Debug.Log("horizontal: " + horizontal);
         
         if (horizontal != 0)
         {

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8680909522341382293}
+  - component: {fileID: -2261697324418206898}
   - component: {fileID: 8680909522341382292}
   - component: {fileID: 8680909522341382298}
   - component: {fileID: 8680909522341382299}
-  - component: {fileID: 8432137843209737766}
   m_Layer: 0
-  m_Name: LazerBeamBullet
+  m_Name: PoisionBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &-2261697324418206898
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680909522341382295}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!212 &8680909522341382292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,10 +94,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2080433637
-  m_SortingLayer: 0
+  m_SortingLayerID: 725354351
+  m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: 7735609222263424191, guid: 131e485692e27e84c86170dad18cda85, type: 3}
+  m_Sprite: {fileID: 4138223980208024357, guid: 5100b75572e484e458e4340e2afe9454, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,30 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 2
-  Speed: 7
+  Speed: 4
   LifeTime: 2
-  force: 0
-  forceTime: 0
-  DestroyOnApply: 1
+  force: 2
+  forceTime: 0.2
+  DestroyOnApply: 0
   explosionPrefab: {fileID: 1525050621013412, guid: 73b1408660a9d3f429d184cd82d8016a, type: 3}
---- !u!50 &8432137843209737766
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8680909522341382295}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
