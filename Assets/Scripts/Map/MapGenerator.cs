@@ -209,7 +209,18 @@ public class MapGenerator : MonoBehaviour
                         yield return new WaitForSeconds(WaitTime);
                     }
                 }
+                if (x == gridHandler.GetLength(0) - 2 && y == gridHandler.GetLength(1) - 2)
+                {
+                    MapLoaded();
+                }
+
             }
         }
+
+    }
+
+    protected void MapLoaded()
+    {
+        GameInstance.instance.MapLoaded();
     }
 }

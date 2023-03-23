@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Loading();
+        loadingImg.gameObject.SetActive(true);
     }
 
     public void GameOver()
@@ -48,23 +48,9 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadSceneAsync("GameplayScene");
     }
 
-    public void Loading()
+    public void MapLoaded()
     {
-        StartCoroutine(LoadCO());
-        StartCoroutine(DelayStartGame());
-    }
-
-    IEnumerator LoadCO()
-    {
-        loadingImg.gameObject.SetActive(true);
-        yield return new WaitForSeconds(loadTime);
         loadingImg.gameObject.SetActive(false);
-    }
-
-    IEnumerator DelayStartGame()
-    {
-        yield return new WaitForSeconds(delayStartGame);
-        GameInstance.instance.StartGame();
     }
 
     // Update is called once per frame
