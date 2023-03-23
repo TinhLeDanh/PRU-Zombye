@@ -81,7 +81,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Monster"))
         {
-            if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead)
+            if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead
+                && target is MonsterCharacterEntity)
             {
                 Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
                 damageableTarget.ApplyDamage(damage);
@@ -90,7 +91,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && target is BasePlayerCharacterEntity)
         {
             if (DestroyOnApply)
             {

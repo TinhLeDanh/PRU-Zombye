@@ -16,6 +16,8 @@ MonoBehaviour:
   health: 5000
   gold: 212
   movementSpeed: 3
+  inceraseHpEachLevel: 0.2
+  inceraseDamageEachLevel: 0.1
   currentWeapon: {fileID: 11400000, guid: be92f0f27556af645814785c3bc7bbe5, type: 2}
   items: []
   currentRing: {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}

@@ -46,8 +46,6 @@ public class Weapon : Item
         int projectileCount = 0;
         if (lineRange > 0 && lineMaterial != null)
         {
-            float distance = Vector2.Distance(target.transform.position, caster.transform.position);
-            Vector2 endPosition = target.transform.position - caster.transform.position;
             DrawLine(caster.transform.position, target.transform.position);
         }
 

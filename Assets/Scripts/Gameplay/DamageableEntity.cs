@@ -3,6 +3,7 @@ using UnityEngine;
 public class DamageableEntity : BaseGameEntity
 {
     [SerializeField] private HealthHUD _healthbar;
+    public GameObject floatingPoint;
 
     protected Character characterData;
     private float _currentHealth;
@@ -24,7 +25,17 @@ public class DamageableEntity : BaseGameEntity
 
     public void ApplyDamage(int damage)
     {
-        _currentHealth -= (damage - characterData.GetArmor());
+        int realDamage = damage - characterData.GetArmor();
+
+        if(_currentHealth - realDamage <= 0)
+            realDamage = (int)_currentHealth;
+
+        _currentHealth -= realDamage;
+
+        GameObject textMeshGO = Instantiate(floatingPoint, transform.position, Quaternion.identity);
+
+        textMeshGO.GetComponentInChildren<TextMesh>().text = realDamage.ToString();
+        Destroy(textMeshGO, 1f);
 
         // Hit
         // AudioManager.Play(AudioClipName.BurgerDamage);
@@ -53,7 +64,14 @@ public class DamageableEntity : BaseGameEntity
     
     public void IncreaseHealth(int level)
     {
-        _maxHealth += Mathf.RoundToInt((_currentHealth * 0.01f) * ((100 - level) * 0.1f));
+        if(this is BasePlayerCharacterEntity player)
+        {
+            _maxHealth = characterData.GetHealth(player.levelSystem.level);
+        }
+        else if (this is MonsterCharacterEntity character)
+        {
+            _maxHealth = characterData.GetHealth(WaveManager.instance.currentWave);
+        }
         _currentHealth = _maxHealth;
     }
 

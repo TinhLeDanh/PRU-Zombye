@@ -9,6 +9,11 @@ public class Character : BaseGameData
     public int health;
     public int gold;
     public float movementSpeed;
+
+    [Header("Level setting")]
+    public float inceraseHpEachLevel;
+    public float inceraseDamageEachLevel;
+
     [CanBeNull] public Weapon currentWeapon;
 
     public Item[] items;
@@ -16,6 +21,16 @@ public class Character : BaseGameData
     public virtual int GetDamage()
     {
         return 0;
+    }
+
+    public int GetDamage(int level)
+    {
+        return (int)(GetDamage() + GetDamage() * inceraseDamageEachLevel * level);
+    }
+
+    public int GetHealth(int level)
+    {
+        return (int)(GetHealth() + GetHealth() * inceraseHpEachLevel * level);
     }
 
     public virtual int GetArmor()
