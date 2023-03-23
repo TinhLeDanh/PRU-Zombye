@@ -36,6 +36,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
   - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
   - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
+  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
+  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
   currentRing: {fileID: 11400000, guid: f8f2fe334c5886a409ee6d7810cf4f28, type: 2}
   currentGloves: {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
   currentArmor: {fileID: 11400000, guid: 11651a9775bb05b4c8b3c3d76d1bb358, type: 2}
