@@ -12,34 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a4ae73b01b1c04f946db61aec7b2d4, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Name: Tinh
-  health: 10000
-  gold: 0
+  Name: SonNT
+  health: 5000
+  gold: 1
   movementSpeed: 4
-  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 21f7db85d09aad54692cecd8682bc0b5, type: 2}
   items:
-  - {fileID: 11400000, guid: b00416b3bf8d55c44add02ee8825e556, type: 2}
-  - {fileID: 11400000, guid: 09899499e53b9a04880bbf20624f9b44, type: 2}
-  - {fileID: 11400000, guid: e12367c0369290042ba32900b03aad95, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: e12367c0369290042ba32900b03aad95, type: 2}
-  - {fileID: 11400000, guid: f8f2fe334c5886a409ee6d7810cf4f28, type: 2}
+  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
+  - {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
+  - {fileID: 11400000, guid: 6ada34272400d8a42951024739bea5c5, type: 2}
   - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
-  - {fileID: 11400000, guid: b00416b3bf8d55c44add02ee8825e556, type: 2}
-  - {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
-  - {fileID: 11400000, guid: 0a2d34ed950b2be45a46861e62a9c89b, type: 2}
-  - {fileID: 11400000, guid: a3d1925f3883cf74ba5bc2c516e5907b, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  - {fileID: 11400000, guid: 655a3b5681f9d3447a33a88ded0ddd89, type: 2}
-  currentRing: {fileID: 11400000, guid: f8f2fe334c5886a409ee6d7810cf4f28, type: 2}
-  currentGloves: {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
-  currentArmor: {fileID: 11400000, guid: 11651a9775bb05b4c8b3c3d76d1bb358, type: 2}
-  currentPant: {fileID: 11400000, guid: 09899499e53b9a04880bbf20624f9b44, type: 2}
-  currentShoes: {fileID: 11400000, guid: ae02f5b25791b4d4c95b5c1915d9aa32, type: 2}
+  - {fileID: 11400000, guid: 49afa3fe999a34241bf39e1a3b594039, type: 2}
+  - {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  currentRing: {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}
+  currentGloves: {fileID: 11400000, guid: 0a2d34ed950b2be45a46861e62a9c89b, type: 2}
+  currentArmor: {fileID: 11400000, guid: f7107eb10b3003f4fbe9ee469e77f45a, type: 2}
+  currentPant: {fileID: 11400000, guid: 4dbe60578f3710042b89a55259f78dbc, type: 2}
+  currentShoes: {fileID: 11400000, guid: c21c0c35462d2e443a72fed4b16969e4, type: 2}

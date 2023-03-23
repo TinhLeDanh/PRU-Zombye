@@ -18,11 +18,10 @@ MonoBehaviour:
   itemType: 5
   itemName: 15
   damage: 100
-  cooldown: 2
-  projectilePerShoot: 3
+  cooldown: 1
+  projectilePerShoot: 1
   delayBeforeShoot: 0
   timeBtwShoot: 0.25
-  direction: 0
   lineRange: 0
   lineLifeTime: 0
   lineMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}

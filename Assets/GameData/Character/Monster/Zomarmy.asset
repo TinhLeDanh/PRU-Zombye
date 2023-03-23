@@ -14,10 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Zomarmy
   health: 2000
-  gold: 0
+  gold: 10
   movementSpeed: 2
-  currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
-  items: []
-  exp: 200
-  expRate: 0
-  dropItemRate: 0
+  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  items:
+  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  - {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}
+  - {fileID: 11400000, guid: a9ba3d3c05d124947baa0b1bca4d7b22, type: 2}
+  - {fileID: 11400000, guid: 3767f730d2aa3214f8ccdf77b271763b, type: 2}
+  - {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
+  - {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
+  - {fileID: 11400000, guid: 8cc9555649a516d4a8a9b1f3c11fa596, type: 2}
+  - {fileID: 11400000, guid: 19a84c72f79e05a4a9a574bef7b65b14, type: 2}
+  - {fileID: 11400000, guid: 11651a9775bb05b4c8b3c3d76d1bb358, type: 2}
+  - {fileID: 11400000, guid: 9aee4f7608bd6694f9bf37b3cdb0c56d, type: 2}
+  - {fileID: 11400000, guid: 9ab1f1f1b7ac3544d8f8f9ab8230ff2b, type: 2}
+  - {fileID: 11400000, guid: 44acf3b26a70e9244b26ad64e11c9b01, type: 2}
+  - {fileID: 11400000, guid: 09899499e53b9a04880bbf20624f9b44, type: 2}
+  - {fileID: 11400000, guid: be92f0f27556af645814785c3bc7bbe5, type: 2}
+  - {fileID: 11400000, guid: 3adab9ef1e36af94196beaef6c1c967e, type: 2}
+  - {fileID: 11400000, guid: 07cc6dbb6721bfb40aac0644660b03d7, type: 2}
+  - {fileID: 11400000, guid: 9db651064cfa17042a808cfe34629cf4, type: 2}
+  - {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
+  exp: 100
+  expRate: 100
+  dropItemRate: 100

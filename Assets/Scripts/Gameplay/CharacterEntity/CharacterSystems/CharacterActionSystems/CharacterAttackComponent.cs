@@ -61,6 +61,7 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
             }
             StartCoroutine(weapon.Apply(target, Entity, characterData.currentWeapon.damage));
             attackState = AttackState.Attacking;
+            AudioManager.Play(AudioClipName.BurgerShot);
             timeCounter = weapon.cooldown;
         }
     }

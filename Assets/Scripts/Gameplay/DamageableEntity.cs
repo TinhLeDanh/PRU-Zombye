@@ -26,7 +26,7 @@ public class DamageableEntity : BaseGameEntity
         _currentHealth -= damage;
 
         // Hit
-        AudioManager.Play(AudioClipName.BurgerDamage);
+        // AudioManager.Play(AudioClipName.BurgerDamage);
         if (_healthbar != null)
         {
             _healthbar.UpdateHealthBar(_maxHealth, _currentHealth);
@@ -49,10 +49,16 @@ public class DamageableEntity : BaseGameEntity
             Destroy(gameObject, 5f);
         }
     }
+    
+    public void IncreaseHealth(int level)
+    {
+        _maxHealth += Mathf.RoundToInt((_currentHealth * 0.01f) * ((100 - level) * 0.1f));
+        _currentHealth = _maxHealth;
+    }
 
     public virtual void OnDead()
     {
         Movement.MovementState = MovementState.Dead;
-        AudioManager.Play(AudioClipName.BurgerDeath);
+        AudioManager.Play(AudioClipName.Explosion);
     }
 }

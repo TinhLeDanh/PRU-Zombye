@@ -29,9 +29,13 @@ public class IndexItem : MonoBehaviour
                     indexItem.text = LoadEquipment.instance.playerData.currentGloves.criticalRate+"%";
                 break;
             case StatusIndexItem.Damage:
-                if(LoadEquipment.instance.playerData.currentWeapon&&LoadEquipment.instance.playerData.currentRing)
-                    indexItem.text = (LoadEquipment.instance.playerData.currentWeapon.damage
-                                  +LoadEquipment.instance.playerData.currentRing.damage).ToString();
+                var dameWeapon = 0;
+                var dameRing = 0;
+                if (LoadEquipment.instance.playerData.currentWeapon)
+                    dameWeapon = LoadEquipment.instance.playerData.currentWeapon.damage;
+                if (LoadEquipment.instance.playerData.currentRing)
+                    dameRing = LoadEquipment.instance.playerData.currentRing.damage;
+                indexItem.text = (dameRing + dameWeapon).ToString();
                 break;
         }
     }

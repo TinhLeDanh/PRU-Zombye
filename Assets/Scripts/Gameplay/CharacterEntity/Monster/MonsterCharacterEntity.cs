@@ -13,7 +13,7 @@ public class MonsterCharacterEntity : BaseCharacterEntity
 
         target = GameInstance.instance.player;
     }
-    
+
     protected override void EntityUpdate()
     {
         base.EntityUpdate();
@@ -21,7 +21,6 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         if (characterAttack.CanAttack())
         {
             characterAttack.Attack();
-            AudioManager.Play(AudioClipName.TeddyShot);
         }
     }
 
@@ -35,9 +34,38 @@ public class MonsterCharacterEntity : BaseCharacterEntity
         {
             data = monsterData;
 
-            //drop exp
-            LootableItem lootableItem = Instantiate(lootItemPrefab, transform.position, Quaternion.identity);
-            lootableItem.SetupData(monsterData.exp, 0, data.items[0]);
-        }  
+            if (data.items != null)
+            {
+                var rand = (float)Random.Range(1, 101) / 100;
+                if (data.dropItemRate >= rand)
+                {
+                    //drop item
+                    var randItem = Random.Range(0, data.items.Length);
+                    var lootableItem = Instantiate(lootItemPrefab,
+                        transform.position + new Vector3(-0.25f, -0.25f, 0), Quaternion.identity);
+                    lootableItem.SetupData(0, 0, data.items[randItem]);
+                }
+            }
+
+            if (data.gold > 0)
+            {
+                // drop gold
+                var randRateGold = (float)Random.Range(1, 101) / 100;
+                if (randRateGold <= data.dropGoldRate)
+                {
+                    LootableItem lootableGold = Instantiate(lootItemPrefab,
+                        transform.position + new Vector3(0.25f, 0.25f, 0), Quaternion.identity);
+                    lootableGold.SetupData(0, data.gold, null);
+                }
+            }
+
+            if (data.exp > 0)
+            {
+                // // drop exp
+                var lootableExp = Instantiate(lootItemPrefab,
+                    transform.position + new Vector3(0.25f, -0.25f, 0), Quaternion.identity);
+                lootableExp.SetupData(data.exp, 0, null);
+            }
+        }
     }
 }

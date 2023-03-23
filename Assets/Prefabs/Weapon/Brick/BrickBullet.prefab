@@ -139,6 +139,6 @@ MonoBehaviour:
   Direction: 2
   Speed: 4
   LifeTime: 2
-  force: 1.25
+  force: 2
   forceTime: 0.2
   DestroyOnApply: 0

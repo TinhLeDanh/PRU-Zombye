@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem Instance;
 
+    public BasePlayerCharacterEntity playerCharacter;
     public int level;
     public float maxLevel;
     public float currentXp;
@@ -21,6 +23,7 @@ public class LevelSystem : MonoBehaviour
     public Image backXpBar;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI XpText;
+    public TextMeshPro levelUpText;
 
     //Timers
     private float lerpTimer;
@@ -28,8 +31,9 @@ public class LevelSystem : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
+        playerCharacter = GetComponent<BasePlayerCharacterEntity>();
     }
 
     // Start is called before the first frame update
@@ -119,7 +123,16 @@ public class LevelSystem : MonoBehaviour
         XpText.text = Mathf.Round(currentXp) + "/" + nextLevelXp;
         levelText.text = "Level " + level;
 
-        GetComponent<PlayerHealth>().IncreaseHealth(level);
+        playerCharacter.IncreaseHealth(level);
+        levelUpText.text = "LEVEL UP!";
+        StartCoroutine(delayLevelUpCO());
+    }
+
+    IEnumerator delayLevelUpCO()
+    {
+        levelUpText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        levelUpText.gameObject.SetActive(false);
     }
 
     private int CalculateNextLevelXp()
@@ -127,9 +140,8 @@ public class LevelSystem : MonoBehaviour
         int solveForRequiredXp = 0;
         for (int levelCycle = 1; levelCycle <= level; levelCycle++)
         {
-            solveForRequiredXp += (int)Mathf.Floor(levelCycle +
-                                                   additionMultiplier * Mathf.Pow(powerMultiplier,
-                                                       levelCycle / divisionMultiplier));
+            solveForRequiredXp += (int)Mathf.Floor(
+                levelCycle + additionMultiplier * Mathf.Pow(powerMultiplier, levelCycle / divisionMultiplier));
         }
 
         return solveForRequiredXp / 4;
