@@ -71,18 +71,19 @@ public class LevelSystem : MonoBehaviour
         float xpFraction = currentXp / nextLevelXp;
         float fXP = frontXpBar.fillAmount;
 
-        if (fXP < xpFraction)
-        {
-            delayTimer += Time.deltaTime;
-            backXpBar.fillAmount = xpFraction;
-            if (delayTimer > 3)
-            {
-                lerpTimer += Time.deltaTime;
-                float percentComplete = lerpTimer / 5;
-                percentComplete *= percentComplete;
-                frontXpBar.fillAmount = Mathf.Lerp(fXP, backXpBar.fillAmount, percentComplete);
-            }
-        }
+        // if (fXP < xpFraction)
+        // {
+        //     delayTimer += Time.deltaTime;
+        //     backXpBar.fillAmount = xpFraction;
+        //     if (delayTimer > 3)
+        //     {
+        //         lerpTimer += Time.deltaTime;
+        //         float percentComplete = lerpTimer / 5;
+        //         percentComplete *= percentComplete;
+        //         frontXpBar.fillAmount = Mathf.Lerp(fXP, backXpBar.fillAmount, percentComplete);
+        //     }
+        // }
+        frontXpBar.fillAmount = xpFraction;
 
         XpText.text = currentXp + "/" + nextLevelXp;
     }

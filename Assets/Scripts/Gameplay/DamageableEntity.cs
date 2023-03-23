@@ -46,7 +46,7 @@ public class DamageableEntity : BaseGameEntity
                 ModelController.OnDead();
             }
 
-            Destroy(gameObject, 5f);
+            Destroy(gameObject);
         }
     }
     

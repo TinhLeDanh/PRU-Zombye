@@ -16,6 +16,11 @@ public class ModelController : MonoBehaviour
 
     public void OnDead()
     {
-        animator.SetBool("IsDead", true);
+        animator.SetTrigger("Death");
+    }
+
+    public void OnHitted()
+    {
+        animator.SetBool("IsHit", false);
     }
 }
