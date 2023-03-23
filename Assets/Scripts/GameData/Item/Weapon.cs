@@ -12,7 +12,6 @@ public class Weapon : Item
 
     }
 
-    public int damage;
     public float cooldown;
 
     public int projectilePerShoot;

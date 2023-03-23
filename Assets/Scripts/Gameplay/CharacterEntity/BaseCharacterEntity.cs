@@ -19,7 +19,7 @@ public class BaseCharacterEntity : DamageableEntity
 
     public override float GetMoveSpeed()
     {
-        return characterData.movementSpeed;
+        return characterData.GetSpeed();
     }
 
     public void FaceTarget(BaseGameEntity target)

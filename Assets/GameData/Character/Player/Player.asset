@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SonNT
   health: 5000
-  gold: 209
+  gold: 210
   movementSpeed: 4
-  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: be92f0f27556af645814785c3bc7bbe5, type: 2}
   items: []
   currentRing: {fileID: 0}
   currentGloves: {fileID: 0}

@@ -19,9 +19,11 @@ MonoBehaviour:
   itemName: 16
   damage: 50
   cooldown: 2
-  projectilePerShoot: 0
-  timeBtwShoot: 0
-  direction: 0
+  projectilePerShoot: 3
+  delayBeforeShoot: 0
+  timeBtwShoot: 0.25
   lineRange: 0
+  lineLifeTime: 1
   lineMaterial: {fileID: 0}
-  bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}
+  lineColor: {r: 0, g: 0, b: 0, a: 0}
+  bullet: {fileID: 8680909522341382299, guid: 68f16f1c8b117db44b7a624fe0fceca5, type: 3}

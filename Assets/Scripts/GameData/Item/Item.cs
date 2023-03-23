@@ -13,6 +13,13 @@ public class Item : BaseGameData
     public ItemType itemType;
     public ItemName itemName;
 
+    [Header("Properties")]
+    public int damage;
+    public int armor;
+    public int health;
+    public float speed;
+    public float critRate;
+
     public string ToJson()
     {
         return "{" +

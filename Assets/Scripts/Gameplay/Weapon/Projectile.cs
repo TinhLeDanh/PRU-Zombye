@@ -33,7 +33,9 @@ public class Projectile : MonoBehaviour
         this.target = target;
         this.damage = damage;
         this.goalPosition = goalPosition;
-        direction = target.transform.position - transform.position;
+        direction = Vector2.up;
+        if (target != null)
+            direction = target.transform.position - transform.position;
 
         if (Direction == ProjectileDirection.TargetDirection)
         {
