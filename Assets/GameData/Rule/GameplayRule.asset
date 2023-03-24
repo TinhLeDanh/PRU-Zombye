@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeSpawnEnemy: 5
   monsterWave:
-  - unitPerWave: 3
+  - unitPerWave: 5
     spawnRange: 1
     multiplyPerWave: 1
     monster: {fileID: 5925243851793627694, guid: 7f55da82aea225543b93ac7caf650acf, type: 3}
   - unitPerWave: 2
-    spawnRange: 3
+    spawnRange: 2
     multiplyPerWave: 1
     monster: {fileID: 5925243851793627694, guid: c2ded65537c2d214b9e8ba0684cfc3d2, type: 3}
   - unitPerWave: 1
-    spawnRange: 5
+    spawnRange: 3
     multiplyPerWave: 1
     monster: {fileID: 5925243851793627694, guid: 5b7c5e133ddbfe242921c7064b9b656b, type: 3}
