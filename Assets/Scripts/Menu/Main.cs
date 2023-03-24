@@ -29,6 +29,11 @@ public class Main : MonoBehaviour
         playerData.health = playerDataDefault.health;
         playerData.movementSpeed = playerDataDefault.movementSpeed;
         playerData.currentWeapon = playerDataDefault.currentWeapon;
+        playerData.currentArmor = null;
+        playerData.currentGloves = null;
+        playerData.currentPant = null;
+        playerData.currentRing = null;
+        playerData.currentShoes = null;
         playerData.items = playerDataDefault.items;
         SceneManager.LoadSceneAsync("GameplayScene");
     }
