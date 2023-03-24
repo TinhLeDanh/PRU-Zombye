@@ -33,6 +33,8 @@ public class Weapon : Item
         lineRenderer.material = lineMaterial;
         lineRenderer.material.color = lineColor;
         lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = .5f;
+        lineRenderer.endWidth = .5f;
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
 

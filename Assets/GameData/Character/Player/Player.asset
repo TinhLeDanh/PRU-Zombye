@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SonNT
   health: 1000
-  gold: 238
+  gold: 245
   movementSpeed: 3
   inceraseHpEachLevel: 0.1
   inceraseDamageEachLevel: 0.2
   inceraseArmorEachLevel: 0
-  currentWeapon: {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
   items:
   - {fileID: 11400000, guid: 09899499e53b9a04880bbf20624f9b44, type: 2}
   - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}

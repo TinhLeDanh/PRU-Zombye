@@ -71,7 +71,7 @@ public enum ItemName
     TitanShoes,
 
     // Weapon vũ khí
-    Brick,
-    PoisonBottle,
+    Apple,
+    Kiwi,
     WoodenRuler,
 }
