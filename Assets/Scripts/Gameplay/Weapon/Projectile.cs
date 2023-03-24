@@ -81,6 +81,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Monster"))
         {
             if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead

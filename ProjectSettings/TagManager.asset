@@ -9,6 +9,7 @@ TagManager:
   - canvas
   - MiniCamera
   - Monster
+  - Wall
   layers:
   - Default
   - TransparentFX
