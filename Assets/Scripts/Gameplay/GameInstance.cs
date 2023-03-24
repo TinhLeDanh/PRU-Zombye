@@ -24,13 +24,15 @@ public class GameInstance : MonoBehaviour
 
     [Header("Gameplay")]
     public GameState state;
+    public float loadMapCameraSize;
+    public float gameCameraSize;
     public float exp;
     public float playerLevel;
     public List<MonsterCharacterEntity> monsters;
 
     protected Vector3 spawnPosition;
 
-    private float timeSpawnCounter;
+    private Camera cam;
 
     private void Awake()
     {
@@ -46,7 +48,8 @@ public class GameInstance : MonoBehaviour
 
     protected void Initialization()
     {
-        timeSpawnCounter = 0;
+        cam = Camera.main;
+        cam.orthographicSize = loadMapCameraSize;
         cameraController.OnSpawnPlayer(player);
         state = GameState.LoadMap;
     }
@@ -58,6 +61,7 @@ public class GameInstance : MonoBehaviour
 
     public void MapLoaded()
     {
+        cam.orthographicSize = gameCameraSize;
         UIManager.instance.MapLoaded();
         StartGame();
     }

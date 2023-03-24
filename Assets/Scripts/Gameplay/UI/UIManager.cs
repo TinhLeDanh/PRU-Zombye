@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadingImg.gameObject.SetActive(true);
+        //loadingImg.gameObject.SetActive(true);
     }
 
     public void GameOver()
