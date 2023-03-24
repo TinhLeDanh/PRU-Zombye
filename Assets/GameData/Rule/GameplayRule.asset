@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeSpawnEnemy: 5
   monsterWave:
-  - unitPerWave: 5
+  - unitPerWave: 2
     spawnRange: 1
     multiplyPerWave: 1
     monster: {fileID: 5925243851793627694, guid: 7f55da82aea225543b93ac7caf650acf, type: 3}

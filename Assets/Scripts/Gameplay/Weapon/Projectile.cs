@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public float force;
     public float forceTime;
     public bool DestroyOnApply = true;
+    public bool DestroyOnApplyWall = true;
     public GameObject explosionPrefab;
 
     protected BaseGameEntity target;
@@ -81,7 +82,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") && DestroyOnApplyWall)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);

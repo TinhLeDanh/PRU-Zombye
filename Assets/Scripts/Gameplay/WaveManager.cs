@@ -64,7 +64,7 @@ public class WaveManager : MonoBehaviour
         {
             if (currentWave % monsterWave.spawnRange == 0)
             {
-                Spawn(monsterWave.monster, monsterWave.unitPerWave + (currentWave - 1) / monsterWave.spawnRange);
+                Spawn(monsterWave.monster, monsterWave.unitPerWave * (currentWave) / monsterWave.spawnRange);
                 currentEnemyInWave = monsterWave.unitPerWave * currentWave;
             }
         }

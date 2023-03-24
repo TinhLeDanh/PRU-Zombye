@@ -142,4 +142,5 @@ MonoBehaviour:
   force: 2
   forceTime: 0.2
   DestroyOnApply: 0
+  DestroyOnApplyWall: 1
   explosionPrefab: {fileID: 1525050621013412, guid: 73b1408660a9d3f429d184cd82d8016a, type: 3}
