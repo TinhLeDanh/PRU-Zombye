@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEntity>, ICharacterAttackComponent
 {

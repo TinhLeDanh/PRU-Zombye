@@ -1,12 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class OpenBoxGold : MonoBehaviour
 {
