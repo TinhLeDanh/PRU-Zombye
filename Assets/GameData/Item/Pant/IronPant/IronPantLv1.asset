@@ -19,6 +19,7 @@ MonoBehaviour:
   itemName: 6
   damage: 0
   armor: 0
-  health: 1000
+  health: 50
   speed: 0
   critRate: 0
+  regenRate: 0

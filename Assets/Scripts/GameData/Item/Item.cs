@@ -19,6 +19,7 @@ public class Item : BaseGameData
     public int health;
     public float speed;
     public float critRate;
+    public float regenRate;
 
     public string ToJson()
     {
@@ -70,7 +71,7 @@ public enum ItemName
     TitanShoes,
 
     // Weapon vũ khí
-    Brick,
-    PoisonBottle,
+    Apple,
+    Kiwi,
     WoodenRuler,
 }

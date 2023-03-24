@@ -59,7 +59,19 @@ public class CharacterAttackComponent : BaseGameEntityComponent<BaseCharacterEnt
             {
                 character.FaceTarget(target);
             }
-            StartCoroutine(weapon.Apply(target, Entity, characterData.currentWeapon.damage));
+
+            int damage = 0;
+
+            if (Entity is BasePlayerCharacterEntity player)
+            {
+                damage = characterData.GetDamage(player.levelSystem.level);
+            }
+            else if (Entity is MonsterCharacterEntity monster)
+            {
+                damage = characterData.GetDamage(GameInstance.instance.waveManager.currentWave);
+            }
+
+            StartCoroutine(weapon.Apply(target, Entity, damage));
             attackState = AttackState.Attacking;
             AudioManager.Play(AudioClipName.BurgerShot);
             timeCounter = weapon.cooldown;

@@ -26,7 +26,7 @@ public class WaveManager : MonoBehaviour
 
     public void OnNextWave()
     {
-        if(GameInstance.instance.state == GameInstance.GameState.LoadMap)
+        if (GameInstance.instance.state == GameInstance.GameState.LoadMap)
         {
             return;
         }
@@ -47,7 +47,7 @@ public class WaveManager : MonoBehaviour
     public void OnKilledEnemy()
     {
         currentEnemyInWave--;
-        if(currentEnemyInWave <= 0)
+        if (currentEnemyInWave <= 0)
         {
             OnNextWave();
         }
@@ -64,7 +64,7 @@ public class WaveManager : MonoBehaviour
         {
             if (currentWave % monsterWave.spawnRange == 0)
             {
-                Spawn(monsterWave.monster, monsterWave.unitPerWave + currentWave / monsterWave.spawnRange);
+                Spawn(monsterWave.monster, monsterWave.unitPerWave + (currentWave - 1) / monsterWave.spawnRange);
                 currentEnemyInWave = monsterWave.unitPerWave * currentWave;
             }
         }
@@ -77,6 +77,7 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
+        Debug.Log(amount);
         int amountCounter = amount;
         while (amountCounter > 0)
         {

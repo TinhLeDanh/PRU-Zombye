@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4082533841450027793
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -182,7 +182,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2165926634793940192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +276,9 @@ MonoBehaviour:
   target: {fileID: 0}
   ModelController: {fileID: 2165926634793940192}
   _healthbar: {fileID: 8862807882628018853}
+  floatingPoint: {fileID: 2677229805731194359, guid: df5c7919389d51a428d308886055c9dc, type: 3}
   faceDirection: 1
+  levelSystem: {fileID: 0}
   lootItemPrefab: {fileID: 8059450389858434097, guid: b6c9777476ef65a47bf1f199acbe613d, type: 3}
 --- !u!114 &4107434795166367473
 MonoBehaviour:

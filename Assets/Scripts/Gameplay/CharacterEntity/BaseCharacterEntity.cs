@@ -7,6 +7,7 @@ public class BaseCharacterEntity : DamageableEntity
 {
     public float faceDirection = 1;
 
+    public LevelSystem levelSystem;
     public LootableItem lootItemPrefab;
     protected CharacterAttackComponent characterAttack;
 
@@ -15,6 +16,7 @@ public class BaseCharacterEntity : DamageableEntity
         base.EntityAwake();
 
         characterAttack = GetComponent<CharacterAttackComponent>();
+        levelSystem = GetComponent<LevelSystem>();
     }
 
     public override float GetMoveSpeed()

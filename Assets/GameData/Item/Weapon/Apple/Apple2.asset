@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf9a806a8d84b334798916c27cd3850f, type: 3}
-  m_Name: PoisonBottleLv5
+  m_Name: Apple2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 40d9305063d714a48ad8a77ce03a5831, type: 3}
-  level: 5
+  icon: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
+  level: 2
   description: 
   itemType: 5
-  itemName: 16
-  damage: 180
-  cooldown: 2
-  projectilePerShoot: 0
+  itemName: 15
+  damage: 15
+  armor: 0
+  health: 0
+  speed: 0
+  critRate: 0
+  cooldown: 1
+  projectilePerShoot: 1
+  delayBeforeShoot: 0
   timeBtwShoot: 0
-  direction: 0
   lineRange: 0
+  lineLifeTime: 0
   lineMaterial: {fileID: 0}
+  lineColor: {r: 0, g: 0, b: 0, a: 0}
   bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}

@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     public GameObject explosionPrefab;
 
     protected BaseGameEntity target;
+    protected BaseGameEntity caster;
     private int damage;
     private Vector2 goalPosition;
     private Vector2 direction;
@@ -28,8 +29,9 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject, LifeTime);
     }
 
-    public void Setup(BaseGameEntity target, int damage, Vector2 goalPosition)
+    public void Setup(BaseGameEntity caster, BaseGameEntity target, int damage, Vector2 goalPosition)
     {
+        this.caster = caster;
         this.target = target;
         this.damage = damage;
         this.goalPosition = goalPosition;
@@ -79,25 +81,32 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Monster"))
         {
-            if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead)
+            if (target is DamageableEntity damageableTarget && target.Movement.MovementState != MovementState.Dead
+                && target is MonsterCharacterEntity)
             {
                 Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
-                damageableTarget.ApplyDamage(damage);
+                damageableTarget.ApplyDamage(caster, damage);
                 //Knockback
                 KnockBack();
             }
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && target is BasePlayerCharacterEntity)
         {
             if (DestroyOnApply)
             {
                 if (target is DamageableEntity damageableTarget)
                 {
                     Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
-                    damageableTarget.ApplyDamage(damage);
+                    damageableTarget.ApplyDamage(caster, damage);
                 }
 
                 Destroy(this.gameObject);

@@ -10,21 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf9a806a8d84b334798916c27cd3850f, type: 3}
-  m_Name: BrickLv4
+  m_Name: Kiwi2
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 44a93e814050be14a908895783e5dcde, type: 3}
-  level: 4
+  icon: {fileID: 4138223980208024357, guid: 5100b75572e484e458e4340e2afe9454, type: 3}
+  level: 2
   description: 
   itemType: 5
-  itemName: 15
-  damage: 250
+  itemName: 16
+  damage: 70
+  armor: 0
+  health: 0
+  speed: 0
+  critRate: 0
   cooldown: 2
-  projectilePerShoot: 1
+  projectilePerShoot: 3
   delayBeforeShoot: 0
   timeBtwShoot: 0.25
-  direction: 0
   lineRange: 0
-  lineLifeTime: 0
+  lineLifeTime: 1
   lineMaterial: {fileID: 0}
   lineColor: {r: 0, g: 0, b: 0, a: 0}
-  bullet: {fileID: 8680909522341382299, guid: 1121ef902a9a7e045ac154738cefb620, type: 3}
+  bullet: {fileID: 8680909522341382299, guid: 68f16f1c8b117db44b7a624fe0fceca5, type: 3}

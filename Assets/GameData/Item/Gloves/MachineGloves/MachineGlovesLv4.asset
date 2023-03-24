@@ -17,8 +17,9 @@ MonoBehaviour:
   description: 
   itemType: 1
   itemName: 4
-  damage: 0
+  damage: 20
   armor: 0
   health: 0
   speed: 0
-  critRate: 25
+  critRate: 0
+  regenRate: 0

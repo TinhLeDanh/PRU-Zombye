@@ -124,7 +124,7 @@ public class LevelSystem : MonoBehaviour
         XpText.text = Mathf.Round(currentXp) + "/" + nextLevelXp;
         levelText.text = "Level " + level;
 
-        playerCharacter.IncreaseHealth(level);
+        playerCharacter.IncreaseHealthByLevel(level);
         levelUpText.text = "LEVEL UP!";
         StartCoroutine(delayLevelUpCO());
     }

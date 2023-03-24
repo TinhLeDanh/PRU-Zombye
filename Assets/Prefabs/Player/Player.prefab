@@ -103,7 +103,9 @@ MonoBehaviour:
   target: {fileID: 0}
   ModelController: {fileID: 1117489723}
   _healthbar: {fileID: 2308352862448776755}
+  floatingPoint: {fileID: 2677229805731194359, guid: df5c7919389d51a428d308886055c9dc, type: 3}
   faceDirection: 1
+  levelSystem: {fileID: 0}
   lootItemPrefab: {fileID: 0}
   enemySpawnRadius: 8
 --- !u!114 &4603158277333465967

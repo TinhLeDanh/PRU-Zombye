@@ -41,9 +41,12 @@ public class MonsterCharacterEntity : BaseCharacterEntity
                 {
                     //drop item
                     var randItem = Random.Range(0, data.items.Length);
-                    var lootableItem = Instantiate(lootItemPrefab,
+                    if (data.items[randItem] != null)
+                    {
+                        var lootableItem = Instantiate(lootItemPrefab,
                         transform.position + new Vector3(-0.25f, -0.25f, 0), Quaternion.identity);
-                    lootableItem.SetupData(0, 0, data.items[randItem]);
+                        lootableItem.SetupData(0, 0, data.items[randItem]);
+                    }
                 }
             }
 

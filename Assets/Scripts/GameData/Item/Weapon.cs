@@ -33,6 +33,8 @@ public class Weapon : Item
         lineRenderer.material = lineMaterial;
         lineRenderer.material.color = lineColor;
         lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = .5f;
+        lineRenderer.endWidth = .5f;
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
 
@@ -46,8 +48,6 @@ public class Weapon : Item
         int projectileCount = 0;
         if (lineRange > 0 && lineMaterial != null)
         {
-            float distance = Vector2.Distance(target.transform.position, caster.transform.position);
-            Vector2 endPosition = target.transform.position - caster.transform.position;
             DrawLine(caster.transform.position, target.transform.position);
         }
 
@@ -58,7 +58,7 @@ public class Weapon : Item
         while (projectileCount < projectilePerShoot)
         {
             Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
-            projectile.Setup(target, damage, goalPosition);
+            projectile.Setup(caster, target, damage, goalPosition);
             projectileCount++;
             yield return new WaitForSeconds(timeBtwShoot);
         }

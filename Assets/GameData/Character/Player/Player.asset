@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Name: SonNT
-  health: 5000
-  gold: 0
-  movementSpeed: 4
+  health: 1000
+  gold: 245
+  movementSpeed: 3
+  inceraseHpEachLevel: 0.1
+  inceraseDamageEachLevel: 0.2
+  inceraseArmorEachLevel: 0
   currentWeapon: {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
   items:
-  - {fileID: 11400000, guid: 21f7db85d09aad54692cecd8682bc0b5, type: 2}
+  - {fileID: 11400000, guid: 09899499e53b9a04880bbf20624f9b44, type: 2}
+  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  - {fileID: 11400000, guid: 9ab1f1f1b7ac3544d8f8f9ab8230ff2b, type: 2}
+  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  - {fileID: 11400000, guid: d19ce78b34947fb40bbe293386372550, type: 2}
+  - {fileID: 11400000, guid: 9db01e627a7c948499df55eb50b843fb, type: 2}
+  - {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
   currentRing: {fileID: 11400000, guid: c966c222cab2f1b49894b86293a549c3, type: 2}
   currentGloves: {fileID: 11400000, guid: ddaddf5423a2f3649be39ab2ed15e911, type: 2}
   currentArmor: {fileID: 11400000, guid: a3d1925f3883cf74ba5bc2c516e5907b, type: 2}

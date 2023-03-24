@@ -18,3 +18,8 @@ MonoBehaviour:
   itemType: 3
   itemName: 10
   damage: 120
+  armor: 0
+  health: 0
+  speed: 0
+  critRate: 0
+  regenRate: 0.2
