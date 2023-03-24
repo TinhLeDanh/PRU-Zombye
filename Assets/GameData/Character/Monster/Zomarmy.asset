@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Zomarmy
   m_EditorClassIdentifier: 
   Name: Zomarmy
-  health: 2000
+  health: 500
   gold: 10
-  movementSpeed: 2
-  inceraseHpEachLevel: 0.5
-  inceraseDamageEachLevel: 0.5
+  movementSpeed: 5
+  inceraseHpEachLevel: 0.15
+  inceraseDamageEachLevel: 0.2
+  inceraseArmorEachLevel: 0.1
   currentWeapon: {fileID: 11400000, guid: b00853c4067ac6c4fb2ce8b7cd06d3ac, type: 2}
   items:
   - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
@@ -38,6 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07cc6dbb6721bfb40aac0644660b03d7, type: 2}
   - {fileID: 11400000, guid: 9db651064cfa17042a808cfe34629cf4, type: 2}
   - {fileID: 11400000, guid: c139ad238dea2314383a1e30a216818c, type: 2}
+  armor: 10
   exp: 100
   expRate: 100
   dropItemRate: 100

@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Zombye
   m_EditorClassIdentifier: 
   Name: Zombye
-  health: 1000
+  health: 200
   gold: 1
-  movementSpeed: 1
-  inceraseHpEachLevel: 0.1
+  movementSpeed: 5
+  inceraseHpEachLevel: 0.15
   inceraseDamageEachLevel: 0.1
+  inceraseArmorEachLevel: 0.1
   currentWeapon: {fileID: 11400000, guid: 087c86b7d184c7b419651e0db55d87ff, type: 2}
-  items:
-  - {fileID: 11400000, guid: 77c46ce261517994ca6bf383d75dc80c, type: 2}
+  items: []
+  armor: 5
   exp: 100
   expRate: 0
-  dropItemRate: 0.1
+  dropItemRate: 0
   dropGoldRate: 0.5

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1961abde385ac045b07ee0f5149ae09, type: 3}
   m_Name: Zomboss
   m_EditorClassIdentifier: 
-  Name: Zomarmy
-  health: 4000
-  gold: 100
-  movementSpeed: 2
-  inceraseHpEachLevel: 0.2
+  Name: Zomboss
+  health: 1000
+  gold: 50
+  movementSpeed: 10
+  inceraseHpEachLevel: 0.15
   inceraseDamageEachLevel: 0.2
+  inceraseArmorEachLevel: 0.2
   currentWeapon: {fileID: 11400000, guid: e1cf0ee8ad0e66d4dbf3645dc625421a, type: 2}
   items:
   - {fileID: 11400000, guid: 6ada34272400d8a42951024739bea5c5, type: 2}
@@ -38,6 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e9b0e1e12a733947b383c3a23dbbc1b, type: 2}
   - {fileID: 11400000, guid: b00416b3bf8d55c44add02ee8825e556, type: 2}
   - {fileID: 11400000, guid: 69d96bf09f9c3bf4a9f078558b9ff3d3, type: 2}
+  armor: 0
   exp: 0
   expRate: 0
   dropItemRate: 0

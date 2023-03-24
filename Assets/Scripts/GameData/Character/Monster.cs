@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = GameConst.Monster_FileName, menuName = GameConst.Monster_MenuName, order = GameConst.Monster_Order)]
 public class Monster : Character
 {
+    [Header("Stats")]
+    public int armor;
+
     [Header("Reward")] 
     public int exp;
     public float expRate;
@@ -21,7 +24,7 @@ public class Monster : Character
 
     public override int GetArmor()
     {
-        int value = 0;
+        int value = armor;
         if (currentWeapon != null)
         {
             value += currentWeapon.armor;

@@ -93,6 +93,32 @@ public class Player : Character
         return value;
     }
 
+    public override float GetRegenRate()
+    {
+        float value = 0;
+        if (currentWeapon != null)
+        {
+            value += currentWeapon.regenRate;
+        }
+        if (currentArmor != null)
+        {
+            value += currentArmor.regenRate;
+        }
+        if (currentPant != null)
+        {
+            value += currentPant.regenRate;
+        }
+        if (currentShoes != null)
+        {
+            value += currentShoes.regenRate;
+        }
+        if (currentRing != null)
+        {
+            value += currentRing.regenRate;
+        }
+        return value;
+    }
+
     public override float GetSpeed()
     {
         float value = movementSpeed;

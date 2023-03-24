@@ -13,6 +13,7 @@ public class Character : BaseGameData
     [Header("Level setting")]
     public float inceraseHpEachLevel;
     public float inceraseDamageEachLevel;
+    public float inceraseArmorEachLevel;
 
     [CanBeNull] public Weapon currentWeapon;
 
@@ -32,6 +33,22 @@ public class Character : BaseGameData
     {
         return (int)(GetHealth() + GetHealth() * inceraseHpEachLevel * level);
     }
+
+    public int GetHealth(int level, int currentMaxHealth)
+    {
+        return (int)(GetHealth() + currentMaxHealth * inceraseHpEachLevel * level);
+    }
+
+    public int GetArmor(int level)
+    {
+        return (int)(GetArmor() + GetArmor() * inceraseArmorEachLevel * level);
+    }
+
+    public virtual float GetRegenRate()
+    {
+        return 0;
+    }
+
 
     public virtual int GetArmor()
     {

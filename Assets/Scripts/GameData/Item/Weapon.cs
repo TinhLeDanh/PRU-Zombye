@@ -56,7 +56,7 @@ public class Weapon : Item
         while (projectileCount < projectilePerShoot)
         {
             Projectile projectile = Instantiate(bullet, caster.transform.position, Quaternion.identity);
-            projectile.Setup(target, damage, goalPosition);
+            projectile.Setup(caster, target, damage, goalPosition);
             projectileCount++;
             yield return new WaitForSeconds(timeBtwShoot);
         }

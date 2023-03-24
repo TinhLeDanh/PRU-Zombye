@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     public GameObject explosionPrefab;
 
     protected BaseGameEntity target;
+    protected BaseGameEntity caster;
     private int damage;
     private Vector2 goalPosition;
     private Vector2 direction;
@@ -28,8 +29,9 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject, LifeTime);
     }
 
-    public void Setup(BaseGameEntity target, int damage, Vector2 goalPosition)
+    public void Setup(BaseGameEntity caster, BaseGameEntity target, int damage, Vector2 goalPosition)
     {
+        this.caster = caster;
         this.target = target;
         this.damage = damage;
         this.goalPosition = goalPosition;
@@ -85,7 +87,7 @@ public class Projectile : MonoBehaviour
                 && target is MonsterCharacterEntity)
             {
                 Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
-                damageableTarget.ApplyDamage(damage);
+                damageableTarget.ApplyDamage(caster, damage);
                 //Knockback
                 KnockBack();
             }
@@ -98,7 +100,7 @@ public class Projectile : MonoBehaviour
                 if (target is DamageableEntity damageableTarget)
                 {
                     Instantiate(explosionPrefab, collision.gameObject.transform.position, Quaternion.identity);
-                    damageableTarget.ApplyDamage(damage);
+                    damageableTarget.ApplyDamage(caster, damage);
                 }
 
                 Destroy(this.gameObject);

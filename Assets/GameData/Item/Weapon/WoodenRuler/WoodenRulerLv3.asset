@@ -17,13 +17,14 @@ MonoBehaviour:
   description: 
   itemType: 5
   itemName: 17
-  damage: 300
+  damage: 30
   armor: 0
   health: 0
   speed: 0
   critRate: 0
+  regenRate: 0.2
   cooldown: 1
-  projectilePerShoot: 0
+  projectilePerShoot: 1
   delayBeforeShoot: 0
   timeBtwShoot: 0
   lineRange: 0

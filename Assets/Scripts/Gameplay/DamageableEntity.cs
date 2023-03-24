@@ -9,6 +9,21 @@ public class DamageableEntity : BaseGameEntity
     private float _currentHealth;
     private float _maxHealth;
 
+    public int CurrentLevel
+    {
+        get
+        {
+            if (this is BasePlayerCharacterEntity player)
+            {
+                return player.levelSystem.level;
+            }
+            else
+            {
+                return WaveManager.instance.currentWave;
+            }
+        }
+    }
+
     protected override void EntityStart()
     {
         base.EntityStart();
@@ -23,19 +38,33 @@ public class DamageableEntity : BaseGameEntity
             _healthbar.UpdateHealthBar(characterData.health, _currentHealth);
     }
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(BaseGameEntity caster ,int damage)
     {
-        int realDamage = damage - characterData.GetArmor();
+        //Deal Damage
+        int realDamage = damage - characterData.GetArmor(CurrentLevel);
 
-        if(_currentHealth - realDamage <= 0)
+        if (_currentHealth - realDamage <= 0)
             realDamage = (int)_currentHealth;
 
         _currentHealth -= realDamage;
 
-        GameObject textMeshGO = Instantiate(floatingPoint, transform.position, Quaternion.identity);
+        GameObject textMeshDamage = Instantiate(floatingPoint, transform.position, Quaternion.identity);
 
-        textMeshGO.GetComponentInChildren<TextMesh>().text = realDamage.ToString();
-        Destroy(textMeshGO, 1f);
+        textMeshDamage.GetComponentInChildren<TextMesh>().text = realDamage.ToString();
+        textMeshDamage.transform.parent = transform;
+
+        Destroy(textMeshDamage, 1f);
+
+        //Regen
+        if (caster is DamageableEntity damageableCaster)
+        {
+            if (damageableCaster.characterData.GetRegenRate() > 0)
+            {
+                int regenHealth = (int)(realDamage * damageableCaster.characterData.GetRegenRate());
+
+                damageableCaster.IncreaseHealth(regenHealth);
+            }
+        }
 
         // Hit
         // AudioManager.Play(AudioClipName.BurgerDamage);
@@ -48,7 +77,7 @@ public class DamageableEntity : BaseGameEntity
         {
             ModelController.OnHit();
         }
-        
+
         // Dead
         if (_currentHealth <= 0)
         {
@@ -61,18 +90,30 @@ public class DamageableEntity : BaseGameEntity
             Destroy(gameObject);
         }
     }
-    
-    public void IncreaseHealth(int level)
+
+    public void IncreaseHealthByLevel(int level)
     {
-        if(this is BasePlayerCharacterEntity player)
-        {
-            _maxHealth = characterData.GetHealth(player.levelSystem.level);
-        }
-        else if (this is MonsterCharacterEntity character)
-        {
-            _maxHealth = characterData.GetHealth(WaveManager.instance.currentWave);
-        }
+        _maxHealth = characterData.GetHealth(CurrentLevel, (int)_maxHealth);
         _currentHealth = _maxHealth;
+    }
+
+    public void IncreaseHealth(int amount)
+    {
+        if(amount <= 0) return;
+
+        _currentHealth = (_currentHealth + amount > _maxHealth)? _maxHealth : _currentHealth + amount;
+
+        GameObject textMeshRegen =
+                    Instantiate(floatingPoint,
+                    //transform.position,
+                    new Vector2(transform.position.x + 0.25f, transform.position.y + 0.25f),
+                    Quaternion.identity);
+        textMeshRegen.transform.parent = transform;
+
+        textMeshRegen.GetComponentInChildren<TextMesh>().text = amount.ToString();
+        textMeshRegen.GetComponentInChildren<TextMesh>().color = Color.green;
+        Destroy(textMeshRegen, 1f);
+
     }
 
     public virtual void OnDead()
