@@ -4691,7 +4691,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 8644832591467991550, guid: d348dff3819df794186a80cb95777629, type: 3}
+  m_Sprite: {fileID: -4455822056875728695, guid: 552146dbb8bac6f449493bca4b69540f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8094,10 +8094,10 @@ RectTransform:
   m_Father: {fileID: 1902524125}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 122.5, y: -112.5}
+  m_SizeDelta: {x: 245, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8361739655266280197
 GameObject:
